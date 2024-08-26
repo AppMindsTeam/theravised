@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -37,7 +30,7 @@ const OTPScreen: React.FC<Props> = ({navigation}) => {
   });
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <View style={styles.container}>
       <Image source={images.applogo} style={styles.logoStyle} />
       <Text style={[appStyles.h4, {marginTop: 35}]}>
         Enter Verification Code
@@ -79,7 +72,7 @@ const OTPScreen: React.FC<Props> = ({navigation}) => {
         customStyle={{marginTop: 133}}
         onPress={formik.handleSubmit}
       />
-    </ScrollView>
+    </View>
   );
 };
 

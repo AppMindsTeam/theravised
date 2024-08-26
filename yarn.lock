@@ -1683,6 +1683,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@freakycoder/react-native-bounceable@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@freakycoder/react-native-bounceable@npm:1.0.3"
+  checksum: d80e1297ddbde7348803007051e118ae1e380aeaf905785e6a73d302d45195d1efbe1293dd5ecee43157925373fa7d79a7f78fd057227fff7af38e58e91007ca
+  languageName: node
+  linkType: hard
+
 "@hapi/hoek@npm:^9.0.0, @hapi/hoek@npm:^9.3.0":
   version: 9.3.0
   resolution: "@hapi/hoek@npm:9.3.0"
@@ -8490,6 +8497,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-bouncy-checkbox@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "react-native-bouncy-checkbox@npm:4.1.2"
+  dependencies:
+    "@freakycoder/react-native-bounceable": ^1.0.3
+  checksum: d197e60db0ee7909f62be963b36ca5e1fd7cc164367e00a43c57d11382dba3b8d728fcb20d805a4768c168167107135ec88559bc239553926947c9386f82b71f
+  languageName: node
+  linkType: hard
+
 "react-native-formik@npm:^1.7.8":
   version: 1.7.8
   resolution: "react-native-formik@npm:1.7.8"
@@ -9743,6 +9759,7 @@ __metadata:
     prettier: 2.8.8
     react: 18.2.0
     react-native: 0.73.0
+    react-native-bouncy-checkbox: ^4.1.2
     react-native-formik: ^1.7.8
     react-native-otp-entry: ^1.7.1
     react-native-safe-area-context: ^3.3.0
