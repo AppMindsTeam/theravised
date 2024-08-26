@@ -11,15 +11,9 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors, fonts} from '../utilities/theme';
-import {AppButton, FormInput} from '../../component';
-import {
-  Checkbox,
-  Lockicon,
-  Messegeicon,
-  Nameicon,
-  Referalicon,
-  UnCheckbox,
-} from '../../assets/svg';
+import {AppButton, BottomLine, FormInput} from '../../component';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import {Lockicon, Messegeicon, Nameicon, Referalicon} from '../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
@@ -28,14 +22,18 @@ type Props = NativeStackScreenProps<AuthStackParamList, 'SignUp'>;
 const SignUp: React.FC<Props> = ({navigation}) => {
   const [hidePasswod, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePasswod);
-  const [isChecked, setIsChecked] = useState(false);
-  const [isChecked2, setIsChecked2] = useState(false);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name required'),
     email: Yup.string().email('Invalid email').required('Email required'),
     code: Yup.string().required('Referral-Code required'),
     password: Yup.string().required('Password required'),
+    terms: Yup.boolean()
+      .oneOf([true], 'You must accept the terms and conditions')
+      .required('Terms and conditions are required'),
+    policy: Yup.boolean()
+      .oneOf([true], 'You must accept the privacy policy')
+      .required('Privacy policy acceptance is required'),
   });
 
   const formik = useFormik({
@@ -44,6 +42,8 @@ const SignUp: React.FC<Props> = ({navigation}) => {
       email: '',
       code: '',
       password: '',
+      terms: false,
+      policy: false,
     },
 
     validationSchema: validationSchema,
@@ -54,99 +54,93 @@ const SignUp: React.FC<Props> = ({navigation}) => {
   });
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <Image source={images.applogo} style={styles.imgStyle} />
-      <Text style={[appStyles.h4, {textAlign: 'center', marginTop: 35}]}>
-        Sign Up
-      </Text>
-      <Text
-        style={[
-          appStyles.h5,
-          {textAlign: 'center', marginTop: 8, color: colors.gray[50]},
-        ]}>
-        Please Sign up to continue with the app.
-      </Text>
-      <FormInput
-        placeholder="Name"
-        icon={<Nameicon />}
-        onChangeText={formik.handleChange('name')}
-        value={formik.values.name}
-        onBlur={formik.handleBlur('name')}
-        errorMessage={formik.touched.name && formik.errors.name}
-      />
-      <FormInput
-        placeholder="abc@gmail.com"
-        keyboardType="email-address"
-        icon={<Messegeicon />}
-        onChangeText={formik.handleChange('email')}
-        value={formik.values.email}
-        onBlur={formik.handleBlur('email')}
-        errorMessage={formik.touched.email && formik.errors.email}
-      />
-      <FormInput
-        placeholder="Referrel Code"
-        icon={<Referalicon />}
-        onChangeText={formik.handleChange('code')}
-        value={formik.values.code}
-        onBlur={formik.handleBlur('code')}
-        errorMessage={formik.touched.code && formik.errors.code}
-      />
-      <FormInput
-        placeholder="Password"
-        icon={<Lockicon />}
-        isPassword={true}
-        secureTextEntry={hidePasswod}
-        onLeftIconPress={togglePassword}
-        onChangeText={formik.handleChange('password')}
-        value={formik.values.password}
-        onBlur={formik.handleBlur('password')}
-        errorMessage={formik.touched.password && formik.errors.password}
-      />
-
-      <View style={[styles.boxContainer, {marginTop: 40}]}>
-        <TouchableOpacity onPress={() => setIsChecked(!isChecked)}>
-          {isChecked ? <Checkbox /> : <UnCheckbox />}
-        </TouchableOpacity>
-        <Text style={[appStyles.h7, {color: colors.gray[50], marginLeft: 5}]}>
-          I accept the
-          <Text style={[appStyles.h7, {color: colors.primary}]}>
-            {' '}
-            Terms & Conditions
-          </Text>
+    <View style={styles.container}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 16}}>
+        <Image source={images.applogo} style={styles.imgStyle} />
+        <Text style={[appStyles.h4, {textAlign: 'center', marginTop: 35}]}>
+          Sign Up
         </Text>
-      </View>
-      <View style={styles.boxContainer}>
-        <TouchableOpacity onPress={() => setIsChecked2(!isChecked2)}>
-          {isChecked2 ? <Checkbox /> : <UnCheckbox />}
-        </TouchableOpacity>
-        <Text style={[appStyles.h7, {color: colors.gray[50], marginLeft: 5}]}>
-          I accept the
-          <Text style={[appStyles.h7, {color: colors.primary}]}>
-            {' '}
-            Privacy Policy
-          </Text>
+        <Text
+          style={[
+            appStyles.h5,
+            {textAlign: 'center', marginTop: 8, color: colors.gray[50]},
+          ]}>
+          Please Sign up to continue with the app.
         </Text>
-      </View>
-      <AppButton
-        title="Sign Up"
-        customStyle={{marginTop: 30}}
-        onPress={formik.handleSubmit}
-      />
+        <FormInput
+          placeholder="Name"
+          icon={<Nameicon />}
+          onChangeText={formik.handleChange('name')}
+          value={formik.values.name}
+          onBlur={formik.handleBlur('name')}
+          errorMessage={formik.touched.name && formik.errors.name}
+        />
+        <FormInput
+          placeholder="abc@gmail.com"
+          keyboardType="email-address"
+          icon={<Messegeicon />}
+          onChangeText={formik.handleChange('email')}
+          value={formik.values.email}
+          onBlur={formik.handleBlur('email')}
+          errorMessage={formik.touched.email && formik.errors.email}
+        />
+        <FormInput
+          placeholder="Referrel Code"
+          icon={<Referalicon />}
+          onChangeText={formik.handleChange('code')}
+          value={formik.values.code}
+          onBlur={formik.handleBlur('code')}
+          errorMessage={formik.touched.code && formik.errors.code}
+        />
+        <FormInput
+          placeholder="Password"
+          icon={<Lockicon />}
+          isPassword={true}
+          secureTextEntry={hidePasswod}
+          onLeftIconPress={togglePassword}
+          onChangeText={formik.handleChange('password')}
+          value={formik.values.password}
+          onBlur={formik.handleBlur('password')}
+          errorMessage={formik.touched.password && formik.errors.password}
+        />
 
-      <View style={styles.bottomContainer}>
-        <Text style={appStyles.h7}>I already have an account!</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Text
-            style={[
-              appStyles.h7,
-              {color: colors.primary, fontFamily: fonts.MontserratSemiBold},
-            ]}>
-            {' '}
-            Sign In
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+        <BouncyCheckbox
+          size={18}
+          textStyle={styles.textStyle}
+          style={{marginTop: 25}}
+          iconImageStyle={styles.iconImageStyle}
+          fillColor={colors.primary}
+          unFillColor={'transparent'}
+          text={'I accept the Terms & Conditions'}
+          isChecked={formik.values.terms}
+          onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
+        />
+        <BouncyCheckbox
+          size={20}
+          textStyle={styles.textStyle}
+          style={{marginTop: 12}}
+          iconImageStyle={styles.iconImageStyle}
+          fillColor={colors.primary}
+          unFillColor={'transparent'}
+          text={'I accept the Privacy Policy'}
+          isChecked={formik.values.policy}
+          onPress={() => formik.setFieldValue('policy', !formik.values.policy)}
+        />
+        <AppButton
+          title="Sign Up"
+          customStyle={{marginTop: 30}}
+          onPress={formik.handleSubmit}
+          isLoading={false}
+          disabled={!formik.isValid ? true : false}
+        />
+        <BottomLine
+          onPress={() => navigation.navigate('SignIn')}
+          title=" Sign In"
+        />
+      </ScrollView>
+    </View>
   );
 };
 
@@ -165,7 +159,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 45,
   },
-
-  boxContainer: {flexDirection: 'row', marginTop: 15, alignItems: 'center'},
-  bottomContainer: {flexDirection: 'row', alignSelf: 'center', marginTop: 15},
+  textStyle: {
+    color: colors.gray[50],
+    textDecorationLine: 'none',
+    fontSize: 12,
+    fontFamily: fonts.MontserratRegular,
+  },
+  iconImageStyle: {
+    width: 10,
+    height: 10,
+  },
 });
