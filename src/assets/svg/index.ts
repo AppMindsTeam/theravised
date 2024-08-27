@@ -4,5 +4,20 @@ import Lockicon from './Lockicon.svg';
 import Nameicon from './Nameicon.svg';
 import Referalicon from './Referalicon.svg';
 import UnCheckbox from './UnCheckbox.svg';
+import BackArrow from './BackArrow.svg';
+import PhysioProfile from './PhysioProfile.svg';
+import RightArrow from './RightArrow.svg';
+import Goalicon from './Goalicon.svg';
 
-export {Checkbox, Messegeicon, Lockicon, Nameicon, Referalicon, UnCheckbox};
+export {
+  Checkbox,
+  Messegeicon,
+  Lockicon,
+  Nameicon,
+  Referalicon,
+  UnCheckbox,
+  BackArrow,
+  PhysioProfile,
+  RightArrow,
+  Goalicon,
+};

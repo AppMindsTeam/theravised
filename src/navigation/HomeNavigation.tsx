@@ -1,0 +1,57 @@
+import {StyleSheet, TouchableOpacity, Image} from 'react-native';
+import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import BottomTabsNavigator from './BottomNavigation';
+import {colors, fonts} from '../screens/utilities/theme';
+import {BackArrow} from '../assets/svg';
+
+export type HomeStackParamsList = {
+  BottomTabs: undefined;
+  //   ProjectDetails: undefined;
+};
+const HomeStackNavigator = () => {
+  const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
+
+  return (
+    <HomeStack.Navigator
+      screenOptions={({navigation}) => ({
+        headerShown: false,
+        headerShadowVisible: false,
+        headerTitleAlign: 'left',
+
+        headerLeft: () => (
+          <TouchableOpacity
+            style={{width: 25}}
+            onPress={() => navigation.goBack()}
+            hitSlop={styles.hitSlop}>
+            <BackArrow />
+          </TouchableOpacity>
+        ),
+
+        headerStyle: styles.containerStyle,
+        headerTitleStyle: styles.titleStyle,
+      })}>
+      <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} />
+    </HomeStack.Navigator>
+  );
+};
+
+export default HomeStackNavigator;
+
+const styles = StyleSheet.create({
+  hitSlop: {
+    left: 10,
+    right: 10,
+    bottom: 10,
+    top: 10,
+  },
+  titleStyle: {
+    color: colors.black,
+    fontSize: 20,
+    fontFamily: fonts.MontserratSemiBold,
+    lineHeight: 28,
+  },
+  containerStyle: {
+    backgroundColor: colors.bgcolor,
+  },
+});
