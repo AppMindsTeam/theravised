@@ -8,4 +8,8 @@ export const images = {
   accountimg: require('./Accountimg.png'),
   forgotimg: require('./Forgotimg.png'),
   Passwordimg: require('./PasswordSuccessful.png'),
+  home: require('./Home.png'),
+  chat: require('./Message.png'),
+  program: require('./Program.png'),
+  profile: require('./Profile.png'),
 };
