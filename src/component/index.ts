@@ -5,6 +5,7 @@ import Goal from './home/Goal';
 import ProgressList from './home/ProgressList';
 import SearchBar from './common/SearchBar';
 import ChatItem from './chat/ChatItem';
+import Header from './chat/Header';
 
 export {
   AppButton,
@@ -14,4 +15,5 @@ export {
   ProgressList,
   SearchBar,
   ChatItem,
+  Header,
 };

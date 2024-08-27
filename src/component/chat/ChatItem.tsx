@@ -1,32 +1,25 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {ReactNode} from 'react';
-import {RightArrow} from '../../assets/svg';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
 import {appStyles, colors} from '../../screens/utilities/theme';
 
 interface Props {
-  icon: ReactNode;
-  isGoal: boolean;
+  title: string;
+  ImageUrl: string;
 }
-const ChatItem: React.FC<Props> = ({icon, isGoal}) => {
+const ChatItem: React.FC<Props> = ({title, ImageUrl}) => {
   return (
     <TouchableOpacity style={styles.container}>
-      {icon}
-      {!isGoal ? (
-        <View style={styles.innerContainer}>
-          <Text style={[appStyles.h5, {color: colors.gray[50]}]}>
-            Your Physiotherapist
-          </Text>
-          <Text style={[appStyles.h6, {color: colors.black}]}>Amy Miles</Text>
-        </View>
-      ) : (
-        <View style={styles.innerContainer}>
-          <Text style={[appStyles.h6, {color: colors.black}]}>
-            Walk 5 km in 4 weeks
-          </Text>
-        </View>
-      )}
-
-      <RightArrow />
+      <Image
+        source={{
+          uri: ImageUrl,
+        }}
+        style={styles.imgStyle}
+      />
+      <View style={styles.innerContainer}>
+        <Text style={appStyles.h4}>{title}</Text>
+        <Text style={[appStyles.h7, {color: colors.gray[50]}]}>You: ok...</Text>
+      </View>
+      <Text style={[appStyles.h7, {color: colors.gray[50]}]}>12:07 PM</Text>
     </TouchableOpacity>
   );
 };
@@ -35,15 +28,19 @@ export default ChatItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
-    borderRadius: 10,
+    backgroundColor: colors.bgcolor,
     flexDirection: 'row',
-    paddingLeft: 12,
-    paddingRight: 10,
-    paddingVertical: 15,
     alignItems: 'center',
-    marginTop: 15,
-    marginHorizontal: 18,
+    marginTop: 12,
   },
-  innerContainer: {flexDirection: 'column', flex: 1, marginLeft: 14},
+  imgStyle: {
+    width: 56,
+    height: 56,
+    borderRadius: 100,
+  },
+  innerContainer: {
+    flexDirection: 'column',
+    marginLeft: 10,
+    flex: 1,
+  },
 });
