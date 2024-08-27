@@ -9,6 +9,7 @@ import PhysioProfile from './PhysioProfile.svg';
 import RightArrow from './RightArrow.svg';
 import Goalicon from './Goalicon.svg';
 import Searchicon from './Searchicon.svg';
+import Filltericon from './Filltericon.svg';
 
 export {
   Checkbox,
@@ -22,4 +23,5 @@ export {
   RightArrow,
   Goalicon,
   Searchicon,
+  Filltericon,
 };
