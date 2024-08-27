@@ -4,7 +4,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
-import {ChatItem, SearchBar} from '../../../component';
+import {ChatItem, Header, SearchBar} from '../../../component';
+import {CHATARRAY} from '../../../constants';
 
 type Props = NativeStackScreenProps<
   BottomTabParamlist & HomeStackParamsList,
@@ -15,8 +16,18 @@ const Messege: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
+      <Header />
       <SearchBar containerStyle={{marginTop: 20}} />
-      <ChatItem />
+
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        data={CHATARRAY}
+        keyExtractor={item => item.title}
+        renderItem={({item}) => (
+          <ChatItem title={item.title} ImageUrl={item.ImageUrl} />
+        )}
+        contentContainerStyle={styles.list}
+      />
     </View>
   );
 };
@@ -29,5 +40,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bgcolor,
     paddingHorizontal: 22,
     paddingTop: 18,
+  },
+  list: {
+    marginTop: 15,
+    paddingBottom: 30,
   },
 });
