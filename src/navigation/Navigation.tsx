@@ -6,8 +6,8 @@ import HomeStackNavigator from './HomeNavigation';
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <AuthStackNavigator />
-      {/* <HomeStackNavigator /> */}
+      {/* <AuthStackNavigator /> */}
+      <HomeStackNavigator />
     </NavigationContainer>
   );
 };
