@@ -17,16 +17,20 @@ const Messege: React.FC<Props> = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
       <Header />
-      <SearchBar containerStyle={{marginTop: 20}} />
+      <SearchBar containerStyle={{marginTop: 20, marginBottom: 8}} />
 
       <FlatList
         showsVerticalScrollIndicator={false}
         data={CHATARRAY}
         keyExtractor={item => item.title}
         renderItem={({item}) => (
-          <ChatItem title={item.title} ImageUrl={item.ImageUrl} />
+          <ChatItem
+            title={item.title}
+            ImageUrl={item.ImageUrl}
+            isActive={item.isActive}
+          />
         )}
-        contentContainerStyle={styles.list}
+        contentContainerStyle={styles.contentContainerStyle}
       />
     </View>
   );
@@ -41,8 +45,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 22,
     paddingTop: 18,
   },
-  list: {
-    marginTop: 15,
+  contentContainerStyle: {
+    marginTop: 8,
     paddingBottom: 30,
   },
 });

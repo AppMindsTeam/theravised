@@ -1,10 +1,17 @@
 import React from 'react';
-import {Text, View, StyleSheet, StatusBar, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  StatusBar,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors} from '../../utilities/theme';
-import {Goal, ProgressList} from '../../../component';
+import {Goal, MyProgressItem} from '../../../component';
 import {Goalicon, PhysioProfile} from '../../../assets/svg';
 import {PROGRESSITEM} from '../../../constants';
 
@@ -30,20 +37,22 @@ const Home: React.FC<Props> = ({navigation}) => {
         My Progress
       </Text>
 
-      <View style={{backgroundColor: colors.bgcolor}}>
-        <ScrollView
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.completedTaskContainer}
-          horizontal>
-          {PROGRESSITEM.map((item, index) => (
-            <ProgressList
+      <View>
+        <FlatList
+          horizontal
+          showsVerticalScrollIndicator={false}
+          data={PROGRESSITEM}
+          keyExtractor={item => item.title}
+          renderItem={({item, index}) => (
+            <MyProgressItem
               key={index}
               title={item.title}
-              date={item.date}
               ImageUrl={item.ImageUrl}
+              date={item.date}
             />
-          ))}
-        </ScrollView>
+          )}
+          contentContainerStyle={styles.list}
+        />
       </View>
     </View>
   );
@@ -57,6 +66,12 @@ const styles = StyleSheet.create({
   completedTaskContainer: {
     gap: 10,
     marginTop: 15,
+    paddingHorizontal: 18,
+  },
+  list: {
+    marginTop: 15,
+    paddingBottom: 30,
+    gap: 10,
     paddingHorizontal: 18,
   },
 });

@@ -7,7 +7,7 @@ interface Props {
   title: string;
   date: string;
 }
-const ProgressList: React.FC<Props> = ({ImageUrl, title, date}) => {
+const MyProgressItem: React.FC<Props> = ({ImageUrl, title, date}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
@@ -29,7 +29,7 @@ const ProgressList: React.FC<Props> = ({ImageUrl, title, date}) => {
   );
 };
 
-export default ProgressList;
+export default MyProgressItem;
 
 const styles = StyleSheet.create({
   container: {

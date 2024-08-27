@@ -9,7 +9,7 @@ interface Props {
 }
 const Goal: React.FC<Props> = ({icon, isGoal}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <View style={styles.container}>
       {icon}
       {!isGoal ? (
         <View style={styles.innerContainer}>
@@ -25,9 +25,10 @@ const Goal: React.FC<Props> = ({icon, isGoal}) => {
           </Text>
         </View>
       )}
-
-      <RightArrow />
-    </TouchableOpacity>
+      <TouchableOpacity>
+        <RightArrow />
+      </TouchableOpacity>
+    </View>
   );
 };
 
