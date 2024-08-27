@@ -21,6 +21,7 @@
     "react-native-otp-entry": "^1.7.1",
     "react-native-safe-area-context": "^3.3.0",
     "react-native-screens": "^3.34.0",
+    "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^15.6.0",
     "yup": "^1.4.0"
   },
