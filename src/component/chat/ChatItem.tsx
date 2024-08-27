@@ -7,7 +7,7 @@ interface Props {
   icon: ReactNode;
   isGoal: boolean;
 }
-const Goal: React.FC<Props> = ({icon, isGoal}) => {
+const ChatItem: React.FC<Props> = ({icon, isGoal}) => {
   return (
     <TouchableOpacity style={styles.container}>
       {icon}
@@ -31,7 +31,7 @@ const Goal: React.FC<Props> = ({icon, isGoal}) => {
   );
 };
 
-export default Goal;
+export default ChatItem;
 
 const styles = StyleSheet.create({
   container: {

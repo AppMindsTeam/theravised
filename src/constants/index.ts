@@ -1,3 +1,4 @@
 import {SLIDES} from './Slides';
+import {PROGRESSITEM} from './Progressitems';
 
-export {SLIDES};
+export {SLIDES, PROGRESSITEM};
