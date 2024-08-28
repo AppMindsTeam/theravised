@@ -28,7 +28,11 @@ const Home: React.FC<Props> = ({navigation}) => {
       <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
         Hi Lachie,
       </Text>
-      <Goal icon={<PhysioProfile />} isGoal={false} />
+      <Goal
+        icon={<PhysioProfile />}
+        isGoal={false}
+        onPress={() => navigation.navigate('PhysioProfile')}
+      />
       <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
         Goals
       </Text>

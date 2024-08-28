@@ -12,4 +12,5 @@ export const images = {
   chat: require('./Message.png'),
   program: require('./Program.png'),
   profile: require('./Profile.png'),
+  physioImg: require('./PhysioImg.png'),
 };

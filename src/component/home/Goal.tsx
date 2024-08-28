@@ -6,8 +6,9 @@ import {appStyles, colors} from '../../screens/utilities/theme';
 interface Props {
   icon: ReactNode;
   isGoal: boolean;
+  onPress?: () => void;
 }
-const Goal: React.FC<Props> = ({icon, isGoal}) => {
+const Goal: React.FC<Props> = ({icon, isGoal, onPress}) => {
   return (
     <View style={styles.container}>
       {icon}
@@ -25,7 +26,7 @@ const Goal: React.FC<Props> = ({icon, isGoal}) => {
           </Text>
         </View>
       )}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <RightArrow />
       </TouchableOpacity>
     </View>

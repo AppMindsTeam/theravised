@@ -4,10 +4,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
+import {PhysioProfile} from '../screens/tabs';
 
 export type HomeStackParamsList = {
   BottomTabs: undefined;
-  //   ProjectDetails: undefined;
+  PhysioProfile: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -32,6 +33,12 @@ const HomeStackNavigator = () => {
         headerTitleStyle: styles.titleStyle,
       })}>
       <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} />
+
+      <HomeStack.Screen
+        name="PhysioProfile"
+        component={PhysioProfile}
+        options={{headerTitle: '', headerShown: false}}
+      />
     </HomeStack.Navigator>
   );
 };
