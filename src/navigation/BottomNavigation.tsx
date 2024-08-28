@@ -1,10 +1,11 @@
 import * as React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {images} from '../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../screens/utilities/theme';
 import {Home, Messege, Profile, Program} from '../screens/tabs';
+import {BackArrow} from '../assets/svg';
 
 export type BottomTabParamlist = {
   Home: undefined;
@@ -27,8 +28,16 @@ function BottomTabs() {
         tabBarLabelStyle: styles.tabBarLabelStyle,
         headerStyle: styles.headerStyle,
         headerTitleStyle: styles.headerTitleStyle,
-        headerTitleAlign: 'left',
+        headerTitleAlign: 'center',
         headerShown: false,
+        headerLeft: () => (
+          <TouchableOpacity
+            style={{width: 25}}
+            onPress={() => navigation.goBack()}
+            hitSlop={styles.hitSlop}>
+            <BackArrow style={{marginLeft: 18}} />
+          </TouchableOpacity>
+        ),
         tabBarIcon: ({color, size, focused}) => {
           let source;
           switch (route.name) {
@@ -73,7 +82,11 @@ function BottomTabs() {
       <Tab.Screen
         name="Program"
         component={Program}
-        options={{tabBarLabel: 'Program'}}
+        options={{
+          tabBarLabel: 'Program',
+          headerShown: true,
+          headerTitle: 'Programs',
+        }}
       />
 
       <Tab.Screen
@@ -95,9 +108,9 @@ const styles = StyleSheet.create({
   },
   headerTitleStyle: {
     color: colors.black,
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: fonts.MontserratSemiBold,
-    lineHeight: 28,
+    lineHeight: 20,
   },
   tabBarLabelStyle: {marginTop: 12},
   headerStyle: {
