@@ -4,13 +4,13 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {images} from '../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../screens/utilities/theme';
-import {Home, Messege, Profile, Program} from '../screens/tabs';
+import {Home, Messege, Profile, Programs} from '../screens/tabs';
 import {BackArrow} from '../assets/svg';
 
 export type BottomTabParamlist = {
   Home: undefined;
   Messege: undefined;
-  Program: undefined;
+  Programs: undefined;
   Profile: undefined;
 };
 
@@ -49,7 +49,7 @@ function BottomTabs() {
               source = images.chat;
               color = focused ? colors.primary : colors.gray[50];
               break;
-            case 'Program':
+            case 'Programs':
               source = images.program;
               color = focused ? colors.primary : colors.gray[50];
               break;
@@ -80,8 +80,8 @@ function BottomTabs() {
       />
 
       <Tab.Screen
-        name="Program"
-        component={Program}
+        name="Programs"
+        component={Programs}
         options={{
           tabBarLabel: 'Programs',
           headerShown: true,

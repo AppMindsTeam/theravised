@@ -16,10 +16,10 @@ import {PROGRAM_ARRAY} from '../../../constants/ProgramArray';
 
 type Props = NativeStackScreenProps<
   BottomTabParamlist & HomeStackParamsList,
-  'Program'
+  'Programs'
 >;
 
-const Program: React.FC<Props> = ({navigation}) => {
+const Programs: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
@@ -50,7 +50,7 @@ const Program: React.FC<Props> = ({navigation}) => {
   );
 };
 
-export default Program;
+export default Programs;
 
 const styles = StyleSheet.create({
   container: {

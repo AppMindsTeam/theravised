@@ -19,13 +19,7 @@ const ProgramItem: React.FC<Props> = ({
   return (
     <TouchableOpacity activeOpacity={0.6} style={styles.container}>
       <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingHorizontal: 6,
-          marginTop: 6,
-        }}>
+      <View style={styles.rowContainer}>
         <Text style={[appStyles.h8, {color: colors.gray[50]}]}>{date}</Text>
         <Text style={[appStyles.h8, {color: colors.primary}]}>{time}</Text>
       </View>
@@ -62,5 +56,11 @@ const styles = StyleSheet.create({
     fontFamily: fonts.MontserratMedium,
     paddingHorizontal: 8,
     color: colors.gray[50],
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 6,
+    marginTop: 6,
   },
 });

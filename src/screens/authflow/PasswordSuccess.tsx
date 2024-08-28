@@ -12,7 +12,7 @@ const PasswordSuccess: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image source={images.applogo} style={styles.logoStyle} />
-      <Image source={images.Passwordimg} style={styles.imgStyle} />
+      <Image source={images.passwordimg} style={styles.imgStyle} />
       <Text style={[appStyles.h4, {marginTop: 30, color: colors.primary}]}>
         Change Password Successfully!
       </Text>

@@ -29,8 +29,11 @@ const PhysioProfile: React.FC<Props> = ({navigation}) => {
         source={{
           uri: 'https://media.istockphoto.com/id/2021352816/photo/childrens-physiotherapy.jpg?s=2048x2048&w=is&k=20&c=7x-qFlmBzR-CR-aumDGfEtvYHhTLGg1HoMjfI9m4hsE=',
         }}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <BackArrow style={styles.ArrowButton} />
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.ArrowButton}
+          hitSlop={10}>
+          <BackArrow />
         </TouchableOpacity>
       </ImageBackground>
       <View style={styles.profileContainer}>
