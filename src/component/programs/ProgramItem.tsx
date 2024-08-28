@@ -17,7 +17,7 @@ const ProgramItem: React.FC<Props> = ({
   time,
 }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity activeOpacity={0.6} style={styles.container}>
       <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
       <View
         style={{

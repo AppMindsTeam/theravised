@@ -83,7 +83,7 @@ function BottomTabs() {
         name="Program"
         component={Program}
         options={{
-          tabBarLabel: 'Program',
+          tabBarLabel: 'Programs',
           headerShown: true,
           headerTitle: 'Programs',
         }}
