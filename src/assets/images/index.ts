@@ -7,9 +7,10 @@ export const images = {
   unhideicon: require('./Unhideicon.png'),
   accountimg: require('./Accountimg.png'),
   forgotimg: require('./Forgotimg.png'),
-  Passwordimg: require('./PasswordSuccessful.png'),
+  passwordimg: require('./PasswordSuccessful.png'),
   home: require('./Home.png'),
   chat: require('./Message.png'),
   program: require('./Program.png'),
   profile: require('./Profile.png'),
+  physioImg: require('./PhysioImg.png'),
 };

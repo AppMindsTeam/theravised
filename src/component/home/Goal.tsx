@@ -6,10 +6,14 @@ import {appStyles, colors} from '../../screens/utilities/theme';
 interface Props {
   icon: ReactNode;
   isGoal: boolean;
+  onPress?: () => void;
 }
-const Goal: React.FC<Props> = ({icon, isGoal}) => {
+const Goal: React.FC<Props> = ({icon, isGoal, onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={onPress}
+      style={styles.container}>
       {icon}
       {!isGoal ? (
         <View style={styles.innerContainer}>
@@ -25,10 +29,8 @@ const Goal: React.FC<Props> = ({icon, isGoal}) => {
           </Text>
         </View>
       )}
-      <TouchableOpacity>
-        <RightArrow />
-      </TouchableOpacity>
-    </View>
+      <RightArrow />
+    </TouchableOpacity>
   );
 };
 
