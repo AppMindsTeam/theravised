@@ -5,6 +5,13 @@ import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
 import ProfileHeader from '../../../component/profile/ProfileHeader';
+import {ProfileItem} from '../../../component';
+import {
+  Deleteicon,
+  Lockicon,
+  LogOutIcon,
+  Passwordicon,
+} from '../../../assets/svg';
 
 type Props = NativeStackScreenProps<
   BottomTabParamlist & HomeStackParamsList,
@@ -16,6 +23,17 @@ const Profile: React.FC<Props> = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
       <ProfileHeader onPress={() => navigation.navigate('EditProfile')} />
+      <ProfileItem
+        title="Change Password"
+        Icon={<Passwordicon />}
+        containerStyle={{marginTop: 60}}
+        onPress={() => navigation.navigate('ChangePassword')}
+      />
+      <ProfileItem title="Delete Account" Icon={<Deleteicon />} />
+      <ProfileItem
+        title="Log Out"
+        Icon={<LogOutIcon style={{width: 10, height: 10}} />}
+      />
     </View>
   );
 };

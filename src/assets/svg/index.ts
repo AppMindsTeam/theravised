@@ -12,6 +12,9 @@ import Searchicon from './Searchicon.svg';
 import Filltericon from './Filltericon.svg';
 import Editicon from './Editicon.svg';
 import Addimgicon from './Addimgicon.svg';
+import LogOutIcon from './LogOutIcon.svg';
+import Deleteicon from './Deleteicon.svg';
+import Passwordicon from './PasswordIcon.svg';
 
 export {
   Checkbox,
@@ -28,4 +31,7 @@ export {
   Filltericon,
   Editicon,
   Addimgicon,
+  LogOutIcon,
+  Deleteicon,
+  Passwordicon,
 };

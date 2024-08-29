@@ -1,5 +1,5 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -11,12 +11,14 @@ import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
 import {Addimgicon, Messegeicon, Nameicon} from '../../../assets/svg';
 import {AppButton, FormInput} from '../../../component';
+import ImageCropPicker from 'react-native-image-crop-picker';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 
 type Props = NativeStackScreenProps<HomeStackParamsList, 'EditProfile'>;
 
 const EditProfile: React.FC<Props> = ({navigation}) => {
+  const [profileImage, setProfileImage] = useState('');
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name required'),
     email: Yup.string().email('Invalid email').required('Email required'),
@@ -33,19 +35,37 @@ const EditProfile: React.FC<Props> = ({navigation}) => {
       navigation.goBack();
     },
   });
+
+  const handleImagePicker = () => {
+    ImageCropPicker.openPicker({
+      cropping: true,
+      multiple: false,
+    })
+      .then(image => {
+        setProfileImage(image.path);
+      })
+      .catch(error => {
+        console.log('Error opening image picker:', error);
+      });
+  };
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.imageWrapper}>
           <Image
-            source={{
-              uri: 'https://images.unsplash.com/photo-1612943680768-d82060323fd5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D',
-            }}
+            source={
+              profileImage
+                ? {uri: profileImage}
+                : {
+                    uri: 'https://images.unsplash.com/photo-1612943680768-d82060323fd5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D',
+                  }
+            }
             style={styles.imgStyle}
           />
           <TouchableOpacity
             activeOpacity={0.4}
             hitSlop={10}
+            onPress={handleImagePicker}
             style={styles.addIconStyle}>
             <Addimgicon width={24} height={24} />
           </TouchableOpacity>

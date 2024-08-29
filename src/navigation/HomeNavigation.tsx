@@ -4,12 +4,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
-import {EditProfile, PhysioProfile} from '../screens/tabs';
+import {ChangePassword, EditProfile, PhysioProfile} from '../screens/tabs';
 
 export type HomeStackParamsList = {
   BottomTabs: undefined;
   PhysioProfile: undefined;
   EditProfile: undefined;
+  ChangePassword: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -45,6 +46,11 @@ const HomeStackNavigator = () => {
         name="EditProfile"
         component={EditProfile}
         options={{headerTitle: 'EditProfile', headerShown: true}}
+      />
+      <HomeStack.Screen
+        name="ChangePassword"
+        component={ChangePassword}
+        options={{headerTitle: 'ChangePassword', headerShown: true}}
       />
     </HomeStack.Navigator>
   );
