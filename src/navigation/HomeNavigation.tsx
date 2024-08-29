@@ -4,11 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
-import {PhysioProfile} from '../screens/tabs';
+import {EditProfile, PhysioProfile} from '../screens/tabs';
 
 export type HomeStackParamsList = {
   BottomTabs: undefined;
   PhysioProfile: undefined;
+  EditProfile: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -18,7 +19,7 @@ const HomeStackNavigator = () => {
       screenOptions={({navigation}) => ({
         headerShown: false,
         headerShadowVisible: false,
-        headerTitleAlign: 'left',
+        headerTitleAlign: 'center',
 
         headerLeft: () => (
           <TouchableOpacity
@@ -39,6 +40,12 @@ const HomeStackNavigator = () => {
         component={PhysioProfile}
         options={{headerTitle: '', headerShown: false}}
       />
+
+      <HomeStack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{headerTitle: 'EditProfile', headerShown: true}}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
   },
   titleStyle: {
     color: colors.black,
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: fonts.MontserratSemiBold,
     lineHeight: 28,
   },

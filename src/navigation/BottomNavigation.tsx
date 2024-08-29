@@ -92,7 +92,11 @@ function BottomTabs() {
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{tabBarLabel: 'Profile'}}
+        options={{
+          tabBarLabel: 'Profile',
+          headerShown: true,
+          headerTitle: 'Profile',
+        }}
       />
     </Tab.Navigator>
   );

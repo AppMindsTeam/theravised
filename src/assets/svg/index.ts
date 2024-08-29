@@ -10,6 +10,8 @@ import RightArrow from './RightArrow.svg';
 import Goalicon from './Goalicon.svg';
 import Searchicon from './Searchicon.svg';
 import Filltericon from './Filltericon.svg';
+import Editicon from './Editicon.svg';
+import Addimgicon from './Addimgicon.svg';
 
 export {
   Checkbox,
@@ -24,4 +26,6 @@ export {
   Goalicon,
   Searchicon,
   Filltericon,
+  Editicon,
+  Addimgicon,
 };
