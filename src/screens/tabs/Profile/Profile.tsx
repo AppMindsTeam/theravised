@@ -12,6 +12,7 @@ import {
   LogOutIcon,
   Passwordicon,
 } from '../../../assets/svg';
+import {useUser} from '../../../Hooks/UseContext';
 
 type Props = NativeStackScreenProps<
   BottomTabParamlist & HomeStackParamsList,
@@ -19,6 +20,7 @@ type Props = NativeStackScreenProps<
 >;
 
 const Profile: React.FC<Props> = ({navigation}) => {
+  const {setUser} = useUser();
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
@@ -32,6 +34,9 @@ const Profile: React.FC<Props> = ({navigation}) => {
       <ProfileItem title="Delete Account" Icon={<Deleteicon />} />
       <ProfileItem
         title="Log Out"
+        onPress={() =>
+          setUser({id: '', name: '', email: '', password: '', referalCode: ''})
+        }
         Icon={<LogOutIcon style={{width: 10, height: 10}} />}
       />
     </View>

@@ -1,13 +1,16 @@
 import React from 'react';
-// import AuthStackNavigator from './AuthNavigation';
+import AuthStackNavigator from './AuthNavigation';
 import {NavigationContainer} from '@react-navigation/native';
 import HomeStackNavigator from './HomeNavigation';
+import {useUser} from '../Hooks/UseContext';
 
 const Navigation = () => {
+  const {user} = useUser();
+  // console.log('user-----', user);
+
   return (
     <NavigationContainer>
-      {/* <AuthStackNavigator /> */}
-      <HomeStackNavigator />
+      {user?.id ? <HomeStackNavigator /> : <AuthStackNavigator />}
     </NavigationContainer>
   );
 };

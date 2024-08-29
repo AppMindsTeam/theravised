@@ -16,10 +16,12 @@ import {Checkbox, Lockicon, Messegeicon} from '../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import {useUser} from '../../Hooks/UseContext';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignIn'>;
 
 const SignIn: React.FC<Props> = ({navigation}) => {
+  const {setUser} = useUser();
   const [hidePasswod, setHidePassword] = useState(true);
 
   const togglePassword = () => setHidePassword(!hidePasswod);
@@ -45,6 +47,13 @@ const SignIn: React.FC<Props> = ({navigation}) => {
 
     validationSchema: validationSchema,
     onSubmit: values => {
+      setUser({
+        id: '1234',
+        email: 'shan@gmail.com',
+        name: 'shan',
+        password: '000000',
+        referalCode: '1234',
+      });
       //   signinUser(values);
       //   navigation.navigate('ChoseAccount');
     },
