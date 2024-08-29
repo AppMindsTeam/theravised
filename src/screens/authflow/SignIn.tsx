@@ -49,6 +49,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
       //   navigation.navigate('ChoseAccount');
     },
   });
+  const {password, email} = formik.values;
 
   return (
     <View style={styles.container}>
@@ -69,7 +70,9 @@ const SignIn: React.FC<Props> = ({navigation}) => {
         <FormInput
           placeholder="abc@gmail.com"
           keyboardType="email-address"
-          icon={<Messegeicon />}
+          icon={
+            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+          }
           onChangeText={formik.handleChange('email')}
           value={formik.values.email}
           onBlur={formik.handleBlur('email')}
@@ -78,7 +81,9 @@ const SignIn: React.FC<Props> = ({navigation}) => {
 
         <FormInput
           placeholder="Password"
-          icon={<Lockicon />}
+          icon={
+            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+          }
           isPassword={true}
           secureTextEntry={hidePasswod}
           onLeftIconPress={togglePassword}

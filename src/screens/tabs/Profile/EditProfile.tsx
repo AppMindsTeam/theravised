@@ -48,9 +48,12 @@ const EditProfile: React.FC<Props> = ({navigation}) => {
         console.log('Error opening image picker:', error);
       });
   };
+  const {email, name} = formik.values;
   return (
     <View style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 16}}>
         <View style={styles.imageWrapper}>
           <Image
             source={
@@ -63,7 +66,7 @@ const EditProfile: React.FC<Props> = ({navigation}) => {
             style={styles.imgStyle}
           />
           <TouchableOpacity
-            activeOpacity={0.4}
+            activeOpacity={0.6}
             hitSlop={10}
             onPress={handleImagePicker}
             style={styles.addIconStyle}>
@@ -71,7 +74,7 @@ const EditProfile: React.FC<Props> = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <FormInput
-          icon={<Nameicon />}
+          icon={<Nameicon fill={name ? colors.primary : colors.gray[50]} />}
           onChangeText={formik.handleChange('name')}
           value={formik.values.name}
           onBlur={formik.handleBlur('name')}
@@ -80,7 +83,9 @@ const EditProfile: React.FC<Props> = ({navigation}) => {
         />
         <FormInput
           placeholder="abc@gmail.com"
-          icon={<Messegeicon />}
+          icon={
+            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+          }
           onChangeText={formik.handleChange('email')}
           value={formik.values.email}
           onBlur={formik.handleBlur('email')}
@@ -111,11 +116,11 @@ const styles = StyleSheet.create({
     height: 98,
     borderRadius: 98 / 2,
     borderWidth: 3,
-    alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
     borderColor: colors.primary,
     marginTop: 20,
+    alignSelf: 'center',
   },
   imgStyle: {
     width: 86,
@@ -126,6 +131,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -5,
     bottom: 8,
+    borderColor: colors.primary,
+    borderWidth: 2,
+    borderRadius: 100,
   },
 });
 

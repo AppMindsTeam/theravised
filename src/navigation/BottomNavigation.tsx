@@ -30,14 +30,7 @@ function BottomTabs() {
         headerTitleStyle: styles.headerTitleStyle,
         headerTitleAlign: 'center',
         headerShown: false,
-        headerLeft: () => (
-          <TouchableOpacity
-            style={{width: 25}}
-            onPress={() => navigation.goBack()}
-            hitSlop={styles.hitSlop}>
-            <BackArrow style={{marginLeft: 18}} />
-          </TouchableOpacity>
-        ),
+
         tabBarIcon: ({color, size, focused}) => {
           let source;
           switch (route.name) {
