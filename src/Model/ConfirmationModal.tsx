@@ -12,7 +12,7 @@ interface Props {
   onPress?: () => void;
 }
 
-const UserAccountModel: React.FC<Props> = ({
+const ConfirmationModal: React.FC<Props> = ({
   isVisible,
   onClose,
   isDeleteAccount,
@@ -126,4 +126,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserAccountModel;
+export default ConfirmationModal;

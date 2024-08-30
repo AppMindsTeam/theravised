@@ -8,7 +8,7 @@ import ProfileHeader from '../../../component/profile/ProfileHeader';
 import {ProfileItem} from '../../../component';
 import {Deleteicon, LogOutIcon, Passwordicon} from '../../../assets/svg';
 import {useUser} from '../../../Hooks/UseContext';
-import UserAccountModel from '../../../Model/UserAccountModel';
+import ConfirmationModal from '../../../Model/ConfirmationModal';
 
 type Props = NativeStackScreenProps<
   BottomTabParamlist & HomeStackParamsList,
@@ -39,18 +39,16 @@ const Profile: React.FC<Props> = ({navigation}) => {
         onPress={() => setLogOutModal(true)}
         Icon={<LogOutIcon style={{width: 10, height: 10}} />}
       />
-      <UserAccountModel
+      <ConfirmationModal
         isVisible={isModalVisible}
         onClose={() => setModalVisible(false)}
         isDeleteAccount
         onPress={() => {
           setLogOutModal(false);
-          setTimeout(() => {
-            // dispatch(logout());
-          }, 500);
+          setTimeout(() => {}, 500);
         }}
       />
-      <UserAccountModel
+      <ConfirmationModal
         isVisible={isLogOutModel}
         onClose={() => setLogOutModal(false)}
         onPress={() => {

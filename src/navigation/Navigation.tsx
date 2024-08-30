@@ -6,7 +6,6 @@ import {useUser} from '../Hooks/UseContext';
 
 const Navigation = () => {
   const {user} = useUser();
-  // console.log('user-----', user);
 
   return (
     <NavigationContainer>

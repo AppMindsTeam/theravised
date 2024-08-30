@@ -54,8 +54,6 @@ const SignIn: React.FC<Props> = ({navigation}) => {
         password: '000000',
         referalCode: '1234',
       });
-      //   signinUser(values);
-      //   navigation.navigate('ChoseAccount');
     },
   });
   const {password, email} = formik.values;
