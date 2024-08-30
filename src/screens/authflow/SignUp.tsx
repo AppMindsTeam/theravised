@@ -52,6 +52,7 @@ const SignUp: React.FC<Props> = ({navigation}) => {
       //   navigation.navigate('ChoseAccount');
     },
   });
+  const {name, email, code, password} = formik.values;
 
   return (
     <View style={styles.container}>
@@ -71,7 +72,7 @@ const SignUp: React.FC<Props> = ({navigation}) => {
         </Text>
         <FormInput
           placeholder="Name"
-          icon={<Nameicon />}
+          icon={<Nameicon fill={name ? colors.primary : colors.gray[50]} />}
           onChangeText={formik.handleChange('name')}
           value={formik.values.name}
           onBlur={formik.handleBlur('name')}
@@ -80,7 +81,9 @@ const SignUp: React.FC<Props> = ({navigation}) => {
         <FormInput
           placeholder="abc@gmail.com"
           keyboardType="email-address"
-          icon={<Messegeicon />}
+          icon={
+            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+          }
           onChangeText={formik.handleChange('email')}
           value={formik.values.email}
           onBlur={formik.handleBlur('email')}
@@ -88,7 +91,7 @@ const SignUp: React.FC<Props> = ({navigation}) => {
         />
         <FormInput
           placeholder="Referrel Code"
-          icon={<Referalicon />}
+          icon={<Referalicon fill={name ? colors.primary : colors.gray[50]} />}
           onChangeText={formik.handleChange('code')}
           value={formik.values.code}
           onBlur={formik.handleBlur('code')}
@@ -96,7 +99,9 @@ const SignUp: React.FC<Props> = ({navigation}) => {
         />
         <FormInput
           placeholder="Password"
-          icon={<Lockicon />}
+          icon={
+            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+          }
           isPassword={true}
           secureTextEntry={hidePasswod}
           onLeftIconPress={togglePassword}

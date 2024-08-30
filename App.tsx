@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
 import Navigation from './src/navigation/Navigation';
-import SplashScreen from 'react-native-splash-screen';
+import {UserProvider} from './src/Hooks/UseContext';
 
 const App = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
-  return <Navigation />;
+  return (
+    <UserProvider>
+      <Navigation />
+    </UserProvider>
+  );
 };
 
 export default App;

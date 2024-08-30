@@ -16,10 +16,12 @@ import {Checkbox, Lockicon, Messegeicon} from '../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import {useUser} from '../../Hooks/UseContext';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignIn'>;
 
 const SignIn: React.FC<Props> = ({navigation}) => {
+  const {setUser} = useUser();
   const [hidePasswod, setHidePassword] = useState(true);
 
   const togglePassword = () => setHidePassword(!hidePasswod);
@@ -45,10 +47,16 @@ const SignIn: React.FC<Props> = ({navigation}) => {
 
     validationSchema: validationSchema,
     onSubmit: values => {
-      //   signinUser(values);
-      //   navigation.navigate('ChoseAccount');
+      setUser({
+        id: '1234',
+        email: 'shan@gmail.com',
+        name: 'shan',
+        password: '000000',
+        referalCode: '1234',
+      });
     },
   });
+  const {password, email} = formik.values;
 
   return (
     <View style={styles.container}>
@@ -69,7 +77,9 @@ const SignIn: React.FC<Props> = ({navigation}) => {
         <FormInput
           placeholder="abc@gmail.com"
           keyboardType="email-address"
-          icon={<Messegeicon />}
+          icon={
+            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+          }
           onChangeText={formik.handleChange('email')}
           value={formik.values.email}
           onBlur={formik.handleBlur('email')}
@@ -78,7 +88,9 @@ const SignIn: React.FC<Props> = ({navigation}) => {
 
         <FormInput
           placeholder="Password"
-          icon={<Lockicon />}
+          icon={
+            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+          }
           isPassword={true}
           secureTextEntry={hidePasswod}
           onLeftIconPress={togglePassword}
@@ -121,7 +133,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
           customStyle={{marginTop: 40}}
           onPress={formik.handleSubmit}
           isLoading={false}
-          disabled={!formik.isValid ? true : false}
+          disabled={!formik.isValid && formik.dirty}
         />
 
         <BottomLine

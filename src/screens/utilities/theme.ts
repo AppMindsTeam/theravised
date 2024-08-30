@@ -8,6 +8,8 @@ export const colors = {
     50: '#878589',
     100: '#E8E8E8',
     150: '#D9D9D9',
+    200: '#A7A7A7',
+    250: '#E0E0E0',
   },
   offWhite: '#F6F6F7',
   lightGray: '#7E7E7E',

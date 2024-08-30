@@ -56,7 +56,11 @@ const FormInput: FC<Props> = ({
         ]}>
         {icon}
         <TextInput
-          style={[styles.textInput, inputStyles]}
+          style={[
+            styles.textInput,
+            inputStyles,
+            {color: value ? colors.primary : colors.gray[100]},
+          ]}
           placeholder={placeholder}
           placeholderTextColor={'#9E9E9E'}
           onChangeText={onChangeText}
