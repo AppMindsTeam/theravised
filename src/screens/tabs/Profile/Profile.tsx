@@ -1,18 +1,14 @@
 import {StatusBar, StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
 import ProfileHeader from '../../../component/profile/ProfileHeader';
 import {ProfileItem} from '../../../component';
-import {
-  Deleteicon,
-  Lockicon,
-  LogOutIcon,
-  Passwordicon,
-} from '../../../assets/svg';
+import {Deleteicon, LogOutIcon, Passwordicon} from '../../../assets/svg';
 import {useUser} from '../../../Hooks/UseContext';
+import UserAccountModel from '../../../Model/UserAccountModel';
 
 type Props = NativeStackScreenProps<
   BottomTabParamlist & HomeStackParamsList,
@@ -20,6 +16,8 @@ type Props = NativeStackScreenProps<
 >;
 
 const Profile: React.FC<Props> = ({navigation}) => {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const [isLogOutModel, setLogOutModal] = useState(false);
   const {setUser} = useUser();
   return (
     <View style={styles.container}>
@@ -31,13 +29,42 @@ const Profile: React.FC<Props> = ({navigation}) => {
         containerStyle={{marginTop: 60}}
         onPress={() => navigation.navigate('ChangePassword')}
       />
-      <ProfileItem title="Delete Account" Icon={<Deleteicon />} />
+      <ProfileItem
+        title="Delete Account"
+        Icon={<Deleteicon />}
+        onPress={() => setModalVisible(true)}
+      />
       <ProfileItem
         title="Log Out"
-        onPress={() =>
-          setUser({id: '', name: '', email: '', password: '', referalCode: ''})
-        }
+        onPress={() => setLogOutModal(true)}
         Icon={<LogOutIcon style={{width: 10, height: 10}} />}
+      />
+      <UserAccountModel
+        isVisible={isModalVisible}
+        onClose={() => setModalVisible(false)}
+        isDeleteAccount
+        onPress={() => {
+          setLogOutModal(false);
+          setTimeout(() => {
+            // dispatch(logout());
+          }, 500);
+        }}
+      />
+      <UserAccountModel
+        isVisible={isLogOutModel}
+        onClose={() => setLogOutModal(false)}
+        onPress={() => {
+          setLogOutModal(false);
+          setTimeout(() => {
+            setUser({
+              id: '',
+              name: '',
+              email: '',
+              password: '',
+              referalCode: '',
+            });
+          }, 500);
+        }}
       />
     </View>
   );

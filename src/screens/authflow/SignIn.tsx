@@ -135,7 +135,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
           customStyle={{marginTop: 40}}
           onPress={formik.handleSubmit}
           isLoading={false}
-          disabled={!formik.isValid ? true : false}
+          disabled={!formik.isValid && formik.dirty}
         />
 
         <BottomLine

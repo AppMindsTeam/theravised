@@ -15,6 +15,7 @@ import Addimgicon from './Addimgicon.svg';
 import LogOutIcon from './LogOutIcon.svg';
 import Deleteicon from './Deleteicon.svg';
 import Passwordicon from './PasswordIcon.svg';
+import Warnicon from './Warnicon.svg';
 
 export {
   Checkbox,
@@ -34,4 +35,5 @@ export {
   LogOutIcon,
   Deleteicon,
   Passwordicon,
+  Warnicon,
 };

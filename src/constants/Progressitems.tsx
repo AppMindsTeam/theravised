@@ -21,7 +21,7 @@ export const PROGRESSITEM = [
   },
 
   {
-    title: 'Squat Test',
+    title: 'Squat Test2',
     date: '14/07/2024',
     ImageUrl:
       'https://plus.unsplash.com/premium_photo-1661716849429-6796ea134487?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGh5c2lvdGhlcmFweXxlbnwwfHwwfHx8MA%3D%3D',
