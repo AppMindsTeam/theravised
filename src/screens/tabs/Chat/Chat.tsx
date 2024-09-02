@@ -28,6 +28,7 @@ const Messege: React.FC<Props> = ({navigation}) => {
             title={item.title}
             ImageUrl={item.ImageUrl}
             isActive={item.isActive}
+            onPress={() => navigation.navigate('ChatDetails')}
           />
         )}
         contentContainerStyle={styles.contentContainerStyle}

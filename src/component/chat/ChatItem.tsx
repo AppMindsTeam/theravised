@@ -1,15 +1,17 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
+import {openPicker} from 'react-native-image-crop-picker';
 
 interface Props {
   title: string;
   ImageUrl: string;
   isActive?: boolean;
+  onPress: () => void;
 }
-const ChatItem: React.FC<Props> = ({title, ImageUrl, isActive}) => {
+const ChatItem: React.FC<Props> = ({title, ImageUrl, isActive, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.imageContainer}>
         <Image
           source={{

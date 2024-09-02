@@ -5,12 +5,14 @@ import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
 import {ChangePassword, EditProfile, PhysioProfile} from '../screens/tabs';
+import ChatDetails from '../screens/tabs/Chat/ChatDetails';
 
 export type HomeStackParamsList = {
   BottomTabs: undefined;
   PhysioProfile: undefined;
   EditProfile: undefined;
   ChangePassword: undefined;
+  ChatDetails: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -51,6 +53,12 @@ const HomeStackNavigator = () => {
         name="ChangePassword"
         component={ChangePassword}
         options={{headerTitle: 'ChangePassword', headerShown: true}}
+      />
+
+      <HomeStack.Screen
+        name="ChatDetails"
+        component={ChatDetails}
+        options={{headerShown: false}}
       />
     </HomeStack.Navigator>
   );
