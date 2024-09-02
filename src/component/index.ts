@@ -8,6 +8,7 @@ import Header from './chat/Header';
 import MyProgressItem from './home/MyProgressItem';
 import ProgramItem from './programs/ProgramItem';
 import ProfileItem from './profile/ProfileItem';
+import ChatHeader from './chat/ChatHeader';
 
 export {
   AppButton,
@@ -20,4 +21,5 @@ export {
   Header,
   ProgramItem,
   ProfileItem,
+  ChatHeader,
 };
