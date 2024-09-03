@@ -4,9 +4,10 @@ import {appStyles, colors} from '../../screens/utilities/theme';
 import {Searchicon} from '../../assets/svg';
 interface Props {
   containerStyle?: ViewStyle;
+  placeholder: string;
 }
 
-const SearchBar: React.FC<Props> = ({containerStyle}) => {
+const SearchBar: React.FC<Props> = ({containerStyle, placeholder}) => {
   return (
     <View style={[styles.Container, containerStyle]}>
       <Searchicon style={{marginRight: 6}} />
@@ -14,7 +15,7 @@ const SearchBar: React.FC<Props> = ({containerStyle}) => {
         style={[appStyles.h5, {flex: 1}]}
         textAlignVertical="center"
         placeholderTextColor={'#9E9E9E'}
-        placeholder="Search"
+        placeholder={placeholder}
       />
     </View>
   );

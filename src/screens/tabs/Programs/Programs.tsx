@@ -24,7 +24,10 @@ const Programs: React.FC<Props> = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
       <View style={styles.searchContainer}>
-        <SearchBar containerStyle={{width: '84%', height: 40}} />
+        <SearchBar
+          containerStyle={{width: '84%', height: 40}}
+          placeholder="Search"
+        />
         <TouchableOpacity>
           <Filltericon />
         </TouchableOpacity>

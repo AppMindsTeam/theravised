@@ -105,7 +105,11 @@ function PhysioBottomTabs() {
       <Tab.Screen
         name="Library"
         component={Library}
-        options={{tabBarLabel: 'Explore Library'}}
+        options={{
+          tabBarLabel: 'Explore Library',
+          headerShown: true,
+          headerTitle: 'Library',
+        }}
       />
 
       <Tab.Screen
