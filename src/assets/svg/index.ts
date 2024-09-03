@@ -19,6 +19,8 @@ import Warnicon from './Warnicon.svg';
 import Galleryicon from './Galleryicon.svg';
 import MicroPhoneicon from './MicroPhoneicon.svg';
 import SendIcon from './SendIcon.svg';
+import Successimg from './Successimg.svg';
+import AccountImg from './AccountImg.svg';
 
 export {
   Checkbox,
@@ -42,4 +44,6 @@ export {
   Galleryicon,
   MicroPhoneicon,
   SendIcon,
+  Successimg,
+  AccountImg,
 };

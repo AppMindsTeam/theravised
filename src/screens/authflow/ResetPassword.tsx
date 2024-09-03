@@ -36,6 +36,8 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
       navigation.navigate('PasswordSuccess');
     },
   });
+  const {password, confirmpassword} = formik.values;
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -49,7 +51,9 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
 
         <FormInput
           placeholder="New Password"
-          icon={<Lockicon />}
+          icon={
+            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+          }
           containerStyle={{marginTop: 20}}
           isPassword={true}
           secureTextEntry={hidePasswod}
@@ -61,7 +65,11 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
         />
         <FormInput
           placeholder="Confirm Password"
-          icon={<Lockicon />}
+          icon={
+            <Lockicon
+              stroke={confirmpassword ? colors.primary : colors.gray[50]}
+            />
+          }
           isPassword={true}
           secureTextEntry={confhidePasswod}
           onLeftIconPress={toggleconfPassword}

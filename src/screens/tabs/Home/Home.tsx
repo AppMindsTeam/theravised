@@ -44,7 +44,7 @@ const Home: React.FC<Props> = ({navigation}) => {
       <View>
         <FlatList
           horizontal
-          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
           data={PROGRESSITEM}
           keyExtractor={item => item.title}
           renderItem={({item, index}) => (
