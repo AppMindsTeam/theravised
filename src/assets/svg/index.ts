@@ -22,6 +22,9 @@ import SendIcon from './SendIcon.svg';
 import Successimg from './Successimg.svg';
 import AccountImg from './AccountImg.svg';
 import Prescribedimg from './Prescribedimg.svg';
+import Tickicon from './Tickicon.svg';
+import Sumicon from './Sumicon.svg';
+import Sumicon2 from './Sumicon2.svg';
 
 export {
   Checkbox,
@@ -48,4 +51,7 @@ export {
   Successimg,
   AccountImg,
   Prescribedimg,
+  Tickicon,
+  Sumicon,
+  Sumicon2,
 };

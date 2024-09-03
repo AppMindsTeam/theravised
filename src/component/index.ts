@@ -12,6 +12,7 @@ import ChatHeader from './chat/ChatHeader';
 import ProgramPrescribed from './physioHome/ProgramPrescribed';
 import ClientComponent from './physioHome/ClientComponent';
 import CheckOutItem from './physioHome/CheckOutItem';
+import LibraryItem from './library/LibraryItem';
 
 export {
   AppButton,
@@ -28,4 +29,5 @@ export {
   ProgramPrescribed,
   ClientComponent,
   CheckOutItem,
+  LibraryItem,
 };
