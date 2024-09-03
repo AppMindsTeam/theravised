@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Prescribedimg, Sumicon, Tickicon} from '../../assets/svg';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
 
@@ -16,15 +23,16 @@ const LibraryItem: React.FC<Props> = ({ImageUri}) => {
 
   return (
     <View style={styles.container}>
-      <Image
+      <ImageBackground
         source={{
           uri: ImageUri,
         }}
-        style={styles.imgStyle}
-      />
-      <TouchableOpacity style={styles.addicon} onPress={handleIconToggle}>
-        {isTickVisible ? <Tickicon /> : <Sumicon />}
-      </TouchableOpacity>
+        style={styles.imgStyle}>
+        <TouchableOpacity style={styles.addicon} onPress={handleIconToggle}>
+          {isTickVisible ? <Tickicon /> : <Sumicon />}
+        </TouchableOpacity>
+      </ImageBackground>
+
       <Text
         style={[
           appStyles.h9,
@@ -52,8 +60,8 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   addicon: {
-    position: 'absolute',
-    right: 8,
-    top: 8,
+    alignSelf: 'flex-end',
+    marginRight: 5,
+    marginTop: 5,
   },
 });
