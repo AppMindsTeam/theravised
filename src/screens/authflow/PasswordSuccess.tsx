@@ -5,6 +5,7 @@ import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors} from '../utilities/theme';
 import {AppButton} from '../../component';
+import {Successimg} from '../../assets/svg';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'PasswordSuccess'>;
 
@@ -12,7 +13,7 @@ const PasswordSuccess: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image source={images.applogo} style={styles.logoStyle} />
-      <Image source={images.passwordimg} style={styles.imgStyle} />
+      <Successimg style={{marginTop: 58}} />
       <Text style={[appStyles.h4, {marginTop: 30, color: colors.primary}]}>
         Change Password Successfully!
       </Text>
@@ -43,11 +44,5 @@ const styles = StyleSheet.create({
     height: 35,
     alignSelf: 'center',
     marginTop: 60,
-  },
-  imgStyle: {
-    height: 216,
-    width: '100%',
-    alignSelf: 'center',
-    marginTop: 58,
   },
 });

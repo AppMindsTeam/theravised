@@ -118,7 +118,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
           onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
         />
         <BouncyCheckbox
-          size={20}
+          size={18}
           textStyle={styles.textStyle}
           style={{marginTop: 12}}
           iconImageStyle={styles.iconImageStyle}

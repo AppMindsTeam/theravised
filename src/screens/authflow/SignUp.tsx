@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -47,10 +40,7 @@ const SignUp: React.FC<Props> = ({navigation}) => {
     },
 
     validationSchema: validationSchema,
-    onSubmit: values => {
-      //   signinUser(values);
-      //   navigation.navigate('ChoseAccount');
-    },
+    onSubmit: values => {},
   });
   const {name, email, code, password} = formik.values;
 
@@ -123,7 +113,7 @@ const SignUp: React.FC<Props> = ({navigation}) => {
           onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
         />
         <BouncyCheckbox
-          size={20}
+          size={18}
           textStyle={styles.textStyle}
           style={{marginTop: 12}}
           iconImageStyle={styles.iconImageStyle}

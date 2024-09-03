@@ -5,6 +5,7 @@ import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors, fonts} from '../utilities/theme';
 import {AppButton} from '../../component';
+import {AccountImg} from '../../assets/svg';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'ChoseAccount'>;
 
@@ -12,7 +13,7 @@ const ChoseAccount: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image source={images.applogo} style={styles.logoStyle} />
-      <Image source={images.accountimg} style={styles.imgStyle} />
+      <AccountImg style={{marginTop: 65}} />
       <Text style={[appStyles.h1, {marginTop: 15}]}>Lorem ipsum</Text>
       <Text style={[appStyles.h3, {marginTop: 8}]}>
         Lorem ipsum dolor sit amet, adipiscing elit. Sed rhoncus elit malesuada
@@ -52,12 +53,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 60,
   },
-  imgStyle: {
-    height: 257,
-    width: '100%',
-    alignSelf: 'center',
-    marginTop: 66,
-  },
+
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

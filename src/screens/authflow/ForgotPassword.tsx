@@ -26,6 +26,8 @@ const ForgotPassword: React.FC<Props> = ({navigation}) => {
       navigation.navigate('OTPScreen');
     },
   });
+  const {email} = formik.values;
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -40,7 +42,9 @@ const ForgotPassword: React.FC<Props> = ({navigation}) => {
         <FormInput
           placeholder="Lachie123@gmail.com"
           keyboardType="email-address"
-          icon={<Messegeicon />}
+          icon={
+            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+          }
           onChangeText={formik.handleChange('email')}
           value={formik.values.email}
           onBlur={formik.handleBlur('email')}
