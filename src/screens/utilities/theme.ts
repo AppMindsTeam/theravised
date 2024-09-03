@@ -78,6 +78,11 @@ export const appStyles = StyleSheet.create({
     fontSize: 10,
     fontFamily: fonts.MontserratSemiBold,
   },
+  h10: {
+    fontSize: 10,
+    fontFamily: fonts.MontserratMedium,
+    color: colors.black,
+  },
   errorText: {
     color: colors.red,
     fontSize: 12,

@@ -21,6 +21,7 @@ import MicroPhoneicon from './MicroPhoneicon.svg';
 import SendIcon from './SendIcon.svg';
 import Successimg from './Successimg.svg';
 import AccountImg from './AccountImg.svg';
+import Prescribedimg from './Prescribedimg.svg';
 
 export {
   Checkbox,
@@ -46,4 +47,5 @@ export {
   SendIcon,
   Successimg,
   AccountImg,
+  Prescribedimg,
 };

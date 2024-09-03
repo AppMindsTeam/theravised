@@ -5,6 +5,9 @@ import Profile from './Profile/Profile';
 import PhysioProfile from './Home/PhysioProfile';
 import EditProfile from './Profile/EditProfile';
 import ChangePassword from './Profile/ChangePassword';
+import Clients from '../physioTabs/Clients/Clients';
+import Library from '../physioTabs/Library/Library';
+import PhysioHome from '../physioTabs/PhysioHome/PhysioHome';
 
 export {
   Home,
@@ -14,4 +17,7 @@ export {
   PhysioProfile,
   EditProfile,
   ChangePassword,
+  Clients,
+  Library,
+  PhysioHome,
 };

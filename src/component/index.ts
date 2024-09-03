@@ -9,6 +9,9 @@ import MyProgressItem from './home/MyProgressItem';
 import ProgramItem from './programs/ProgramItem';
 import ProfileItem from './profile/ProfileItem';
 import ChatHeader from './chat/ChatHeader';
+import ProgramPrescribed from './physioHome/ProgramPrescribed';
+import ClientComponent from './physioHome/ClientComponent';
+import CheckOutItem from './physioHome/CheckOutItem';
 
 export {
   AppButton,
@@ -22,4 +25,7 @@ export {
   ProgramItem,
   ProfileItem,
   ChatHeader,
+  ProgramPrescribed,
+  ClientComponent,
+  CheckOutItem,
 };
