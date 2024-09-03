@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     height: 84,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    overflow: 'hidden',
   },
   addicon: {
     alignSelf: 'flex-end',
