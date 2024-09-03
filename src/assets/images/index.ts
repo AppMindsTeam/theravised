@@ -11,4 +11,6 @@ export const images = {
   program: require('./Program.png'),
   profile: require('./Profile.png'),
   physioImg: require('./PhysioImg.png'),
+  clients: require('./Clients.png'),
+  library: require('./Library.png'),
 };
