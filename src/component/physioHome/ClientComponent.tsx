@@ -4,13 +4,13 @@ import {appStyles, colors, fonts} from '../../screens/utilities/theme';
 
 interface Props {
   title: string;
-  Num: string;
+  count: string;
 }
-const ClientComponent: React.FC<Props> = ({title, Num}) => {
+const ClientComponent: React.FC<Props> = ({title, count}) => {
   return (
     <View style={styles.container}>
       <Text style={[appStyles.h6, {color: `${colors.white}70`}]}>{title}</Text>
-      <Text style={styles.contStyle}>{Num}</Text>
+      <Text style={styles.contStyle}>{count}</Text>
     </View>
   );
 };

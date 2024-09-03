@@ -38,13 +38,13 @@ function PhysioBottomTabs() {
         headerTitleStyle: styles.headerTitleStyle,
         headerTitleAlign: 'center',
         headerShown: false,
-        headerRight: () => (
-          <TouchableOpacity
-            style={{width: 25, marginRight: 18}}
-            hitSlop={styles.hitSlop}>
-            <Addimgicon />
-          </TouchableOpacity>
-        ),
+        // headerRight: () => (
+        //   <TouchableOpacity
+        //     style={{width: 25, marginRight: 18}}
+        //     hitSlop={styles.hitSlop}>
+        //     <Addimgicon />
+        //   </TouchableOpacity>
+        // ),
 
         tabBarIcon: ({color, size, focused}) => {
           let source;

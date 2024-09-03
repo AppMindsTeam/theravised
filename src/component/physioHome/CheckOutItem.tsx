@@ -7,7 +7,7 @@ interface Props {
   //   onPress?: () => void;
   Imageurl: string;
 }
-const ChecktheseOut: React.FC<Props> = ({Imageurl}) => {
+const CheckOutItem: React.FC<Props> = ({Imageurl}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -24,7 +24,7 @@ const ChecktheseOut: React.FC<Props> = ({Imageurl}) => {
   );
 };
 
-export default ChecktheseOut;
+export default CheckOutItem;
 
 const styles = StyleSheet.create({
   container: {

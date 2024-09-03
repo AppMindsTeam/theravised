@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Text,
   View,
@@ -13,7 +13,7 @@ import {PhysioBottomTabParamlist} from '../../../navigation/PhysioBottomNavigati
 import {appStyles, colors} from '../../utilities/theme';
 import {Addimgicon} from '../../../assets/svg';
 import {
-  ChecktheseOut,
+  CheckOutItem,
   ClientComponent,
   ProgramPrescribed,
 } from '../../../component';
@@ -25,6 +25,19 @@ type Props = NativeStackScreenProps<
 >;
 
 const PhysioHome: React.FC<Props> = ({navigation}) => {
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity
+          style={{width: 25, marginRight: 18}}
+          hitSlop={4}
+          onPress={() => console.log('Icon Pressed')}>
+          <Addimgicon />
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
@@ -37,8 +50,8 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
         Clients
       </Text>
       <View style={styles.clientContainer}>
-        <ClientComponent title="Active Clients" Num="62" />
-        <ClientComponent title="Total Clients" Num="102" />
+        <ClientComponent title="Active Clients" count="62" />
+        <ClientComponent title="Total Clients" count="102" />
       </View>
       <View style={styles.viewText}>
         <Text style={appStyles.h4}>Check These Out</Text>
@@ -50,7 +63,7 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={CHECKOUT_ARRAY}
-        renderItem={({item}) => <ChecktheseOut Imageurl={item.ImageUrl} />}
+        renderItem={({item}) => <CheckOutItem Imageurl={item.ImageUrl} />}
         contentContainerStyle={styles.list}
       />
     </View>
