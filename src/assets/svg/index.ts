@@ -25,6 +25,7 @@ import Prescribedimg from './Prescribedimg.svg';
 import Tickicon from './Tickicon.svg';
 import Sumicon from './Sumicon.svg';
 import Sumicon2 from './Sumicon2.svg';
+import AddIcon from './AddIcon.svg';
 import Clockicon from './Clockicon.svg';
 import UnTick from './UnTick.svg';
 
@@ -55,6 +56,7 @@ export {
   Prescribedimg,
   Tickicon,
   Sumicon,
+  AddIcon,
   Sumicon2,
   Clockicon,
   UnTick,

@@ -28,10 +28,7 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity
-          style={{width: 25, marginRight: 18}}
-          hitSlop={4}
-          onPress={() => console.log('Icon Pressed')}>
+        <TouchableOpacity style={{width: 25, marginRight: 18}} hitSlop={4}>
           <Addimgicon />
         </TouchableOpacity>
       ),
@@ -55,7 +52,7 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
       </View>
       <View style={styles.viewText}>
         <Text style={appStyles.h4}>Check These Out</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CheckOut')}>
           <Text style={[appStyles.h8, {color: colors.primary}]}>View All</Text>
         </TouchableOpacity>
       </View>

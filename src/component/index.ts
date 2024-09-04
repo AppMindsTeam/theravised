@@ -13,6 +13,7 @@ import ProgramPrescribed from './physioHome/ProgramPrescribed';
 import ClientComponent from './physioHome/ClientComponent';
 import CheckOutItem from './physioHome/CheckOutItem';
 import LibraryItem from './library/LibraryItem';
+import CategoryItem from './checkOut/CategoryItem';
 import ProgramComponent from './programs/ProgramComponent';
 
 export {
@@ -31,5 +32,6 @@ export {
   ClientComponent,
   CheckOutItem,
   LibraryItem,
+  CategoryItem,
   ProgramComponent,
 };
