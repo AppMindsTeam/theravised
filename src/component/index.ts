@@ -13,6 +13,7 @@ import ProgramPrescribed from './physioHome/ProgramPrescribed';
 import ClientComponent from './physioHome/ClientComponent';
 import CheckOutItem from './physioHome/CheckOutItem';
 import LibraryItem from './library/LibraryItem';
+import CategoryItem from './checkOut/CategoryItem';
 
 export {
   AppButton,
@@ -30,4 +31,5 @@ export {
   ClientComponent,
   CheckOutItem,
   LibraryItem,
+  CategoryItem,
 };

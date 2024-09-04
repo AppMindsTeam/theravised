@@ -4,7 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
-import {ChangePassword, EditProfile, PhysioProfile} from '../screens/tabs';
+import {
+  ChangePassword,
+  CheckOut,
+  EditProfile,
+  PhysioProfile,
+} from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
 import PhysioBottomTabs from './PhysioBottomNavigation';
 
@@ -15,6 +20,7 @@ export type HomeStackParamsList = {
   EditProfile: undefined;
   ChangePassword: undefined;
   ChatDetails: undefined;
+  CheckOut: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -62,6 +68,14 @@ const HomeStackNavigator = () => {
         name="ChatDetails"
         component={ChatDetails}
         options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="CheckOut"
+        component={CheckOut}
+        options={{
+          headerTitle: 'Check These Out',
+          headerShown: true,
+        }}
       />
     </HomeStack.Navigator>
   );
