@@ -5,6 +5,7 @@ import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
 import {
+  AddNewClient,
   ChangePassword,
   EditProfile,
   PhysioProfile,
@@ -21,6 +22,7 @@ export type HomeStackParamsList = {
   ChangePassword: undefined;
   ChatDetails: undefined;
   ProgramListing: undefined;
+  AddNewClient: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -76,6 +78,12 @@ const HomeStackNavigator = () => {
           headerTitle: 'Check These Out',
           headerShown: true,
         }}
+      />
+
+      <HomeStack.Screen
+        name="AddNewClient"
+        component={AddNewClient}
+        options={{headerTitle: 'New Client Add', headerShown: true}}
       />
     </HomeStack.Navigator>
   );

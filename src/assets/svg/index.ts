@@ -32,6 +32,7 @@ import SearchIcon2 from './SearchIcon2.svg';
 import CheckIcon from './CheckIcon.svg';
 import UnCheckIcon from './UnCheckIcon.svg';
 import DotedIcon from './DotedIcon.svg';
+import NewClientimg from './NewClientimg.svg';
 
 export {
   Checkbox,
@@ -68,4 +69,5 @@ export {
   CheckIcon,
   UnCheckIcon,
   DotedIcon,
+  NewClientimg,
 };
