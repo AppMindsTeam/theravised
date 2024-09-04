@@ -1,7 +1,7 @@
 import {FlatList, StatusBar, StyleSheet, View, Text} from 'react-native';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
+import {BottomTabParamlist} from '../../../navigation/ClientBottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
 import {ChatItem, Header, SearchBar} from '../../../component';

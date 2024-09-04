@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, View, Text, Image} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
@@ -6,10 +6,12 @@ import {images} from '../../assets/images';
 import {appStyles, colors, fonts} from '../utilities/theme';
 import {AppButton} from '../../component';
 import {AccountImg} from '../../assets/svg';
+import {useUser} from '../../Hooks/UseContext';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'ChoseAccount'>;
 
 const ChoseAccount: React.FC<Props> = ({navigation}) => {
+  const {setUser, user} = useUser();
   return (
     <View style={styles.container}>
       <Image source={images.applogo} style={styles.logoStyle} />
@@ -27,12 +29,19 @@ const ChoseAccount: React.FC<Props> = ({navigation}) => {
           title="Physiotherpist"
           customStyle={styles.containerStyle}
           titleStyle={appStyles.h6}
+          onPress={() => {
+            navigation.navigate('SignIn');
+            setUser({userType: 'Physio'});
+          }}
         />
         <AppButton
           title="Client"
           customStyle={styles.containerStyle2}
           titleStyle={styles.buttonTitle}
-          onPress={() => navigation.navigate('SignIn')}
+          onPress={() => {
+            navigation.navigate('SignIn');
+            setUser({userType: 'Client'});
+          }}
         />
       </View>
     </View>
