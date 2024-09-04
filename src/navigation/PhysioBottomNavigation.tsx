@@ -99,7 +99,11 @@ function PhysioBottomTabs() {
       <Tab.Screen
         name="Clients"
         component={Clients}
-        options={{tabBarLabel: 'Clients'}}
+        options={{
+          tabBarLabel: 'Clients',
+          headerShown: true,
+          headerTitle: 'Client List',
+        }}
       />
 
       <Tab.Screen

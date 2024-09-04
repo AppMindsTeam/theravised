@@ -6,12 +6,12 @@ import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
 import {
   ChangePassword,
-  CheckOut,
   EditProfile,
   PhysioProfile,
+  ProgramListing,
 } from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
-// import PhysioBottomTabs from './PhysioBottomNavigation';
+import PhysioBottomTabs from './PhysioBottomNavigation';
 
 export type HomeStackParamsList = {
   // BottomTabs: undefined;
@@ -20,7 +20,7 @@ export type HomeStackParamsList = {
   EditProfile: undefined;
   ChangePassword: undefined;
   ChatDetails: undefined;
-  CheckOut: undefined;
+  ProgramListing: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -44,8 +44,8 @@ const HomeStackNavigator = () => {
         headerStyle: styles.containerStyle,
         headerTitleStyle: styles.titleStyle,
       })}>
-      <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} />
-      {/* <HomeStack.Screen name="PhysioBottomTabs" component={PhysioBottomTabs} /> */}
+      {/* <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} /> */}
+      <HomeStack.Screen name="PhysioBottomTabs" component={PhysioBottomTabs} />
 
       <HomeStack.Screen
         name="PhysioProfile"
@@ -70,8 +70,8 @@ const HomeStackNavigator = () => {
         options={{headerShown: false}}
       />
       <HomeStack.Screen
-        name="CheckOut"
-        component={CheckOut}
+        name="ProgramListing"
+        component={ProgramListing}
         options={{
           headerTitle: 'Check These Out',
           headerShown: true,

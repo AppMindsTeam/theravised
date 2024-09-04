@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {colors} from '../../screens/utilities/theme';
+import {colors, fonts} from '../../screens/utilities/theme';
 
 interface Props {
   title: string;
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.black,
-    fontSize: 16,
+    fontSize: 12,
+    fontFamily: fonts.MontserratSemiBold,
   },
   selectedText: {
     color: colors.white,

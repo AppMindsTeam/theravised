@@ -28,6 +28,10 @@ import Sumicon2 from './Sumicon2.svg';
 import AddIcon from './AddIcon.svg';
 import Clockicon from './Clockicon.svg';
 import UnTick from './UnTick.svg';
+import SearchIcon2 from './SearchIcon2.svg';
+import CheckIcon from './CheckIcon.svg';
+import UnCheckIcon from './UnCheckIcon.svg';
+import DotedIcon from './DotedIcon.svg';
 
 export {
   Checkbox,
@@ -60,4 +64,8 @@ export {
   Sumicon2,
   Clockicon,
   UnTick,
+  SearchIcon2,
+  CheckIcon,
+  UnCheckIcon,
+  DotedIcon,
 };
