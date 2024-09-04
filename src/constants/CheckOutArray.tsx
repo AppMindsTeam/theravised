@@ -20,6 +20,6 @@ export const CHECKOUT_ARRAY = [
   },
   {
     ImageUrl:
-      'https://plus.unsplash.com/premium_photo-1661963783202-202a55d177be?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGZyZWUlMjBpbWFnZXMlMjBwaHlzaW90aHJhcGlzdHxlbnwwfHwwfHx8MA%3D%3D',
+      'https://media.istockphoto.com/id/1461352916/photo/sportsman-patient-undergoing-physical-therapy-in-clinic-to-recover-from-surgery-and-increase.jpg?s=612x612&w=0&k=20&c=QSxVbZ6MlMJCGwpgUuM7VqawpKDkXSOWFQTn_pQSb68=',
   },
 ];
