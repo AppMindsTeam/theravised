@@ -1,7 +1,7 @@
 import {StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React, {useContext} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import BottomTabsNavigator from './BottomNavigation';
+import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
 import {
@@ -11,7 +11,7 @@ import {
   PhysioProfile,
 } from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
-import PhysioBottomTabs from './PhysioBottomNavigation';
+// import PhysioBottomTabs from './PhysioBottomNavigation';
 
 export type HomeStackParamsList = {
   // BottomTabs: undefined;
@@ -44,8 +44,8 @@ const HomeStackNavigator = () => {
         headerStyle: styles.containerStyle,
         headerTitleStyle: styles.titleStyle,
       })}>
-      {/* <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} /> */}
-      <HomeStack.Screen name="PhysioBottomTabs" component={PhysioBottomTabs} />
+      <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} />
+      {/* <HomeStack.Screen name="PhysioBottomTabs" component={PhysioBottomTabs} /> */}
 
       <HomeStack.Screen
         name="PhysioProfile"
