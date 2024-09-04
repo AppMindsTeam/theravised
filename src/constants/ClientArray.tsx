@@ -11,7 +11,7 @@ export const CLIENT_ARRAY = [
   },
   {
     id: 3,
-    name: 'George King',
+    name: 'Lachie Fraser',
     followUp: 'Scheduled',
   },
   {

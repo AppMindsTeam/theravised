@@ -44,5 +44,6 @@ const styles = StyleSheet.create({
   subTitle: {
     color: colors.black,
     marginLeft: 30,
+    flex: 1,
   },
 });

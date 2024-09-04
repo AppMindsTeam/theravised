@@ -30,13 +30,7 @@ const Clients: React.FC<Props> = ({navigation}) => {
   }, [navigation]);
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingRight: 30,
-          marginTop: 30,
-        }}>
+      <View style={styles.headerContainer}>
         <Text style={[appStyles.h6, {color: colors.black}]}>Status</Text>
         <Text style={[appStyles.h6, {color: colors.black}]}>Name</Text>
         <Text style={[appStyles.h6, {color: colors.black}]}>Follow Up</Text>
@@ -72,6 +66,12 @@ const styles = StyleSheet.create({
   list: {
     marginTop: 15,
     gap: 14,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingRight: 30,
+    marginTop: 30,
   },
 });
 
