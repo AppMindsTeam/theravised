@@ -52,7 +52,9 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
       </View>
       <View style={styles.viewText}>
         <Text style={appStyles.h4}>Check These Out</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('CheckOut')}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ProgramListing')}
+          hitSlop={6}>
           <Text style={[appStyles.h8, {color: colors.primary}]}>View All</Text>
         </TouchableOpacity>
       </View>

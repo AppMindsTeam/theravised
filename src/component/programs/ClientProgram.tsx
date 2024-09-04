@@ -12,7 +12,7 @@ import {Clockicon, Tickicon, UnTick} from '../../assets/svg';
 interface Props {
   ImageUrl: string;
 }
-const ProgramComponent: React.FC<Props> = ({ImageUrl}) => {
+const ClientProgram: React.FC<Props> = ({ImageUrl}) => {
   const [isTickVisible, setIsTickVisible] = useState(true);
   const handleIconToggle = () => {
     setIsTickVisible(!isTickVisible);
@@ -46,7 +46,7 @@ const ProgramComponent: React.FC<Props> = ({ImageUrl}) => {
   );
 };
 
-export default ProgramComponent;
+export default ClientProgram;
 
 const styles = StyleSheet.create({
   container: {

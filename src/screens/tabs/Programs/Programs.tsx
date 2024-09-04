@@ -4,7 +4,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
-import {ProgramComponent, ProgramItem, SearchBar} from '../../../component';
+import {ClientProgram} from '../../../component';
 import {CHECKOUT_ARRAY} from '../../../constants';
 
 type Props = NativeStackScreenProps<
@@ -21,7 +21,7 @@ const Programs: React.FC<Props> = ({navigation}) => {
         showsVerticalScrollIndicator={false}
         data={CHECKOUT_ARRAY}
         keyExtractor={item => item.ImageUrl}
-        renderItem={({item}) => <ProgramComponent ImageUrl={item.ImageUrl} />}
+        renderItem={({item}) => <ClientProgram ImageUrl={item.ImageUrl} />}
         contentContainerStyle={styles.contentContainerStyle}
       />
     </View>
@@ -34,11 +34,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.bgcolor,
-    paddingHorizontal: 22,
-    paddingTop: 18,
+    paddingHorizontal: 18,
   },
   contentContainerStyle: {
     gap: 15,
-    paddingBottom: 30,
+    paddingBottom: 20,
   },
 });

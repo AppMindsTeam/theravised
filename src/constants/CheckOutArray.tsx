@@ -22,4 +22,13 @@ export const CHECKOUT_ARRAY = [
     ImageUrl:
       'https://media.istockphoto.com/id/1461352916/photo/sportsman-patient-undergoing-physical-therapy-in-clinic-to-recover-from-surgery-and-increase.jpg?s=612x612&w=0&k=20&c=QSxVbZ6MlMJCGwpgUuM7VqawpKDkXSOWFQTn_pQSb68=',
   },
+  {
+    ImageUrl:
+      'https://media.istockphoto.com/id/1501185765/photo/man-doing-physical-therapy-and-walking-on-bars.webp?a=1&b=1&s=612x612&w=0&k=20&c=bVLKlI3iLwfyaclZFCMp6pVjoDDIdE7xUD-87IsOb3g=',
+  },
+
+  {
+    ImageUrl:
+      'https://media.istockphoto.com/id/1501185766/photo/man-doing-physical-therapy-exercises-using-a-balance-ball.webp?a=1&b=1&s=612x612&w=0&k=20&c=i2Bo2QML07z4RcYnH4vur1GrYsdJnIC4s3oooQeChTs=',
+  },
 ];

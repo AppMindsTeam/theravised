@@ -13,9 +13,9 @@ import {CategoryItem, ProgramItem, SearchBar} from '../../../component';
 import {AddIcon} from '../../../assets/svg';
 import {PROGRAM_ARRAY} from '../../../constants/ProgramArray';
 
-type Props = NativeStackScreenProps<HomeStackParamsList, 'CheckOut'>;
+type Props = NativeStackScreenProps<HomeStackParamsList, 'ProgramListing'>;
 
-const CheckOut: React.FC<Props> = ({navigation}) => {
+const ProgramListing: React.FC<Props> = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CheckOut;
+export default ProgramListing;

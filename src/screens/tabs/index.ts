@@ -8,7 +8,7 @@ import ChangePassword from './Profile/ChangePassword';
 import Clients from '../physioTabs/Clients/Clients';
 import Library from '../physioTabs/Library/Library';
 import PhysioHome from '../physioTabs/PhysioHome/PhysioHome';
-import CheckOut from '../physioTabs/PhysioHome/CheckOut';
+import ProgramListing from '../physioTabs/PhysioHome/ProgramListing';
 
 export {
   Home,
@@ -21,5 +21,5 @@ export {
   Clients,
   Library,
   PhysioHome,
-  CheckOut,
+  ProgramListing,
 };
