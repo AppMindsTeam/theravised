@@ -12,7 +12,7 @@ import {
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors, fonts} from '../../utilities/theme';
 import {AppButton} from '../../../component';
-import {BackArrow} from '../../../assets/svg';
+import {BackArrow, Locationicon} from '../../../assets/svg';
 
 type Props = NativeStackScreenProps<HomeStackParamsList, 'PhysioProfile'>;
 
@@ -47,9 +47,28 @@ const PhysioProfile: React.FC<Props> = ({navigation}) => {
       <Text style={[appStyles.h4, {marginTop: 60, paddingHorizontal: 18}]}>
         Amy Miles
       </Text>
-      <Text style={[appStyles.h9, {paddingHorizontal: 18, marginTop: 4}]}>
-        amymiles123@gmail.com
+      <Text style={[appStyles.h8, {paddingHorizontal: 18, marginTop: 2}]}>
+        Physiotherapist
       </Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 18,
+        }}>
+        <Text style={[appStyles.h9, styles.clinickText]}>Clinic Name</Text>
+        <Locationicon />
+        <Text style={[appStyles.h8, {marginLeft: 4}]}>
+          Hillarys, Western Australia
+        </Text>
+      </View>
+      <Text style={[appStyles.h6, {paddingHorizontal: 18, marginTop: 20}]}>
+        Specialty
+      </Text>
+      <View>
+        <View></View>
+      </View>
+
       <Text style={[appStyles.h5, styles.paragraph]}>
         Physiotherapy helps to restore movement and function when someone is
         affected by injury, illness or disability. It can also help to reduce
@@ -101,6 +120,12 @@ const styles = StyleSheet.create({
   ArrowButton: {
     marginLeft: 18,
     marginTop: 45,
+  },
+  clinickText: {
+    color: colors.green,
+    marginTop: 4,
+    paddingRight: 8,
+    paddingBottom: 2,
   },
 });
 
