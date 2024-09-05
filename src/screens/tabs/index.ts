@@ -9,6 +9,7 @@ import Clients from '../physioTabs/Clients/Clients';
 import Library from '../physioTabs/Library/Library';
 import PhysioHome from '../physioTabs/PhysioHome/PhysioHome';
 import ProgramListing from '../physioTabs/PhysioHome/ProgramListing';
+import AddNewClient from '../physioTabs/Clients/AddNewClient';
 
 export {
   Home,
@@ -22,4 +23,5 @@ export {
   Library,
   PhysioHome,
   ProgramListing,
+  AddNewClient,
 };

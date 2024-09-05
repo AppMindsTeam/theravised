@@ -1,7 +1,7 @@
 import {StatusBar, StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
+import {BottomTabParamlist} from '../../../navigation/ClientBottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {colors} from '../../utilities/theme';
 import ProfileHeader from '../../../component/profile/ProfileHeader';

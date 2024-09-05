@@ -21,7 +21,7 @@ import {useUser} from '../../Hooks/UseContext';
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignIn'>;
 
 const SignIn: React.FC<Props> = ({navigation}) => {
-  const {setUser} = useUser();
+  const {setUser, user} = useUser();
   const [hidePasswod, setHidePassword] = useState(true);
 
   const togglePassword = () => setHidePassword(!hidePasswod);
@@ -53,6 +53,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
         name: 'shan',
         password: '000000',
         referalCode: '1234',
+        userType: user?.userType || 'Client',
       });
     },
   });

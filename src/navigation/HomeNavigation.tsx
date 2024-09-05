@@ -1,10 +1,10 @@
 import {StyleSheet, TouchableOpacity, Image} from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import BottomTabsNavigator from './BottomNavigation';
 import {colors, fonts} from '../screens/utilities/theme';
 import {BackArrow} from '../assets/svg';
 import {
+  AddNewClient,
   ChangePassword,
   EditProfile,
   PhysioProfile,
@@ -12,18 +12,22 @@ import {
 } from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
 import PhysioBottomTabs from './PhysioBottomNavigation';
+import {useUser} from '../Hooks/UseContext';
+import ClientBottomTabs from './ClientBottomNavigation';
 
 export type HomeStackParamsList = {
-  // BottomTabs: undefined;
+  ClientBottomTabs: undefined;
   PhysioBottomTabs: undefined;
   PhysioProfile: undefined;
   EditProfile: undefined;
   ChangePassword: undefined;
   ChatDetails: undefined;
   ProgramListing: undefined;
+  AddNewClient: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
+  const {user} = useUser();
 
   return (
     <HomeStack.Navigator
@@ -44,8 +48,17 @@ const HomeStackNavigator = () => {
         headerStyle: styles.containerStyle,
         headerTitleStyle: styles.titleStyle,
       })}>
-      {/* <HomeStack.Screen name="BottomTabs" component={BottomTabsNavigator} /> */}
-      <HomeStack.Screen name="PhysioBottomTabs" component={PhysioBottomTabs} />
+      {user?.userType == 'Physio' ? (
+        <HomeStack.Screen
+          name="PhysioBottomTabs"
+          component={PhysioBottomTabs}
+        />
+      ) : (
+        <HomeStack.Screen
+          name="ClientBottomTabs"
+          component={ClientBottomTabs}
+        />
+      )}
 
       <HomeStack.Screen
         name="PhysioProfile"
@@ -76,6 +89,12 @@ const HomeStackNavigator = () => {
           headerTitle: 'Check These Out',
           headerShown: true,
         }}
+      />
+
+      <HomeStack.Screen
+        name="AddNewClient"
+        component={AddNewClient}
+        options={{headerTitle: 'New Client Add', headerShown: true}}
       />
     </HomeStack.Navigator>
   );

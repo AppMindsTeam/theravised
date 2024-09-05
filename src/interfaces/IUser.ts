@@ -9,4 +9,5 @@ export interface IUser {
   email: string;
   password: string;
   referalCode: string;
+  userType: 'Physio' | 'Client';
 }

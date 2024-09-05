@@ -21,7 +21,10 @@ const Clients: React.FC<Props> = ({navigation}) => {
           <TouchableOpacity style={styles.headerIconButton} hitSlop={4}>
             <SearchIcon2 />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.headerIconButton} hitSlop={4}>
+          <TouchableOpacity
+            style={styles.headerIconButton}
+            hitSlop={4}
+            onPress={() => navigation.navigate('AddNewClient')}>
             <Sumicon2 />
           </TouchableOpacity>
         </View>

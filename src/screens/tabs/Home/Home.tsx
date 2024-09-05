@@ -8,7 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {BottomTabParamlist} from '../../../navigation/BottomNavigation';
+import {BottomTabParamlist} from '../../../navigation/ClientBottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors} from '../../utilities/theme';
 import {Goal, MyProgressItem} from '../../../component';

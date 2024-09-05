@@ -5,7 +5,6 @@ import {images} from '../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../screens/utilities/theme';
 import {Home, Messege, Profile, Programs} from '../screens/tabs';
-import {BackArrow} from '../assets/svg';
 
 export type BottomTabParamlist = {
   Home: undefined;
@@ -16,7 +15,7 @@ export type BottomTabParamlist = {
 
 const Tab = createBottomTabNavigator<BottomTabParamlist>();
 
-function BottomTabs() {
+function ClientBottomTabs() {
   const navigation = useNavigation();
   return (
     <Tab.Navigator
@@ -121,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BottomTabs;
+export default ClientBottomTabs;
