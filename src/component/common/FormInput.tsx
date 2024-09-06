@@ -23,6 +23,7 @@ interface Props extends TextInputProps {
   rightIcon?: ImageSourcePropType;
   inputStyles?: TextStyle;
   errorMessage?: string | false;
+  inputContainerStyle?: ViewStyle;
 }
 
 const FormInput: FC<Props> = ({
@@ -41,6 +42,8 @@ const FormInput: FC<Props> = ({
   keyboardType,
   editable,
   errorMessage,
+  inputContainerStyle,
+  ...rest
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -49,6 +52,7 @@ const FormInput: FC<Props> = ({
       <View
         style={[
           styles.inputContainer,
+          inputContainerStyle,
           {
             borderColor: value ? colors.primary : colors.gray[100],
             marginTop: 20,
@@ -73,6 +77,7 @@ const FormInput: FC<Props> = ({
           onFocus={() => setIsFocused(true)}
           keyboardType={keyboardType}
           editable={editable}
+          {...rest}
         />
         {isPassword ? (
           <TouchableOpacity onPress={onLeftIconPress}>

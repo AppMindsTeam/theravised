@@ -1,7 +1,6 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
-import {openPicker} from 'react-native-image-crop-picker';
 
 interface Props {
   title: string;
@@ -11,7 +10,10 @@ interface Props {
 }
 const ChatItem: React.FC<Props> = ({title, ImageUrl, isActive, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      activeOpacity={2}>
       <View style={styles.imageContainer}>
         <Image
           source={{
@@ -45,10 +47,13 @@ export default ChatItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.bgcolor,
+    backgroundColor: colors.white,
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 12,
+    borderRadius: 10,
+    paddingHorizontal: 6,
+    paddingVertical: 4,
   },
   imageContainer: {
     width: 56,

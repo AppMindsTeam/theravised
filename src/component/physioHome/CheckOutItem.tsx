@@ -1,12 +1,11 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {Prescribedimg} from '../../assets/svg';
-import {appStyles, colors, fonts} from '../../screens/utilities/theme';
+import {appStyles, colors} from '../../screens/utilities/theme';
 
 interface Props {
-  //   onPress?: () => void;
   Imageurl: string;
 }
+
 const CheckOutItem: React.FC<Props> = ({Imageurl}) => {
   return (
     <View style={styles.container}>
@@ -30,9 +29,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
     width: 182,
+    height: 155,
     borderRadius: 10,
-    // paddingBottom: 5,
-    // marginBottom: 5,
+    overflow: 'hidden',
   },
   imgStyle: {
     height: 97,
@@ -40,6 +39,14 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
-  titleStyle: {paddingHorizontal: 6, paddingBottom: 7, color: colors.black},
-  dateStyle: {paddingHorizontal: 6, marginTop: 7, color: colors.gray[50]},
+  titleStyle: {
+    paddingHorizontal: 6,
+    color: colors.black,
+    marginBottom: 5,
+  },
+  dateStyle: {
+    paddingHorizontal: 6,
+    marginTop: 7,
+    color: colors.gray[50],
+  },
 });

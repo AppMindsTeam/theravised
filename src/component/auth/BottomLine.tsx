@@ -5,7 +5,9 @@ import {appStyles, colors, fonts} from '../../screens/utilities/theme';
 const BottomLine = ({onPress, title}: {onPress: () => void; title: string}) => {
   return (
     <View style={styles.bottomContainer}>
-      <Text style={appStyles.h7}>I already have an account!</Text>
+      <Text style={[appStyles.h7, {color: colors.gray[50]}]}>
+        I already have an account!
+      </Text>
       <TouchableOpacity onPress={onPress}>
         <Text
           style={[

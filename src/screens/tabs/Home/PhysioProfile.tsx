@@ -13,6 +13,7 @@ import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors, fonts} from '../../utilities/theme';
 import {AppButton} from '../../../component';
 import {BackArrow, Locationicon} from '../../../assets/svg';
+import {SPECIALTY_ARRAY} from '../../../constants';
 
 type Props = NativeStackScreenProps<HomeStackParamsList, 'PhysioProfile'>;
 
@@ -44,40 +45,49 @@ const PhysioProfile: React.FC<Props> = ({navigation}) => {
           style={styles.profileImage}
         />
       </View>
-      <Text style={[appStyles.h4, {marginTop: 60, paddingHorizontal: 18}]}>
+      <Text style={[appStyles.h4, {marginTop: 45, paddingHorizontal: 18}]}>
         Amy Miles
       </Text>
       <Text style={[appStyles.h8, {paddingHorizontal: 18, marginTop: 2}]}>
         Physiotherapist
       </Text>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 18,
-        }}>
+
+      <View style={styles.clinickContainer}>
         <Text style={[appStyles.h9, styles.clinickText]}>Clinic Name</Text>
         <Locationicon />
         <Text style={[appStyles.h8, {marginLeft: 4}]}>
           Hillarys, Western Australia
         </Text>
       </View>
-      <Text style={[appStyles.h6, {paddingHorizontal: 18, marginTop: 20}]}>
+      <Text style={[appStyles.h6, {paddingHorizontal: 18, marginTop: 8}]}>
         Specialty
       </Text>
-      <View>
-        <View></View>
+      <View style={styles.specialtyContaienr}>
+        {SPECIALTY_ARRAY.map(text => {
+          return (
+            <View style={{backgroundColor: colors.white, borderRadius: 12}}>
+              <Text style={styles.textContaienr}>{text}</Text>
+            </View>
+          );
+        })}
       </View>
 
-      <Text style={[appStyles.h5, styles.paragraph]}>
+      <Text style={[appStyles.h6, {paddingHorizontal: 18, marginTop: 12}]}>
+        About me
+      </Text>
+      <Text style={[appStyles.h7, styles.paragraph]}>
         Physiotherapy helps to restore movement and function when someone is
         affected by injury, illness or disability. It can also help to reduce
         your risk of injury or illness in the future. It takes a holistic
         approach that involves the patient directly in their own care.
       </Text>
       <AppButton
+        title="Book Apointment"
+        customStyle={{marginHorizontal: 18, marginTop: 30}}
+      />
+      <AppButton
         title="Chat"
-        customStyle={{marginHorizontal: 18, marginTop: 80}}
+        customStyle={{marginHorizontal: 18, marginTop: 15}}
       />
     </View>
   );
@@ -113,9 +123,9 @@ const styles = StyleSheet.create({
   paragraph: {
     paddingLeft: 18,
     paddingRight: 25,
-    marginTop: 15,
-    color: colors.black,
-    lineHeight: 18,
+    marginTop: 4,
+    color: colors.gray[400],
+    lineHeight: 16,
   },
   ArrowButton: {
     marginLeft: 18,
@@ -124,8 +134,28 @@ const styles = StyleSheet.create({
   clinickText: {
     color: colors.green,
     marginTop: 4,
-    paddingRight: 8,
+    paddingRight: 6,
     paddingBottom: 2,
+  },
+  specialtyContaienr: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 10,
+    paddingHorizontal: 18,
+    marginTop: 12,
+  },
+  textContaienr: {
+    color: colors.black,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    fontSize: 12,
+    fontFamily: fonts.MontserratMedium,
+  },
+  clinickContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 18,
   },
 });
 

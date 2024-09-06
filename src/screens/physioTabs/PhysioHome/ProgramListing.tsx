@@ -19,7 +19,10 @@ const ProgramListing: React.FC<Props> = ({navigation}) => {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity style={{width: 25, marginRight: 38}} hitSlop={4}>
+        <TouchableOpacity
+          style={{width: 25, marginRight: 38}}
+          hitSlop={6}
+          onPress={() => navigation.navigate('UploadVideo')}>
           <AddIcon />
         </TouchableOpacity>
       ),

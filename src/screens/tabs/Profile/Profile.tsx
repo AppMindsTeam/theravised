@@ -18,11 +18,22 @@ type Props = NativeStackScreenProps<
 const Profile: React.FC<Props> = ({navigation}) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [isLogOutModel, setLogOutModal] = useState(false);
-  const {setUser} = useUser();
+  const {setUser, user} = useUser();
+
+  const handleProfileNavigation = () => {
+    {
+      user?.userType == 'Physio'
+        ? navigation.navigate('EditPhysioProfile')
+        : navigation.navigate('EditProfile');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
-      <ProfileHeader onPress={() => navigation.navigate('EditProfile')} />
+
+      <ProfileHeader onPress={handleProfileNavigation} />
+
       <ProfileItem
         title="Change Password"
         Icon={<Passwordicon />}
