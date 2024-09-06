@@ -6,9 +6,11 @@ import {BackArrow} from '../assets/svg';
 import {
   AddNewClient,
   ChangePassword,
+  EditPhysioProfile,
   EditProfile,
   PhysioProfile,
   ProgramListing,
+  UploadVideo,
 } from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
 import PhysioBottomTabs from './PhysioBottomNavigation';
@@ -24,6 +26,8 @@ export type HomeStackParamsList = {
   ChatDetails: undefined;
   ProgramListing: undefined;
   AddNewClient: undefined;
+  UploadVideo: undefined;
+  EditPhysioProfile: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -95,6 +99,18 @@ const HomeStackNavigator = () => {
         name="AddNewClient"
         component={AddNewClient}
         options={{headerTitle: 'New Client Add', headerShown: true}}
+      />
+
+      <HomeStack.Screen
+        name="UploadVideo"
+        component={UploadVideo}
+        options={{headerTitle: 'Upload video', headerShown: true}}
+      />
+
+      <HomeStack.Screen
+        name="EditPhysioProfile"
+        component={EditPhysioProfile}
+        options={{headerShown: false}}
       />
     </HomeStack.Navigator>
   );

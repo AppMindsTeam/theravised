@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 15,
-    paddingBottom: 30,
+    // paddingBottom: 30,
     gap: 10,
     paddingHorizontal: 18,
   },

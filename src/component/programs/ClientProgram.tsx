@@ -24,7 +24,9 @@ const ClientProgram: React.FC<Props> = ({ImageUrl}) => {
           uri: ImageUrl,
         }}
         style={styles.imgStyle}>
-        <Text style={[appStyles.h10, styles.timeStyle]}>2:30min</Text>
+        <View style={styles.timeBackground}>
+          <Text style={[appStyles.h10, styles.timeStyle]}>2m 30s</Text>
+        </View>
       </ImageBackground>
       <View style={styles.innerContainer}>
         <Text style={[appStyles.h8, {color: colors.black}]}>
@@ -65,11 +67,24 @@ const styles = StyleSheet.create({
     width: '45%',
     paddingVertical: 10,
   },
-  timeContainer: {flexDirection: 'row', marginTop: 6, alignItems: 'center'},
+  timeContainer: {
+    flexDirection: 'row',
+    marginTop: 6,
+    alignItems: 'center',
+  },
+  timeBackground: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    borderRadius: 10,
+    paddingVertical: 1,
+    paddingHorizontal: 6,
+    position: 'absolute',
+    right: 5,
+    bottom: 5,
+    borderColor: 'white',
+    borderWidth: 1,
+  },
   timeStyle: {
     color: colors.white,
-    alignSelf: 'flex-end',
-    marginRight: 6,
-    marginTop: 65,
+    alignSelf: 'center',
   },
 });

@@ -10,6 +10,8 @@ import Library from '../physioTabs/Library/Library';
 import PhysioHome from '../physioTabs/PhysioHome/PhysioHome';
 import ProgramListing from '../physioTabs/PhysioHome/ProgramListing';
 import AddNewClient from '../physioTabs/Clients/AddNewClient';
+import UploadVideo from '../physioTabs/PhysioHome/UploadVideo';
+import EditPhysioProfile from '../physioTabs/Profile/EditphysioProfile';
 
 export {
   Home,
@@ -24,4 +26,6 @@ export {
   PhysioHome,
   ProgramListing,
   AddNewClient,
+  UploadVideo,
+  EditPhysioProfile,
 };

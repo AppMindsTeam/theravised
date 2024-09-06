@@ -111,7 +111,10 @@ const SignIn: React.FC<Props> = ({navigation}) => {
           size={18}
           textStyle={styles.textStyle}
           style={{marginTop: 25}}
+          iconStyle={{borderRadius: 6}}
+          innerIconStyle={{borderRadius: 6}}
           iconImageStyle={styles.iconImageStyle}
+          // checkIconImageSource={images.hideicon}
           fillColor={colors.primary}
           unFillColor={'transparent'}
           text={'I accept the Terms & Conditions'}
@@ -123,6 +126,8 @@ const SignIn: React.FC<Props> = ({navigation}) => {
           textStyle={styles.textStyle}
           style={{marginTop: 12}}
           iconImageStyle={styles.iconImageStyle}
+          iconStyle={{borderRadius: 6}}
+          innerIconStyle={{borderRadius: 6}}
           fillColor={colors.primary}
           unFillColor={'transparent'}
           text={'I accept the Privacy Policy'}
@@ -171,7 +176,7 @@ const styles = StyleSheet.create({
     color: colors.gray[50],
     textDecorationLine: 'none',
     fontSize: 12,
-    fontFamily: fonts.MontserratRegular,
+    fontFamily: fonts.MontserratMedium,
   },
   iconImageStyle: {
     width: 10,

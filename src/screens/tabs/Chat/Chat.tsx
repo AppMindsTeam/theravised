@@ -17,7 +17,10 @@ const Messege: React.FC<Props> = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
       <Header />
-      <SearchBar containerStyle={{marginTop: 20, marginBottom: 8}} />
+      <SearchBar
+        containerStyle={{marginTop: 20, marginBottom: 8}}
+        placeholder="Search"
+      />
 
       <FlatList
         showsVerticalScrollIndicator={false}
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
     paddingTop: 18,
   },
   contentContainerStyle: {
-    marginTop: 8,
+    // marginTop: 8,
     paddingBottom: 30,
   },
 });

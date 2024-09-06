@@ -34,8 +34,19 @@ import UnCheckIcon from './UnCheckIcon.svg';
 import DotedIcon from './DotedIcon.svg';
 import NewClientimg from './NewClientimg.svg';
 import Locationicon from './Locationicon.svg';
+import VideoIcon from './VideoIcon.svg';
+import DropDownIcon from './DropDownIcon.svg';
+import SuccessIcon from './SuccessIcon.svg';
+import QualificationIcon from './QualificationIcon.svg';
+import ClinikIcon from './ClinikIcon.svg';
+import LocationIcon2 from './LocationIcon2.svg';
+import SpecialityIcon from './SpecialityIcon.svg';
 
 export {
+  QualificationIcon,
+  ClinikIcon,
+  LocationIcon2,
+  SpecialityIcon,
   Checkbox,
   Messegeicon,
   Lockicon,
@@ -72,4 +83,7 @@ export {
   DotedIcon,
   NewClientimg,
   Locationicon,
+  VideoIcon,
+  DropDownIcon,
+  SuccessIcon,
 };
