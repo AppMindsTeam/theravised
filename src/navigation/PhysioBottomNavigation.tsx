@@ -38,13 +38,6 @@ function PhysioBottomTabs() {
         headerTitleStyle: styles.headerTitleStyle,
         headerTitleAlign: 'center',
         headerShown: false,
-        // headerRight: () => (
-        //   <TouchableOpacity
-        //     style={{width: 25, marginRight: 18}}
-        //     hitSlop={styles.hitSlop}>
-        //     <Addimgicon />
-        //   </TouchableOpacity>
-        // ),
 
         tabBarIcon: ({color, size, focused}) => {
           let source;
@@ -87,6 +80,7 @@ function PhysioBottomTabs() {
           headerShown: true,
           headerTitle: 'Hi Lachie,',
           headerTitleAlign: 'left',
+          headerStyle: {backgroundColor: colors.bgcolor, height: 110},
         }}
       />
 
@@ -142,6 +136,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: fonts.MontserratSemiBold,
     lineHeight: 20,
+    // marginTop: 30,
   },
   tabBarLabelStyle: {marginTop: 12},
   headerStyle: {

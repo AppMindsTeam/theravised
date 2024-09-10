@@ -1,4 +1,11 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
 
@@ -6,28 +13,20 @@ interface Props {
   ImageUrl: string;
   title: string;
   description: string;
-  date: string;
-  time: string;
 }
-const ProgramItem: React.FC<Props> = ({
-  ImageUrl,
-  title,
-  description,
-  date,
-  time,
-}) => {
+const ProgramItem: React.FC<Props> = ({ImageUrl, title, description}) => {
   return (
     <TouchableOpacity activeOpacity={0.6} style={styles.container}>
-      <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
-      <View style={styles.rowContainer}>
-        <Text style={[appStyles.h8, {color: colors.gray[50]}]}>{date}</Text>
-        <Text style={[appStyles.h8, {color: colors.primary}]}>{time}</Text>
-      </View>
+      <ImageBackground source={{uri: ImageUrl}} style={styles.imgStyle}>
+        <View style={styles.timeBackground}>
+          <Text style={[appStyles.h10, styles.timeStyle]}>2m 30s</Text>
+        </View>
+      </ImageBackground>
 
       <Text
         style={[
           appStyles.h6,
-          {color: colors.black, marginTop: 4, paddingHorizontal: 8},
+          {color: colors.black, marginTop: 9, paddingHorizontal: 8},
         ]}>
         {title}
       </Text>
@@ -50,6 +49,9 @@ const styles = StyleSheet.create({
     width: '100%',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    overflow: 'hidden',
+    marginRight: 8,
+    justifyContent: 'flex-end',
   },
   description: {
     fontSize: 10,
@@ -57,10 +59,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     color: colors.gray[50],
   },
-  rowContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 6,
-    marginTop: 6,
+  timeBackground: {
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    borderRadius: 100,
+    borderColor: colors.gray[150],
+    borderWidth: 1,
+    paddingHorizontal: 4,
+    paddingVertical: 1,
+    alignSelf: 'flex-end',
+    margin: 3,
+  },
+  timeStyle: {
+    color: colors.white,
   },
 });

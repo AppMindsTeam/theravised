@@ -41,8 +41,18 @@ import QualificationIcon from './QualificationIcon.svg';
 import ClinikIcon from './ClinikIcon.svg';
 import LocationIcon2 from './LocationIcon2.svg';
 import SpecialityIcon from './SpecialityIcon.svg';
+import CalenderIcon from './CalenderIcon.svg';
+import DotIcon from './DotIcon.svg';
+import Checkbox2 from './Checkbox2.svg';
+import SentIcon from './SentIcon.svg';
+import Cameraicon from './Cameraicon.svg';
 
 export {
+  Cameraicon,
+  SentIcon,
+  Checkbox2,
+  DotIcon,
+  CalenderIcon,
   QualificationIcon,
   ClinikIcon,
   LocationIcon2,

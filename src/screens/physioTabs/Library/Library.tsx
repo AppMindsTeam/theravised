@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import {View, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, FlatList, Text} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {PhysioBottomTabParamlist} from '../../../navigation/PhysioBottomNavigation';
-import {colors} from '../../utilities/theme';
-import {Addimgicon, Filltericon, Sumicon2} from '../../../assets/svg';
+import {appStyles, colors} from '../../utilities/theme';
+import {Addimgicon, Filltericon, SentIcon, Sumicon2} from '../../../assets/svg';
 import {LibraryItem, SearchBar} from '../../../component';
 import {LIBRARY_ARRAY} from '../../../constants';
 
@@ -19,10 +19,10 @@ const Library: React.FC<Props> = ({navigation}) => {
       headerRight: () => (
         <View style={styles.headerIconsContainer}>
           <TouchableOpacity style={styles.headerIconButton} hitSlop={4}>
-            <Addimgicon />
+            <Addimgicon width={32} height={32} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.headerIconButton} hitSlop={4}>
-            <Sumicon2 />
+            <Sumicon2 width={32} height={32} />
           </TouchableOpacity>
         </View>
       ),
@@ -49,6 +49,15 @@ const Library: React.FC<Props> = ({navigation}) => {
         contentContainerStyle={styles.list}
         columnWrapperStyle={{gap: 10}}
       />
+      <View style={styles.sendContainer}>
+        <Text style={[appStyles.h5, {color: colors.white}]}>
+          Selected
+          <Text style={[appStyles.h3, {color: colors.white}]}> 4 items</Text>
+        </Text>
+        <TouchableOpacity>
+          <SentIcon />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -66,16 +75,29 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   list: {
-    marginTop: 15,
+    marginTop: 10,
     gap: 15,
+    paddingBottom: 25,
   },
   headerIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginRight: 7,
   },
   headerIconButton: {
     width: 25,
     marginRight: 15,
+  },
+  sendContainer: {
+    backgroundColor: colors.primary,
+    width: '100%',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 18,
+    paddingVertical: 11,
   },
 });
 

@@ -1,5 +1,5 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 import {appStyles, colors} from '../../screens/utilities/theme';
 import {CheckIcon, DotedIcon, UnCheckIcon} from '../../assets/svg';
 
@@ -8,15 +8,9 @@ interface Props {
   followUp: string;
 }
 const ClientItem: React.FC<Props> = ({name, followUp}) => {
-  const [isTickVisible, setIsTickVisible] = useState(false);
-  const handleIconToggle = () => {
-    setIsTickVisible(!isTickVisible);
-  };
   return (
     <View style={styles.container}>
-      <TouchableOpacity hitSlop={6} onPress={handleIconToggle}>
-        {isTickVisible ? <CheckIcon /> : <UnCheckIcon />}
-      </TouchableOpacity>
+      <CheckIcon />
       <Text style={[appStyles.h5, styles.titleStyle]}>{name}</Text>
       <DotedIcon />
       <Text style={[appStyles.h5, styles.subTitle]}>{followUp}</Text>

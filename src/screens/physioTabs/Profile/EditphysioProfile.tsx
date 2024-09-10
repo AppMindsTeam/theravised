@@ -16,6 +16,7 @@ import {
   AddIcon,
   Addimgicon,
   BackArrow,
+  Cameraicon,
   ClinikIcon,
   DropDownIcon,
   LocationIcon2,
@@ -105,6 +106,9 @@ const EditPhysioProfile: React.FC<Props> = ({navigation}) => {
           style={styles.ArrowButton}
           hitSlop={10}>
           <BackArrow />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Cameraicon style={{alignSelf: 'center', marginTop: 40}} />
         </TouchableOpacity>
       </ImageBackground>
       <View style={styles.profileContainer}>

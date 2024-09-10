@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
@@ -18,6 +19,7 @@ import {
   ProgramPrescribed,
 } from '../../../component';
 import {CHECKOUT_ARRAY} from '../../../constants';
+import ImageCropPicker from 'react-native-image-crop-picker';
 
 type Props = NativeStackScreenProps<
   PhysioBottomTabParamlist & HomeStackParamsList,
@@ -25,11 +27,23 @@ type Props = NativeStackScreenProps<
 >;
 
 const PhysioHome: React.FC<Props> = ({navigation}) => {
+  const handleImagePicker = () => {
+    ImageCropPicker.openCamera({
+      mediaType: 'any',
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').width,
+    }).then(image => {
+      console.log(image);
+    });
+  };
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <TouchableOpacity style={{width: 25, marginRight: 18}} hitSlop={4}>
-          <Addimgicon />
+        <TouchableOpacity
+          style={{width: 30, marginRight: 20}}
+          hitSlop={4}
+          onPress={handleImagePicker}>
+          <Addimgicon width={32} height={32} />
         </TouchableOpacity>
       ),
     });
@@ -39,7 +53,7 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
 
-      <Text style={[appStyles.h4, {marginTop: 30, paddingHorizontal: 18}]}>
+      <Text style={[appStyles.h2, {paddingHorizontal: 18}]}>
         Programs Prescribed
       </Text>
       <ProgramPrescribed />
@@ -94,7 +108,6 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 15,
-    // paddingBottom: 30,
     gap: 10,
     paddingHorizontal: 18,
   },

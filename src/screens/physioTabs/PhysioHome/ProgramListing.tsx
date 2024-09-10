@@ -34,7 +34,7 @@ const ProgramListing: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
-      <View style={{paddingHorizontal: 14}}>
+      <View style={{paddingHorizontal: 14, paddingBottom: 6}}>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -58,8 +58,6 @@ const ProgramListing: React.FC<Props> = ({navigation}) => {
           renderItem={({item}) => (
             <ProgramItem
               title={item.title}
-              date={item.date}
-              time={item.time}
               ImageUrl={item.ImageUrl}
               description={item.description}
             />
@@ -81,7 +79,7 @@ const styles = StyleSheet.create({
 
   contentContainerStyle: {
     gap: 12,
-    paddingBottom: 30,
+    paddingBottom: 65,
     paddingVertical: 5,
     marginTop: 12,
   },

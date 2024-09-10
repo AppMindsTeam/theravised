@@ -10,7 +10,7 @@ interface Props {
 const SearchBar: React.FC<Props> = ({containerStyle, placeholder}) => {
   return (
     <View style={[styles.Container, containerStyle]}>
-      <Searchicon style={{marginRight: 6}} />
+      <Searchicon style={{marginRight: 6}} width={18} height={18} />
       <TextInput
         style={[appStyles.h5, {flex: 1}]}
         textAlignVertical="center"

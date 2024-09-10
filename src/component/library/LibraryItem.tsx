@@ -7,7 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Prescribedimg, Sumicon, Tickicon} from '../../assets/svg';
+import {
+  Checkbox,
+  Checkbox2,
+  Prescribedimg,
+  Sumicon,
+  Tickicon,
+  UnCheckbox,
+  UnCheckIcon,
+} from '../../assets/svg';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
 
 interface Props {
@@ -29,7 +37,7 @@ const LibraryItem: React.FC<Props> = ({ImageUri}) => {
         }}
         style={styles.imgStyle}>
         <TouchableOpacity style={styles.addicon} onPress={handleIconToggle}>
-          {isTickVisible ? <Tickicon /> : <Sumicon />}
+          {isTickVisible ? <Checkbox2 /> : <UnCheckbox />}
         </TouchableOpacity>
       </ImageBackground>
 

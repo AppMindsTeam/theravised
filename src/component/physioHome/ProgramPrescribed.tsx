@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Prescribedimg} from '../../assets/svg';
-import {appStyles, colors} from '../../screens/utilities/theme';
+import {appStyles, colors, fonts} from '../../screens/utilities/theme';
 
 interface Props {
   //   onPress?: () => void;
@@ -10,24 +10,24 @@ const ProgramPrescribed: React.FC<Props> = ({}) => {
   return (
     <View style={styles.container}>
       <View style={{width: '64%', paddingLeft: 14}}>
-        <Text style={[appStyles.h6, {color: colors.black, letterSpacing: 1}]}>
-          Member since jul 2025
+        <Text style={[appStyles.h4, {color: colors.black}]}>
+          Member since jul 2024
         </Text>
         <View style={styles.innerContainer}>
           <View style={{flexDirection: 'column'}}>
-            <Text style={appStyles.h10}>This week</Text>
+            <Text style={styles.containerTitle}>This week</Text>
             <View style={styles.contContainer}>
               <Text style={[appStyles.h9, styles.textStyle]}>123</Text>
             </View>
           </View>
           <View style={{flexDirection: 'column'}}>
-            <Text style={appStyles.h10}>Avg per week</Text>
+            <Text style={styles.containerTitle}>Avg per week</Text>
             <View style={styles.contContainer}>
               <Text style={[appStyles.h9, styles.textStyle]}>11</Text>
             </View>
           </View>
           <View style={{flexDirection: 'column', alignItems: 'center'}}>
-            <Text style={[appStyles.h8, {color: colors.black}]}>Total</Text>
+            <Text style={styles.containerTitle}>Total</Text>
             <View style={styles.contContainer}>
               <Text style={[appStyles.h9, styles.textStyle]}>298</Text>
             </View>
@@ -67,5 +67,10 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignItems: 'center',
     marginTop: 12,
+  },
+  containerTitle: {
+    fontSize: 10.2,
+    color: colors.black,
+    fontFamily: fonts.MontserratBold,
   },
 });

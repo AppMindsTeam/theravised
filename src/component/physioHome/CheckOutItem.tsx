@@ -15,7 +15,6 @@ const CheckOutItem: React.FC<Props> = ({Imageurl}) => {
         }}
         style={styles.imgStyle}
       />
-      <Text style={[appStyles.h10, styles.dateStyle]}>04/07/2024</Text>
       <Text style={[appStyles.h7, styles.titleStyle]}>
         Lorem ipsum dolor sit amet consectetur
       </Text>
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
     width: 182,
-    height: 155,
+    height: 146,
     borderRadius: 10,
     overflow: 'hidden',
   },
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
   titleStyle: {
     paddingHorizontal: 6,
     color: colors.black,
-    marginBottom: 5,
+    marginTop: 7,
   },
   dateStyle: {
     paddingHorizontal: 6,

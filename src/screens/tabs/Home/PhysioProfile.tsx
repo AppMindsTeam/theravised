@@ -83,7 +83,7 @@ const PhysioProfile: React.FC<Props> = ({navigation}) => {
       </Text>
       <AppButton
         title="Book Apointment"
-        customStyle={{marginHorizontal: 18, marginTop: 30}}
+        customStyle={{marginHorizontal: 18, marginTop: 25}}
       />
       <AppButton
         title="Chat"
