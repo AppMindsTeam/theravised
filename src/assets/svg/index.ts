@@ -46,8 +46,10 @@ import DotIcon from './DotIcon.svg';
 import Checkbox2 from './Checkbox2.svg';
 import SentIcon from './SentIcon.svg';
 import Cameraicon from './Cameraicon.svg';
+import UnCheckbox2 from './UnCheckbox2.svg';
 
 export {
+  UnCheckbox2,
   Cameraicon,
   SentIcon,
   Checkbox2,

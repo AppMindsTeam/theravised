@@ -65,7 +65,6 @@ const Library: React.FC<Props> = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.bgcolor,
-    paddingHorizontal: 18,
     flex: 1,
   },
   searchContainer: {
@@ -73,11 +72,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingBottom: 6,
     marginTop: 15,
+    marginHorizontal: 18,
   },
   list: {
     marginTop: 10,
     gap: 15,
     paddingBottom: 25,
+    marginHorizontal: 18,
   },
   headerIconsContainer: {
     flexDirection: 'row',
@@ -96,8 +97,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 18,
-    paddingVertical: 11,
+    paddingLeft: 18,
+    paddingRight: 24,
+    paddingVertical: 10,
   },
 });
 
