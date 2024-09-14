@@ -77,7 +77,7 @@ function ClientBottomTabs() {
         options={{
           tabBarLabel: 'Programs',
           headerShown: true,
-          headerTitle: 'Program',
+          headerTitle: 'Lachie s Program',
         }}
       />
 

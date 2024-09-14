@@ -1,17 +1,10 @@
 import React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  StatusBar,
-  ScrollView,
-  FlatList,
-} from 'react-native';
+import {Text, View, StyleSheet, StatusBar, FlatList} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/ClientBottomNavigation';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors} from '../../utilities/theme';
-import {Goal, MyProgressItem} from '../../../component';
+import {CalenderCard, Goal, MyProgressItem} from '../../../component';
 import {Goalicon, PhysioProfile} from '../../../assets/svg';
 import {PROGRESSITEM} from '../../../constants';
 
@@ -21,12 +14,11 @@ type Props = NativeStackScreenProps<
 >;
 
 const Home: React.FC<Props> = ({navigation}) => {
-  const projects = [1, 2, 3, 4];
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
-      <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
-        Hi Lachie,
+      <Text style={[appStyles.h4, {marginTop: 37, paddingHorizontal: 18}]}>
+        Hi Lachie, here
       </Text>
       <Goal
         icon={<PhysioProfile />}
@@ -37,7 +29,12 @@ const Home: React.FC<Props> = ({navigation}) => {
         Goals
       </Text>
       <Goal icon={<Goalicon />} isGoal={true} />
-      <Text style={[appStyles.h4, {marginTop: 60, paddingHorizontal: 18}]}>
+      <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
+        Weekly Activity
+      </Text>
+      <CalenderCard isCalender={true} />
+
+      <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
         My Progress
       </Text>
 
@@ -52,7 +49,6 @@ const Home: React.FC<Props> = ({navigation}) => {
               key={index}
               title={item.title}
               ImageUrl={item.ImageUrl}
-              date={item.date}
             />
           )}
           contentContainerStyle={styles.list}

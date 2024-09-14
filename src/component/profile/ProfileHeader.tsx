@@ -8,7 +8,10 @@ interface Props {
 }
 const ProfileHeader: React.FC<Props> = ({onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      activeOpacity={4}>
       <Image
         source={{
           uri: 'https://images.unsplash.com/photo-1612943680768-d82060323fd5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D',
@@ -22,10 +25,8 @@ const ProfileHeader: React.FC<Props> = ({onPress}) => {
           Lachie123@gmail.com
         </Text>
       </View>
-      <TouchableOpacity onPress={onPress}>
-        <Editicon />
-      </TouchableOpacity>
-    </View>
+      <Editicon />
+    </TouchableOpacity>
   );
 };
 

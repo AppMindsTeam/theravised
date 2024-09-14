@@ -47,7 +47,7 @@ const ConfirmationModal: React.FC<Props> = ({
             ]}>
             {isDeleteAccount
               ? 'Deleting your account will remove all of your information from our database. This cannot be undone.'
-              : 'We can’t notify you of new projects if you do.'}
+              : 'Can’t notify you for new projects.'}
           </Text>
         </View>
         <AppButton
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginTop: 25,
+    marginTop: 20,
     fontFamily: fonts.MontserratBold,
     color: colors.baseTile,
   },

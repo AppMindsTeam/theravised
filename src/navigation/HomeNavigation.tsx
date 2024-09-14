@@ -45,7 +45,7 @@ const HomeStackNavigator = () => {
             style={{width: 25}}
             onPress={() => navigation.goBack()}
             hitSlop={styles.hitSlop}>
-            <BackArrow />
+            <BackArrow style={{marginTop: 0}} />
           </TouchableOpacity>
         ),
 
@@ -98,7 +98,7 @@ const HomeStackNavigator = () => {
       <HomeStack.Screen
         name="AddNewClient"
         component={AddNewClient}
-        options={{headerTitle: 'New Client Add', headerShown: true}}
+        options={{headerTitle: 'New Client Add?', headerShown: true}}
       />
 
       <HomeStack.Screen

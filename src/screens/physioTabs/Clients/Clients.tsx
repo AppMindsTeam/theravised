@@ -19,13 +19,13 @@ const Clients: React.FC<Props> = ({navigation}) => {
       headerRight: () => (
         <View style={styles.headerIconsContainer}>
           <TouchableOpacity style={styles.headerIconButton} hitSlop={4}>
-            <SearchIcon2 />
+            <SearchIcon2 width={32} height={32} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.headerIconButton}
             hitSlop={4}
             onPress={() => navigation.navigate('AddNewClient')}>
-            <Sumicon2 />
+            <Sumicon2 width={32} height={32} />
           </TouchableOpacity>
         </View>
       ),
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   headerIconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 8,
+    marginRight: 6,
   },
   headerIconButton: {
     paddingRight: 12,

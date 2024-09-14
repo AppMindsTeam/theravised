@@ -5,25 +5,17 @@ import {appStyles, colors} from '../../screens/utilities/theme';
 interface Props {
   ImageUrl: string;
   title: string;
-  date: string;
 }
-const MyProgressItem: React.FC<Props> = ({ImageUrl, title, date}) => {
+const MyProgressItem: React.FC<Props> = ({ImageUrl, title}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
       <Text
         style={[
           appStyles.h6,
-          {color: colors.black, marginTop: 10, paddingHorizontal: 10},
+          {color: colors.black, marginTop: 13, paddingHorizontal: 10},
         ]}>
         {title}
-      </Text>
-      <Text
-        style={[
-          appStyles.h7,
-          {color: colors.gray[50], paddingHorizontal: 10, marginTop: 4},
-        ]}>
-        {date}
       </Text>
     </TouchableOpacity>
   );
@@ -35,7 +27,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
     width: 128,
-    paddingBottom: 10,
+    paddingBottom: 13,
     borderRadius: 10,
   },
   imgStyle: {

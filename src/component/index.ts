@@ -16,6 +16,7 @@ import LibraryItem from './library/LibraryItem';
 import CategoryItem from './checkOut/CategoryItem';
 import ClientProgram from './programs/ClientProgram';
 import ClientItem from './clients/ClientsItem';
+import CalenderCard from './home/CalenderCard';
 
 export {
   AppButton,
@@ -36,4 +37,5 @@ export {
   CategoryItem,
   ClientProgram,
   ClientItem,
+  CalenderCard,
 };
