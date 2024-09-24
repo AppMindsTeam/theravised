@@ -47,8 +47,24 @@ import Checkbox2 from './Checkbox2.svg';
 import SentIcon from './SentIcon.svg';
 import Cameraicon from './Cameraicon.svg';
 import UnCheckbox2 from './UnCheckbox2.svg';
+import UploadIcon from './UploadIcon.svg';
+import HappyIcon from './HappyIcon.svg';
+import AngryIcon from './AngryIcon.svg';
+import WaitIcon from './WaitIcon.svg';
+import LeftArrow from './LeftArrow.svg';
+import RigtArrow from './RigtArrow.svg';
+import Calender2Icon from './Calender2Icon.svg';
+import PlayIcon from './PlayIcon.svg';
 
 export {
+  PlayIcon,
+  Calender2Icon,
+  LeftArrow,
+  RigtArrow,
+  WaitIcon,
+  HappyIcon,
+  AngryIcon,
+  UploadIcon,
   UnCheckbox2,
   Cameraicon,
   SentIcon,

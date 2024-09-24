@@ -5,10 +5,11 @@ import {appStyles, colors} from '../../screens/utilities/theme';
 interface Props {
   ImageUrl: string;
   title: string;
+  onPress?: () => void;
 }
-const MyProgressItem: React.FC<Props> = ({ImageUrl, title}) => {
+const MyProgressItem: React.FC<Props> = ({ImageUrl, title, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
       <Text
         style={[

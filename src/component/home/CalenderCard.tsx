@@ -8,15 +8,20 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
-import {CalenderIcon, CheckIcon} from '../../assets/svg';
+import {CalenderIcon, CheckIcon, Tickicon, UnTick} from '../../assets/svg';
 import CalenderModal from '../../Model/CalenderModel';
 
 interface Props {
   isCalender: boolean;
   containerStyle?: ViewStyle;
+  isTitle?: boolean;
 }
 
-const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
+const CalenderCard: React.FC<Props> = ({
+  isCalender,
+  containerStyle,
+  isTitle,
+}) => {
   const [isModalVisible, setModalVisible] = useState(false);
 
   const DAY_ARRAY = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -34,6 +39,12 @@ const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
     false,
     true,
   ]);
+
+  const [isCompleted, setIsCompleted] = useState(true);
+
+  const toggleIcon = () => {
+    setIsCompleted(prevState => !prevState);
+  };
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -74,6 +85,25 @@ const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
         </View>
       ) : null}
       {/* ----------------------------------------------------------------------------------- */}
+
+      {isTitle ? (
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 15,
+            justifyContent: 'space-between',
+          }}>
+          <Text style={[appStyles.h4, {marginLeft: 15}]}>Daily Progress</Text>
+          <TouchableOpacity onPress={toggleIcon}>
+            {isCompleted ? (
+              <Tickicon style={{marginRight: 15, width: 20, height: 20}} />
+            ) : (
+              <UnTick style={{marginRight: 15, width: 20, height: 20}} />
+            )}
+          </TouchableOpacity>
+        </View>
+      ) : null}
+
       <View style={styles.lineContainer}>
         <View
           style={[
@@ -144,7 +174,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   lineContainer: {
-    marginTop: 20,
+    marginTop: 15,
     flexDirection: 'row',
     paddingHorizontal: 16,
     gap: 2,

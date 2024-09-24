@@ -76,8 +76,8 @@ function ClientBottomTabs() {
         component={Programs}
         options={{
           tabBarLabel: 'Programs',
-          headerShown: true,
-          headerTitle: 'Lachie s Program',
+          headerShown: false,
+          headerTitle: '',
         }}
       />
 

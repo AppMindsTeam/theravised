@@ -17,8 +17,18 @@ import CategoryItem from './checkOut/CategoryItem';
 import ClientProgram from './programs/ClientProgram';
 import ClientItem from './clients/ClientsItem';
 import CalenderCard from './home/CalenderCard';
+import SquatItem from './home/SquatItem';
+import SquaProgressItem from './home/SquatProgressItem';
+import ProgramHeader from './programs/ProgramHeader';
+import InstructionItem from './programs/InstructionItem';
+import HistoryItem from './programs/HistoryItem';
 
 export {
+  InstructionItem,
+  HistoryItem,
+  ProgramHeader,
+  SquaProgressItem,
+  SquatItem,
   AppButton,
   FormInput,
   BottomLine,

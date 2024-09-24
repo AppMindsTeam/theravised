@@ -13,4 +13,9 @@ export const images = {
   physioImg: require('./PhysioImg.png'),
   clients: require('./Clients.png'),
   library: require('./Library.png'),
+  squatImg1: require('./SquatImg1.png'),
+  squatImg2: require('./SquatImg2.png'),
+  squatImg3: require('./SquatImg3.png'),
+  squatImg4: require('./SquatImg4.png'),
+  squatImg5: require('./SquatImg5.png'),
 };

@@ -12,8 +12,14 @@ import ProgramListing from '../physioTabs/PhysioHome/ProgramListing';
 import AddNewClient from '../physioTabs/Clients/AddNewClient';
 import UploadVideo from '../physioTabs/PhysioHome/UploadVideo';
 import EditPhysioProfile from '../physioTabs/Profile/EditphysioProfile';
+import SquatProgress from './Home/SquatProgress';
+import Goal from './Home/Goal';
+import VideoDetail from './Programs/VideoDetail';
 
 export {
+  VideoDetail,
+  Goal,
+  SquatProgress,
   Home,
   Messege,
   Programs,

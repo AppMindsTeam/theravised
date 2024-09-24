@@ -8,9 +8,12 @@ import {
   ChangePassword,
   EditPhysioProfile,
   EditProfile,
+  Goal,
   PhysioProfile,
   ProgramListing,
+  SquatProgress,
   UploadVideo,
+  VideoDetail,
 } from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
 import PhysioBottomTabs from './PhysioBottomNavigation';
@@ -28,6 +31,9 @@ export type HomeStackParamsList = {
   AddNewClient: undefined;
   UploadVideo: undefined;
   EditPhysioProfile: undefined;
+  SquatProgress: undefined;
+  Goal: undefined;
+  VideoDetail: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -111,6 +117,24 @@ const HomeStackNavigator = () => {
         name="EditPhysioProfile"
         component={EditPhysioProfile}
         options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="SquatProgress"
+        component={SquatProgress}
+        options={{headerTitle: 'Squat Progress', headerShown: true}}
+      />
+
+      <HomeStack.Screen
+        name="Goal"
+        component={Goal}
+        options={{headerTitle: 'Exercise', headerShown: true}}
+      />
+
+      <HomeStack.Screen
+        name="VideoDetail"
+        component={VideoDetail}
+        options={{headerTitle: '', headerShown: false}}
       />
     </HomeStack.Navigator>
   );
