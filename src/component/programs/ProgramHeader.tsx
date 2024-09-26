@@ -1,20 +1,29 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {colors, fonts} from '../../screens/utilities/theme';
 import {Calender2Icon, LeftArrow, RigtArrow, Tickicon} from '../../assets/svg';
+import CalenderModal from '../../Model/CalenderModel';
 
 interface Props {}
 const ProgramHeader: React.FC<Props> = () => {
+  const [isModalVisible, setModalVisible] = useState(false);
+  const handleModalClose = () => {
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
         <LeftArrow />
       </TouchableOpacity>
       <Text style={styles.textStyle}>Today</Text>
-      <Calender2Icon />
+      <TouchableOpacity hitSlop={4} onPress={() => setModalVisible(true)}>
+        <Calender2Icon />
+      </TouchableOpacity>
       <TouchableOpacity>
         <RigtArrow style={{marginLeft: 16}} />
       </TouchableOpacity>
+      <CalenderModal isVisible={isModalVisible} onClose={handleModalClose} />
     </View>
   );
 };

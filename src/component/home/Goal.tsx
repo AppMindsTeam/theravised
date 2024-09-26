@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {ReactNode} from 'react';
-import {RightArrow} from '../../assets/svg';
+import {Edit2Icon, Editicon, RightArrow} from '../../assets/svg';
 import {appStyles, colors} from '../../screens/utilities/theme';
 
 interface Props {
@@ -29,7 +29,8 @@ const Goal: React.FC<Props> = ({icon, isGoal, onPress}) => {
           </Text>
         </View>
       )}
-      <RightArrow />
+
+      {!isGoal ? <RightArrow /> : <Edit2Icon />}
     </TouchableOpacity>
   );
 };

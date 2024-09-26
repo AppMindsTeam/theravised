@@ -8,8 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
-import {CalenderIcon, CheckIcon, Tickicon, UnTick} from '../../assets/svg';
-import CalenderModal from '../../Model/CalenderModel';
+import {Tickicon, UnTick} from '../../assets/svg';
 
 interface Props {
   isCalender: boolean;
@@ -22,13 +21,7 @@ const CalenderCard: React.FC<Props> = ({
   containerStyle,
   isTitle,
 }) => {
-  const [isModalVisible, setModalVisible] = useState(false);
-
   const DAY_ARRAY = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-
-  const handleModalClose = () => {
-    setModalVisible(false);
-  };
 
   const [completedDays, setCompletedDays] = useState([
     false,
@@ -68,7 +61,7 @@ const CalenderCard: React.FC<Props> = ({
               }}>
               {completedDays[index] ? (
                 <>
-                  <CheckIcon />
+                  <Tickicon />
                   <View style={styles.dotContainer} />
                 </>
               ) : (
@@ -76,12 +69,6 @@ const CalenderCard: React.FC<Props> = ({
               )}
             </View>
           ))}
-          <TouchableOpacity
-            style={styles.calenderContainer}
-            hitSlop={6}
-            onPress={() => setModalVisible(true)}>
-            <CalenderIcon />
-          </TouchableOpacity>
         </View>
       ) : null}
       {/* ----------------------------------------------------------------------------------- */}
@@ -132,8 +119,6 @@ const CalenderCard: React.FC<Props> = ({
         ]}>
         4 of 5 completed
       </Text>
-
-      <CalenderModal isVisible={isModalVisible} onClose={handleModalClose} />
     </View>
   );
 };
@@ -152,7 +137,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 15,
-    alignSelf: 'center',
+    paddingHorizontal: 15,
+    justifyContent: 'space-between',
   },
   textContainer: {
     color: colors.black,
@@ -160,11 +146,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.MontserratMedium,
   },
-  calenderContainer: {
-    backgroundColor: `${colors.primary}20`,
-    padding: 8,
-    borderRadius: 100,
-  },
+
   dotContainer: {
     position: 'absolute',
     bottom: -10,

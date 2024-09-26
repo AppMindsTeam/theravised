@@ -6,6 +6,8 @@ import {BackArrow} from '../assets/svg';
 import {
   AddNewClient,
   ChangePassword,
+  ClientDetails,
+  ClientVideo,
   EditPhysioProfile,
   EditProfile,
   Goal,
@@ -34,6 +36,8 @@ export type HomeStackParamsList = {
   SquatProgress: undefined;
   Goal: undefined;
   VideoDetail: undefined;
+  ClientDetails: undefined;
+  ClientVideo: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -128,12 +132,28 @@ const HomeStackNavigator = () => {
       <HomeStack.Screen
         name="Goal"
         component={Goal}
-        options={{headerTitle: 'Exercise', headerShown: true}}
+        options={{
+          headerTitle: 'Exercise',
+          headerShown: true,
+          headerStyle: {backgroundColor: colors.white},
+        }}
       />
 
       <HomeStack.Screen
         name="VideoDetail"
         component={VideoDetail}
+        options={{headerTitle: '', headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="ClientDetails"
+        component={ClientDetails}
+        options={{headerTitle: '', headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="ClientVideo"
+        component={ClientVideo}
         options={{headerTitle: '', headerShown: false}}
       />
     </HomeStack.Navigator>

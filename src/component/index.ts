@@ -22,8 +22,10 @@ import SquaProgressItem from './home/SquatProgressItem';
 import ProgramHeader from './programs/ProgramHeader';
 import InstructionItem from './programs/InstructionItem';
 import HistoryItem from './programs/HistoryItem';
+import ClientDetailItem from './clients/ClientDetailItem';
 
 export {
+  ClientDetailItem,
   InstructionItem,
   HistoryItem,
   ProgramHeader,

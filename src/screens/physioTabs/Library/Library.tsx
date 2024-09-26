@@ -55,7 +55,7 @@ const Library: React.FC<Props> = ({navigation}) => {
           <Text style={[appStyles.h3, {color: colors.white}]}> 4 items</Text>
         </Text>
         <TouchableOpacity>
-          <SentIcon />
+          <SentIcon width={28} height={28} />
         </TouchableOpacity>
       </View>
     </View>
@@ -92,14 +92,14 @@ const styles = StyleSheet.create({
   sendContainer: {
     backgroundColor: colors.primary,
     width: '100%',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingLeft: 18,
     paddingRight: 24,
-    paddingVertical: 10,
+    paddingVertical: 14,
   },
 });
 

@@ -10,36 +10,48 @@ interface Props {
 }
 const ChatItem: React.FC<Props> = ({title, ImageUrl, isActive, onPress}) => {
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={onPress}
-      activeOpacity={2}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={{
-            uri: ImageUrl,
-          }}
-          style={styles.imgStyle}
-        />
-        {isActive ? (
-          <View style={styles.innerImageContainer} />
-        ) : (
-          <View style={styles.timeContainer}>
-            <Text style={styles.text}>11m</Text>
-          </View>
-        )}
-      </View>
+    <View>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={onPress}
+        activeOpacity={2}>
+        <View style={styles.imageContainer}>
+          <Image
+            source={{
+              uri: ImageUrl,
+            }}
+            style={styles.imgStyle}
+          />
+          {isActive ? (
+            <View style={styles.innerImageContainer} />
+          ) : (
+            <View style={styles.timeContainer}>
+              <Text style={styles.text}>11m</Text>
+            </View>
+          )}
+        </View>
 
-      <View style={styles.innerContainer}>
-        <Text style={appStyles.h4}>{title}</Text>
-        <Text style={[appStyles.h7, {color: colors.gray[50]}]}>You: ok...</Text>
-      </View>
-      {!isActive ? (
-        <Text style={[appStyles.h7, {color: colors.gray[50]}]}>12:07 PM</Text>
-      ) : (
-        <View style={styles.ActiveContainer} />
-      )}
-    </TouchableOpacity>
+        <View style={styles.innerContainer}>
+          <Text style={appStyles.h4}>{title}</Text>
+          <Text style={[appStyles.h7, {color: colors.gray[50]}]}>
+            You: ok...
+          </Text>
+        </View>
+        {!isActive ? (
+          <Text style={[appStyles.h7, {color: colors.gray[50]}]}>12:07 PM</Text>
+        ) : (
+          <View style={styles.ActiveContainer} />
+        )}
+      </TouchableOpacity>
+      <View
+        style={{
+          height: 1,
+          width: '100%',
+          backgroundColor: '#ECECEC',
+          marginTop: 5,
+        }}
+      />
+    </View>
   );
 };
 
@@ -51,7 +63,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 12,
-    borderRadius: 10,
     paddingHorizontal: 6,
     paddingVertical: 4,
   },

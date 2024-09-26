@@ -43,7 +43,11 @@ const Clients: React.FC<Props> = ({navigation}) => {
         showsVerticalScrollIndicator={false}
         data={CLIENT_ARRAY}
         renderItem={({item}) => (
-          <ClientItem name={item.name} followUp={item.followUp} />
+          <ClientItem
+            name={item.name}
+            followUp={item.followUp}
+            onPress={() => navigation.navigate('ClientDetails')}
+          />
         )}
         contentContainerStyle={styles.list}
       />

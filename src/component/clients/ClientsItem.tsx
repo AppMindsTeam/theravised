@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {appStyles, colors} from '../../screens/utilities/theme';
 import {CheckIcon, DotedIcon, UnCheckIcon} from '../../assets/svg';
@@ -6,15 +6,16 @@ import {CheckIcon, DotedIcon, UnCheckIcon} from '../../assets/svg';
 interface Props {
   name: string;
   followUp: string;
+  onPress?: () => void;
 }
-const ClientItem: React.FC<Props> = ({name, followUp}) => {
+const ClientItem: React.FC<Props> = ({name, followUp, onPress}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <CheckIcon />
       <Text style={[appStyles.h5, styles.titleStyle]}>{name}</Text>
       <DotedIcon />
       <Text style={[appStyles.h5, styles.subTitle]}>{followUp}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

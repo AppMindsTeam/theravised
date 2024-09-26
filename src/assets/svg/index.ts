@@ -55,8 +55,26 @@ import LeftArrow from './LeftArrow.svg';
 import RigtArrow from './RigtArrow.svg';
 import Calender2Icon from './Calender2Icon.svg';
 import PlayIcon from './PlayIcon.svg';
+import MenuIcon from './MenuIcon.svg';
+import LinkIcon from './LinkIcon.svg';
+import UnLinkIcon from './UnLinkIcon.svg';
+import CrossIcon from './CrossIcon.svg';
+import AddIcon2 from './AddIcon2.svg';
+import AddCameraIcon from './AddCameraIcon.svg';
+import AddGaleryIcon from './AddGaleryIcon.svg';
+import AddExplorIcon from './AddExplorIcon.svg';
+import Edit2Icon from './Edit2Icon.svg';
 
 export {
+  Edit2Icon,
+  AddCameraIcon,
+  AddGaleryIcon,
+  AddExplorIcon,
+  AddIcon2,
+  CrossIcon,
+  LinkIcon,
+  UnLinkIcon,
+  MenuIcon,
   PlayIcon,
   Calender2Icon,
   LeftArrow,
