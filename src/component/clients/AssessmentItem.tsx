@@ -1,39 +1,39 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {appStyles, colors} from '../../screens/utilities/theme';
+import {CheckIcon, DotedIcon, UnCheckIcon} from '../../assets/svg';
 
 interface Props {
-  ImageUrl: string;
   title: string;
   onPress?: () => void;
+  ImageUrl?: string;
 }
-const MyProgressItem: React.FC<Props> = ({ImageUrl, title, onPress}) => {
+const AssessmentItem: React.FC<Props> = ({title, ImageUrl, onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={{uri: ImageUrl}} style={styles.imgStyle} />
-      <Text
-        style={[
-          appStyles.h6,
-          {color: colors.black, marginTop: 13, paddingHorizontal: 10},
-        ]}>
+      <Image
+        source={{
+          uri: ImageUrl,
+        }}
+        style={styles.imgStyle}
+      />
+      <Text style={[appStyles.h4, {paddingLeft: 20, paddingVertical: 10}]}>
         {title}
       </Text>
     </TouchableOpacity>
   );
 };
 
-export default MyProgressItem;
+export default AssessmentItem;
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
-    width: 128,
-    paddingBottom: 13,
     borderRadius: 10,
   },
   imgStyle: {
-    height: 84,
     width: '100%',
+    height: 156,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
   },

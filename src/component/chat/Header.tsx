@@ -23,10 +23,9 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.bgcolor,
+    backgroundColor: colors.white,
     flexDirection: 'row',
     alignItems: 'center',
-    // marginTop: 12,
   },
   imgStyle: {
     width: 40,

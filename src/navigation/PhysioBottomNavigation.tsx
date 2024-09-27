@@ -4,15 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {images} from '../assets/images';
 import {useNavigation} from '@react-navigation/native';
 import {colors, fonts} from '../screens/utilities/theme';
-import {
-  Clients,
-  Home,
-  Library,
-  Messege,
-  PhysioHome,
-  Profile,
-} from '../screens/tabs';
-import {Addimgicon} from '../assets/svg';
+import {Clients, Library, Messege, PhysioHome, Profile} from '../screens/tabs';
 
 export type PhysioBottomTabParamlist = {
   PhysioHome: undefined;
@@ -104,7 +96,7 @@ function PhysioBottomTabs() {
         name="Library"
         component={Library}
         options={{
-          tabBarLabel: 'Explore Library',
+          tabBarLabel: 'Library',
           headerShown: true,
           headerTitle: 'Library',
         }}
@@ -114,7 +106,7 @@ function PhysioBottomTabs() {
         name="Profile"
         component={Profile}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'My Profile',
           headerShown: true,
           headerTitle: 'Profile',
         }}

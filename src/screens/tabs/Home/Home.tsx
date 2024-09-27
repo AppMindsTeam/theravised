@@ -28,14 +28,18 @@ const Home: React.FC<Props> = ({navigation}) => {
       <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
         Goals
       </Text>
-      <Goal icon={<Goalicon />} isGoal={true} />
+      <Goal
+        icon={<Goalicon />}
+        isGoal={true}
+        onPress={() => navigation.navigate('Goal')}
+      />
       <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
         Weekly Activity
       </Text>
       <CalenderCard isCalender={true} />
 
       <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
-        My Progress
+        Assessments & Progress
       </Text>
 
       <View>
@@ -49,6 +53,11 @@ const Home: React.FC<Props> = ({navigation}) => {
               key={index}
               title={item.title}
               ImageUrl={item.ImageUrl}
+              onPress={() => {
+                if (index === 0) {
+                  navigation.navigate('SquatProgress');
+                }
+              }}
             />
           )}
           contentContainerStyle={styles.list}

@@ -7,15 +7,21 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
-import {Tickicon, UnTick} from '../../assets/svg';
+import {Tickicon, UnTick, WaitIcon} from '../../assets/svg';
 
 interface Props {
   ImageUrl: string;
   index: string;
   isCombine?: boolean | string;
+  onPress?: () => void;
 }
 
-const ClientProgram: React.FC<Props> = ({ImageUrl, index, isCombine}) => {
+const ClientProgram: React.FC<Props> = ({
+  ImageUrl,
+  index,
+  isCombine,
+  onPress,
+}) => {
   const [tickVisibleArray, setTickVisibleArray] = useState([true, true]);
 
   const handleIconToggle = (itemIndex: number) => {
@@ -28,23 +34,25 @@ const ClientProgram: React.FC<Props> = ({ImageUrl, index, isCombine}) => {
 
   const ClientItem = ({itemIndex}: {itemIndex: number}) => {
     return (
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          flex: 1,
-          backgroundColor: colors.white,
-        }}>
-        <ImageBackground source={{uri: ImageUrl}} style={styles.imgStyle}>
-          <View style={styles.timeBackground}>
-            <Text style={[appStyles.h10, styles.timeStyle]}>2m 30s</Text>
-          </View>
-        </ImageBackground>
+      <View style={styles.mainContainer}>
+        <TouchableOpacity onPress={onPress}>
+          <ImageBackground source={{uri: ImageUrl}} style={styles.imgStyle}>
+            <View style={styles.timeBackground}>
+              <Text style={[appStyles.h10, styles.timeStyle]}>2m 30s</Text>
+            </View>
+          </ImageBackground>
+        </TouchableOpacity>
         <View style={styles.innerContainer}>
           <Text style={styles.titleStyle}>Title</Text>
-          <Text style={[appStyles.h6, {color: colors.black, marginTop: 0}]}>
-            2 x 15
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={[appStyles.h6, {color: colors.black, marginTop: 0}]}>
+              2 x 15
+            </Text>
+            <WaitIcon style={{marginLeft: 10}} />
+            <Text style={[appStyles.h6, {color: colors.black, marginLeft: 4}]}>
+              18kg
+            </Text>
+          </View>
         </View>
         <TouchableOpacity
           hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
@@ -103,10 +111,15 @@ const ClientProgram: React.FC<Props> = ({ImageUrl, index, isCombine}) => {
 export default ClientProgram;
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    backgroundColor: colors.white,
+  },
   container: {
     flexDirection: 'row',
     backgroundColor: colors.white,
-    // backgroundColor: 'yellow',
     borderRadius: 10,
     overflow: 'hidden',
     alignItems: 'center',
@@ -149,8 +162,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderColor: colors.gray[150],
     borderWidth: 1,
-    paddingHorizontal: 4,
-    paddingVertical: 1,
+    paddingHorizontal: 2,
     alignSelf: 'flex-end',
     margin: 3,
   },

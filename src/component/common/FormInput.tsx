@@ -63,7 +63,7 @@ const FormInput: FC<Props> = ({
           style={[
             styles.textInput,
             inputStyles,
-            {color: value ? colors.primary : colors.gray[100]},
+            {color: value ? colors.primary : colors.black},
           ]}
           placeholder={placeholder}
           placeholderTextColor={'#9E9E9E'}

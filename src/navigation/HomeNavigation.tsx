@@ -6,11 +6,17 @@ import {BackArrow} from '../assets/svg';
 import {
   AddNewClient,
   ChangePassword,
+  ClientDetails,
+  ClientVideo,
   EditPhysioProfile,
   EditProfile,
+  Goal,
   PhysioProfile,
   ProgramListing,
+  SquatProgress,
+  SquatTest,
   UploadVideo,
+  VideoDetail,
 } from '../screens/tabs';
 import ChatDetails from '../screens/tabs/Chat/ChatDetails';
 import PhysioBottomTabs from './PhysioBottomNavigation';
@@ -28,6 +34,12 @@ export type HomeStackParamsList = {
   AddNewClient: undefined;
   UploadVideo: undefined;
   EditPhysioProfile: undefined;
+  SquatProgress: undefined;
+  Goal: undefined;
+  VideoDetail: undefined;
+  ClientDetails: undefined;
+  ClientVideo: undefined;
+  SquatTest: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -111,6 +123,46 @@ const HomeStackNavigator = () => {
         name="EditPhysioProfile"
         component={EditPhysioProfile}
         options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="SquatProgress"
+        component={SquatProgress}
+        options={{headerTitle: 'Squat Progress', headerShown: true}}
+      />
+
+      <HomeStack.Screen
+        name="Goal"
+        component={Goal}
+        options={{
+          headerTitle: 'Exercise',
+          headerShown: true,
+          headerStyle: {backgroundColor: colors.white},
+        }}
+      />
+
+      <HomeStack.Screen
+        name="VideoDetail"
+        component={VideoDetail}
+        options={{headerTitle: '', headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="ClientDetails"
+        component={ClientDetails}
+        options={{headerTitle: '', headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="ClientVideo"
+        component={ClientVideo}
+        options={{headerTitle: '', headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="SquatTest"
+        component={SquatTest}
+        options={{headerTitle: 'Squat Test', headerShown: true}}
       />
     </HomeStack.Navigator>
   );

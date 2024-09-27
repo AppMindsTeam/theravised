@@ -15,7 +15,7 @@ type Props = NativeStackScreenProps<
 const Messege: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
+      <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
       <Header />
       <SearchBar
         containerStyle={{marginTop: 20, marginBottom: 8}}
@@ -45,12 +45,11 @@ export default Messege;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.bgcolor,
+    backgroundColor: colors.white,
     paddingHorizontal: 22,
     paddingTop: 18,
   },
   contentContainerStyle: {
-    // marginTop: 8,
-    paddingBottom: 30,
+    paddingBottom: 20,
   },
 });

@@ -8,22 +8,20 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
-import {CalenderIcon, CheckIcon} from '../../assets/svg';
-import CalenderModal from '../../Model/CalenderModel';
+import {Tickicon, UnTick} from '../../assets/svg';
 
 interface Props {
   isCalender: boolean;
   containerStyle?: ViewStyle;
+  isTitle?: boolean;
 }
 
-const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
-  const [isModalVisible, setModalVisible] = useState(false);
-
+const CalenderCard: React.FC<Props> = ({
+  isCalender,
+  containerStyle,
+  isTitle,
+}) => {
   const DAY_ARRAY = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-
-  const handleModalClose = () => {
-    setModalVisible(false);
-  };
 
   const [completedDays, setCompletedDays] = useState([
     false,
@@ -34,6 +32,12 @@ const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
     false,
     true,
   ]);
+
+  const [isCompleted, setIsCompleted] = useState(true);
+
+  const toggleIcon = () => {
+    setIsCompleted(prevState => !prevState);
+  };
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -57,7 +61,7 @@ const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
               }}>
               {completedDays[index] ? (
                 <>
-                  <CheckIcon />
+                  <Tickicon />
                   <View style={styles.dotContainer} />
                 </>
               ) : (
@@ -65,15 +69,28 @@ const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
               )}
             </View>
           ))}
-          <TouchableOpacity
-            style={styles.calenderContainer}
-            hitSlop={6}
-            onPress={() => setModalVisible(true)}>
-            <CalenderIcon />
-          </TouchableOpacity>
         </View>
       ) : null}
       {/* ----------------------------------------------------------------------------------- */}
+
+      {isTitle ? (
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: 15,
+            justifyContent: 'space-between',
+          }}>
+          <Text style={[appStyles.h4, {marginLeft: 15}]}>Daily Progress</Text>
+          <TouchableOpacity onPress={toggleIcon}>
+            {isCompleted ? (
+              <Tickicon style={{marginRight: 15, width: 20, height: 20}} />
+            ) : (
+              <UnTick style={{marginRight: 15, width: 20, height: 20}} />
+            )}
+          </TouchableOpacity>
+        </View>
+      ) : null}
+
       <View style={styles.lineContainer}>
         <View
           style={[
@@ -102,8 +119,6 @@ const CalenderCard: React.FC<Props> = ({isCalender, containerStyle}) => {
         ]}>
         4 of 5 completed
       </Text>
-
-      <CalenderModal isVisible={isModalVisible} onClose={handleModalClose} />
     </View>
   );
 };
@@ -122,7 +137,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 15,
-    alignSelf: 'center',
+    paddingHorizontal: 15,
+    justifyContent: 'space-between',
   },
   textContainer: {
     color: colors.black,
@@ -130,11 +146,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.MontserratMedium,
   },
-  calenderContainer: {
-    backgroundColor: `${colors.primary}20`,
-    padding: 8,
-    borderRadius: 100,
-  },
+
   dotContainer: {
     position: 'absolute',
     bottom: -10,
@@ -144,7 +156,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
   lineContainer: {
-    marginTop: 20,
+    marginTop: 15,
     flexDirection: 'row',
     paddingHorizontal: 16,
     gap: 2,
