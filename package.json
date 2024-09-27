@@ -17,6 +17,7 @@
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
     "formik": "^2.4.6",
+    "npm": "^10.8.3",
     "react": "18.2.0",
     "react-native": "0.73.0",
     "react-native-bouncy-checkbox": "^4.1.2",
@@ -33,6 +34,7 @@
     "react-native-screens": "^3.34.0",
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^15.6.0",
+    "react-native-swipeable": "^0.6.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

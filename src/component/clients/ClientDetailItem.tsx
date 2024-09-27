@@ -14,6 +14,7 @@ import {
   UnLinkIcon,
   CrossIcon,
 } from '../../assets/svg';
+import Swipeable from 'react-native-swipeable';
 
 interface Props {
   ImageUrl: string;
@@ -66,46 +67,60 @@ const ClientDetailItem: React.FC<Props> = ({
   };
 
   if (isCombine) {
+    const leftButtons = [
+      <TouchableOpacity style={styles.deleteContainer}>
+        <Text style={styles.deleteText}>Delete</Text>
+      </TouchableOpacity>,
+    ];
     return (
-      <View style={styles.wrapper}>
-        <View style={{alignItems: 'center', width: 55}}>
-          <View style={styles.indexContainer}>
-            <Text style={[styles.indexText, {fontSize: 10}]}>2A</Text>
+      <Swipeable leftButtons={leftButtons}>
+        <View style={styles.wrapper}>
+          <View style={{alignItems: 'center', width: 55}}>
+            <View style={styles.indexContainer}>
+              <Text style={[styles.indexText, {fontSize: 10}]}>2A</Text>
+            </View>
+            <View
+              style={{
+                height: 60,
+                width: 1,
+                backgroundColor: colors.primary,
+                alignSelf: 'center',
+              }}
+            />
+            <View style={styles.indexContainer}>
+              <Text style={[styles.indexText, {fontSize: 10}]}>2B</Text>
+            </View>
           </View>
           <View
             style={{
-              height: 60,
-              width: 1,
-              backgroundColor: colors.primary,
-              alignSelf: 'center',
-            }}
-          />
-          <View style={styles.indexContainer}>
-            <Text style={[styles.indexText, {fontSize: 10}]}>2B</Text>
+              flexDirection: 'column',
+              alignItems: 'center',
+              flex: 1,
+            }}>
+            <ClientItem itemIndex={0} />
+            <ClientItem itemIndex={1} />
           </View>
         </View>
-        <View
-          style={{
-            flexDirection: 'column',
-            alignItems: 'center',
-            flex: 1,
-          }}>
-          <ClientItem itemIndex={0} />
-          <ClientItem itemIndex={1} />
-        </View>
-      </View>
+      </Swipeable>
     );
   }
+  const leftButtons = [
+    <TouchableOpacity style={styles.deleteContainer2}>
+      <Text style={styles.deleteText2}>Delete</Text>
+    </TouchableOpacity>,
+  ];
 
   return (
-    <View style={styles.container}>
-      <View style={{width: 55, alignItems: 'center'}}>
-        <View style={styles.indexContainer}>
-          <Text style={styles.indexText}>{index}</Text>
+    <Swipeable leftButtons={leftButtons}>
+      <View style={styles.container}>
+        <View style={{width: 55, alignItems: 'center'}}>
+          <View style={styles.indexContainer}>
+            <Text style={styles.indexText}>{index}</Text>
+          </View>
         </View>
+        <ClientItem itemIndex={0} />
       </View>
-      <ClientItem itemIndex={0} />
-    </View>
+    </Swipeable>
   );
 };
 
@@ -116,18 +131,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: 'white',
   },
   container: {
     flexDirection: 'row',
-    backgroundColor: colors.white,
+    backgroundColor: 'white',
     borderRadius: 10,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
     overflow: 'hidden',
     alignItems: 'center',
   },
   wrapper: {
     backgroundColor: colors.white,
     borderRadius: 10,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -177,5 +196,35 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontSize: 16,
     fontFamily: fonts.MontserratSemiBold,
+  },
+  deleteContainer: {
+    backgroundColor: 'red',
+    width: 80,
+    height: 156,
+    marginLeft: 264,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
+  deleteText: {
+    fontSize: 12,
+    fontFamily: fonts.MontserratSemiBold,
+    paddingVertical: 70,
+    paddingLeft: 10,
+    color: colors.white,
+  },
+  deleteContainer2: {
+    backgroundColor: 'red',
+    width: 80,
+    height: 78,
+    marginLeft: 264,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
+  deleteText2: {
+    fontSize: 12,
+    fontFamily: fonts.MontserratSemiBold,
+    paddingVertical: 32,
+    paddingLeft: 10,
+    color: colors.white,
   },
 });

@@ -17,8 +17,10 @@ import Goal from './Home/Goal';
 import VideoDetail from './Programs/VideoDetail';
 import ClientDetails from '../physioTabs/Clients/ClientDetails';
 import ClientVideo from '../physioTabs/Clients/ClientVideo';
+import SquatTest from '../physioTabs/Clients/SquatTest';
 
 export {
+  SquatTest,
   ClientVideo,
   ClientDetails,
   VideoDetail,

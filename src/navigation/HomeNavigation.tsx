@@ -14,6 +14,7 @@ import {
   PhysioProfile,
   ProgramListing,
   SquatProgress,
+  SquatTest,
   UploadVideo,
   VideoDetail,
 } from '../screens/tabs';
@@ -38,6 +39,7 @@ export type HomeStackParamsList = {
   VideoDetail: undefined;
   ClientDetails: undefined;
   ClientVideo: undefined;
+  SquatTest: undefined;
 };
 const HomeStackNavigator = () => {
   const HomeStack = createNativeStackNavigator<HomeStackParamsList>();
@@ -155,6 +157,12 @@ const HomeStackNavigator = () => {
         name="ClientVideo"
         component={ClientVideo}
         options={{headerTitle: '', headerShown: false}}
+      />
+
+      <HomeStack.Screen
+        name="SquatTest"
+        component={SquatTest}
+        options={{headerTitle: 'Squat Test', headerShown: true}}
       />
     </HomeStack.Navigator>
   );

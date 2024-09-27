@@ -39,7 +39,7 @@ const Home: React.FC<Props> = ({navigation}) => {
       <CalenderCard isCalender={true} />
 
       <Text style={[appStyles.h4, {marginTop: 20, paddingHorizontal: 18}]}>
-        My Progress
+        Assessments & Progress
       </Text>
 
       <View>

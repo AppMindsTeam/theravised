@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
-  ScrollView,
   View,
   TouchableOpacity,
   FlatList,
@@ -11,10 +10,9 @@ import {
 } from 'react-native';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors, fonts} from '../../utilities/theme';
-import {AddIcon, AddIcon2, BackArrow} from '../../../assets/svg';
-import {ClientDetailItem} from '../../../component';
-import {CLIENT_PROGRAM_ARRAY} from '../../../constants';
-import SuccessModal from '../../../Model/SuccessModel';
+import {AddIcon2, BackArrow} from '../../../assets/svg';
+import {AssessmentItem, ClientDetailItem} from '../../../component';
+import {CLIENT_PROGRAM_ARRAY, PROGRESSITEM} from '../../../constants';
 import AddModal from '../../../Model/AddModel';
 
 type Props = NativeStackScreenProps<HomeStackParamsList, 'ClientDetails'>;
@@ -99,7 +97,6 @@ const ClientDetails: React.FC<Props> = ({navigation}) => {
         </View>
       </View>
 
-      {/* <View style={styles.contentContainer}> */}
       {statusColor === 'Program' ? (
         <View style={{paddingBottom: 150}}>
           <FlatList
@@ -125,11 +122,37 @@ const ClientDetails: React.FC<Props> = ({navigation}) => {
           />
         </View>
       ) : (
-        <View>
-          <Text>Welcome to Assesment Screen</Text>
+        <View style={{marginBottom: 160}}>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={PROGRESSITEM}
+            keyExtractor={item => item.title}
+            renderItem={({item, index}) => (
+              <AssessmentItem
+                key={index}
+                title={item.title}
+                ImageUrl={item.ImageUrl}
+                onPress={() => {
+                  if (index === 0) {
+                    navigation.navigate('SquatTest');
+                  }
+                }}
+              />
+            )}
+            contentContainerStyle={{gap: 18}}
+            ListHeaderComponent={() => (
+              <TouchableOpacity
+                style={[
+                  styles.addContainer,
+                  {height: 90, justifyContent: 'center'},
+                ]}
+                onPress={() => setModalVisible(true)}>
+                <AddIcon2 />
+              </TouchableOpacity>
+            )}
+          />
         </View>
       )}
-      {/* </View> */}
 
       <AddModal isVisible={isModalVisible} onClose={handleModalClose} />
     </View>

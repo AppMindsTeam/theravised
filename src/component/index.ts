@@ -23,8 +23,10 @@ import ProgramHeader from './programs/ProgramHeader';
 import InstructionItem from './programs/InstructionItem';
 import HistoryItem from './programs/HistoryItem';
 import ClientDetailItem from './clients/ClientDetailItem';
+import AssessmentItem from './clients/AssessmentItem';
 
 export {
+  AssessmentItem,
   ClientDetailItem,
   InstructionItem,
   HistoryItem,
