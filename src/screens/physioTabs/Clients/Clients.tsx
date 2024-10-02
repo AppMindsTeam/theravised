@@ -35,8 +35,16 @@ const Clients: React.FC<Props> = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={[appStyles.h6, {color: colors.black}]}>Status</Text>
-        <Text style={[appStyles.h6, {color: colors.black}]}>Name</Text>
-        <Text style={[appStyles.h6, {color: colors.black}]}>Follow Up</Text>
+        <Text
+          style={[
+            appStyles.h6,
+            {color: colors.black, marginLeft: 22, flex: 1},
+          ]}>
+          Name
+        </Text>
+        <Text style={[appStyles.h6, {color: colors.black, textAlign: 'right'}]}>
+          Follow Up
+        </Text>
       </View>
 
       <FlatList
@@ -76,8 +84,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingRight: 30,
+    paddingRight: 20,
     marginTop: 30,
   },
 });

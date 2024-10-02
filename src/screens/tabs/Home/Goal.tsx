@@ -11,13 +11,19 @@ import {colors, fonts} from '../../utilities/theme';
 import {AngryIcon, HappyIcon, Tickicon, UnTick} from '../../../assets/svg';
 import {AppButton, FormInput} from '../../../component';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 
 const initialSets = [
   {id: 1, reps: 15, load: '18kg', completed: true},
   {id: 2, reps: 15, load: '18kg', completed: true},
 ];
 
-const Goal: React.FC = () => {
+type Props = NativeStackScreenProps<HomeStackParamsList, 'Goal'>;
+
+const Goal: React.FC<Props> = ({navigation}) => {
   const [sets, setSets] = useState(initialSets);
   const [sliderValue, setSliderValue] = useState([5]);
 
@@ -32,6 +38,20 @@ const Goal: React.FC = () => {
   const sliderValueChange = (values: number[]) => {
     setSliderValue(values);
   };
+  const validationSchema = Yup.object().shape({
+    comment: Yup.string().required('Comment required'),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      comment: '',
+    },
+
+    validationSchema: validationSchema,
+    onSubmit: values => {
+      navigation.goBack();
+    },
+  });
 
   return (
     <View style={styles.container}>
@@ -46,7 +66,7 @@ const Goal: React.FC = () => {
         <View style={styles.headerRow}>
           <Text style={[styles.headerText, {color: colors.primary}]}>Sets</Text>
           <Text style={styles.headerText}>Reps</Text>
-          <Text style={styles.headerText}>Load</Text>
+          <Text style={[styles.headerText, {marginRight: 14}]}>Load</Text>
           <Tickicon />
         </View>
 
@@ -88,6 +108,7 @@ const Goal: React.FC = () => {
 
         <AngryIcon style={styles.rightIcon} />
       </View>
+      <Text style={styles.painScoreText2}>0</Text>
 
       <Text style={styles.painScoreText}> {sliderValue[0]}</Text>
 
@@ -97,12 +118,17 @@ const Goal: React.FC = () => {
         inputStyles={{color: colors.black}}
         multiline
         inputContainerStyle={styles.inputContainer}
+        onChangeText={formik.handleChange('comment')}
+        value={formik.values.comment}
+        onBlur={formik.handleBlur('comment')}
+        errorMessage={formik.touched.comment && formik.errors.comment}
       />
 
       <AppButton
         title="Save"
         customStyle={styles.buttonContainer}
         titleStyle={{fontSize: 14}}
+        onPress={formik.handleSubmit}
       />
     </View>
   );
@@ -133,10 +159,12 @@ const styles = StyleSheet.create({
   },
   marker: {
     backgroundColor: colors.white,
-    width: 14,
-    height: 14,
+    width: 18,
+    height: 18,
     marginTop: 10,
     marginLeft: 30,
+    borderColor: colors.primary,
+    borderWidth: 1,
   },
   circle: {
     width: 25,
@@ -191,7 +219,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // marginTop: 10,
   },
   leftIcon: {
     position: 'absolute',
@@ -216,6 +243,14 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginTop: -15,
     marginRight: 4,
+  },
+  painScoreText2: {
+    fontSize: 14,
+    fontFamily: fonts.MontserratBold,
+    color: colors.black,
+    textAlign: 'left',
+    marginTop: -15,
+    marginLeft: 5,
   },
 });
 

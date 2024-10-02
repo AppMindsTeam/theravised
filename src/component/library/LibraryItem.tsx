@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Tickicon} from '../../assets/svg';
+import {TickIcon2} from '../../assets/svg';
 import {appStyles, colors} from '../../screens/utilities/theme';
 
 interface Props {
@@ -33,7 +33,7 @@ const LibraryItem: React.FC<Props> = ({ImageUri}) => {
         }}
         style={styles.imgStyle}>
         <View style={styles.addicon}>
-          {isTickVisible ? <Tickicon /> : null}
+          {isTickVisible ? <TickIcon2 /> : null}
         </View>
       </ImageBackground>
 

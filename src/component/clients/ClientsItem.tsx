@@ -23,7 +23,7 @@ export default ClientItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     borderRadius: 10,
     paddingVertical: 12,
     paddingLeft: 15,

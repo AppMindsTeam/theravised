@@ -1,14 +1,7 @@
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Dimensions, StyleSheet, Text, View, ViewStyle} from 'react-native';
 import React, {useState} from 'react';
 import {appStyles, colors, fonts} from '../../screens/utilities/theme';
-import {Tickicon, UnTick} from '../../assets/svg';
+import {Tickicon} from '../../assets/svg';
 
 interface Props {
   isCalender: boolean;
@@ -32,12 +25,6 @@ const CalenderCard: React.FC<Props> = ({
     false,
     true,
   ]);
-
-  const [isCompleted, setIsCompleted] = useState(true);
-
-  const toggleIcon = () => {
-    setIsCompleted(prevState => !prevState);
-  };
 
   return (
     <View style={[styles.container, containerStyle]}>
@@ -81,13 +68,6 @@ const CalenderCard: React.FC<Props> = ({
             justifyContent: 'space-between',
           }}>
           <Text style={[appStyles.h4, {marginLeft: 15}]}>Daily Progress</Text>
-          <TouchableOpacity onPress={toggleIcon}>
-            {isCompleted ? (
-              <Tickicon style={{marginRight: 15, width: 20, height: 20}} />
-            ) : (
-              <UnTick style={{marginRight: 15, width: 20, height: 20}} />
-            )}
-          </TouchableOpacity>
         </View>
       ) : null}
 
