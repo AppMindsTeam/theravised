@@ -41,11 +41,20 @@ const ClientDetailItem: React.FC<Props> = ({
         </TouchableOpacity>
         <View style={styles.innerContainer}>
           <Text style={styles.titleStyle}>Title</Text>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={[appStyles.h5, {color: colors.black}]}>2 x 15</Text>
-            <WaitIcon style={{marginLeft: 6}} />
-            <Text style={[appStyles.h5, {color: colors.black, marginLeft: 3}]}>
-              18kg
+          <View style={{flexDirection: 'column'}}>
+            <Text
+              style={[
+                appStyles.h9,
+                {color: colors.black, fontFamily: fonts.MontserratSemiBold},
+              ]}>
+              3 Sets. 10 Reps
+            </Text>
+            <Text
+              style={[
+                appStyles.h9,
+                {color: colors.black, fontFamily: fonts.MontserratSemiBold},
+              ]}>
+              18-50kg
             </Text>
           </View>
         </View>
@@ -131,6 +140,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
+    paddingVertical: 2,
   },
   container: {
     flexDirection: 'row',
@@ -179,16 +189,18 @@ const styles = StyleSheet.create({
     paddingLeft: 3,
   },
   timeBackground: {
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: colors.gray[550],
     borderRadius: 100,
-    borderColor: colors.gray[150],
+    borderColor: colors.gray[550],
     borderWidth: 1,
-    paddingHorizontal: 2,
+    paddingHorizontal: 4,
     alignSelf: 'flex-end',
     margin: 3,
   },
   timeStyle: {
     color: colors.white,
+    fontSize: 8,
+    fontFamily: fonts.MontserratMedium,
   },
   iconButton: {
     marginRight: 16,

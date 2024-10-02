@@ -4,7 +4,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors, fonts} from '../utilities/theme';
-import {AppButton} from '../../component';
+import {AppButton, AuthHeader} from '../../component';
 import OTPInput from '../../component/auth/OTPInput';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
@@ -31,8 +31,9 @@ const OTPScreen: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Image source={images.applogo} style={styles.logoStyle} />
-      <Text style={[appStyles.h4, {marginTop: 35}]}>
+      {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
+      <AuthHeader onPress={() => navigation.goBack()} />
+      <Text style={[appStyles.h4, {marginTop: 40}]}>
         Enter Verification Code
       </Text>
       <View style={styles.innerContainer}>
@@ -52,7 +53,7 @@ const OTPScreen: React.FC<Props> = ({navigation}) => {
         style={{
           flexDirection: 'row',
           justifyContent: 'flex-end',
-          marginTop: 12,
+          marginTop: 15,
         }}>
         <Text style={appStyles.h7}>Didn’t you receive any code?</Text>
         <TouchableOpacity>

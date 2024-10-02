@@ -4,7 +4,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors} from '../utilities/theme';
-import {AppButton} from '../../component';
+import {AppButton, AuthHeader} from '../../component';
 import {Successimg} from '../../assets/svg';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'PasswordSuccess'>;
@@ -12,8 +12,10 @@ type Props = NativeStackScreenProps<AuthStackParamList, 'PasswordSuccess'>;
 const PasswordSuccess: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <Image source={images.applogo} style={styles.logoStyle} />
-      <Successimg style={{marginTop: 58}} />
+      {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
+      <AuthHeader onPress={() => navigation.goBack()} />
+
+      <Successimg style={{marginTop: 63}} />
       <Text style={[appStyles.h4, {marginTop: 30, color: colors.primary}]}>
         Change Password Successfully!
       </Text>

@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet, Text, ScrollView, Image} from 'react-native';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors} from '../../utilities/theme';
-import {AppButton, FormInput} from '../../../component';
+import {AppButton, AuthHeader, FormInput} from '../../../component';
 import {Lockicon} from '../../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
@@ -36,7 +36,7 @@ const ChangePassword: React.FC<Props> = ({navigation}) => {
 
     validationSchema: validationSchema,
     onSubmit: values => {
-      //   navigation.navigate('');
+      navigation.goBack();
     },
   });
   const {confirmpassword, oldpassword, password} = formik.values;
@@ -45,6 +45,7 @@ const ChangePassword: React.FC<Props> = ({navigation}) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 16}}>
+        <AuthHeader onPress={() => navigation.goBack()} />
         <Text style={[appStyles.h4, {marginTop: 35}]}>
           Change Your Password
         </Text>

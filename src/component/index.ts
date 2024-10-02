@@ -24,8 +24,10 @@ import InstructionItem from './programs/InstructionItem';
 import HistoryItem from './programs/HistoryItem';
 import ClientDetailItem from './clients/ClientDetailItem';
 import AssessmentItem from './clients/AssessmentItem';
+import AuthHeader from './auth/AuthHeader';
 
 export {
+  AuthHeader,
   AssessmentItem,
   ClientDetailItem,
   InstructionItem,

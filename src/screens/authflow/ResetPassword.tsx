@@ -4,7 +4,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors, fonts} from '../utilities/theme';
-import {AppButton, FormInput} from '../../component';
+import {AppButton, AuthHeader, FormInput} from '../../component';
 import {Lockicon} from '../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
@@ -43,8 +43,10 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 16}}>
-        <Image source={images.applogo} style={styles.logoStyle} />
-        <Text style={[appStyles.h4, {marginTop: 35}]}>Reset Your Password</Text>
+        {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
+        <AuthHeader onPress={() => navigation.goBack()} />
+
+        <Text style={[appStyles.h4, {marginTop: 40}]}>Reset Your Password</Text>
         <Text style={[appStyles.h7, {marginTop: 8}]}>
           The password must be different than before
         </Text>

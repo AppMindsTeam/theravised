@@ -44,15 +44,11 @@ const ClientProgram: React.FC<Props> = ({
         </TouchableOpacity>
         <View style={styles.innerContainer}>
           <Text style={styles.titleStyle}>Title</Text>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={[appStyles.h6, {color: colors.black, marginTop: 0}]}>
-              2 x 15
-            </Text>
-            <WaitIcon style={{marginLeft: 10}} />
-            <Text style={[appStyles.h6, {color: colors.black, marginLeft: 4}]}>
-              18kg
-            </Text>
-          </View>
+
+          <Text style={[appStyles.h9, {color: colors.gray[200]}]}>
+            3 Sets . 10 Reps .
+          </Text>
+          <Text style={[appStyles.h9, {color: colors.gray[200]}]}>18-50kg</Text>
         </View>
         <TouchableOpacity
           hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
@@ -116,6 +112,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     backgroundColor: colors.white,
+    paddingVertical: 7,
   },
   container: {
     flexDirection: 'row',
@@ -150,7 +147,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginRight: 10,
     justifyContent: 'flex-end',
-    marginVertical: 4,
     borderRadius: 10,
   },
   innerContainer: {
@@ -158,16 +154,18 @@ const styles = StyleSheet.create({
     paddingLeft: 3,
   },
   timeBackground: {
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: colors.gray[550],
     borderRadius: 100,
-    borderColor: colors.gray[150],
+    borderColor: colors.gray[550],
     borderWidth: 1,
-    paddingHorizontal: 2,
+    paddingHorizontal: 4,
     alignSelf: 'flex-end',
     margin: 3,
   },
   timeStyle: {
     color: colors.white,
+    fontSize: 8,
+    fontFamily: fonts.MontserratMedium,
   },
   iconButton: {
     marginRight: 16,
@@ -175,6 +173,6 @@ const styles = StyleSheet.create({
   titleStyle: {
     color: colors.black,
     fontSize: 16,
-    fontFamily: fonts.MontserratSemiBold,
+    fontFamily: fonts.MontserratBold,
   },
 });

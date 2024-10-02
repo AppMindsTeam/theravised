@@ -139,7 +139,7 @@ const ClientDetails: React.FC<Props> = ({navigation}) => {
                 }}
               />
             )}
-            contentContainerStyle={{gap: 18}}
+            contentContainerStyle={{gap: 12}}
             ListHeaderComponent={() => (
               <TouchableOpacity
                 style={[

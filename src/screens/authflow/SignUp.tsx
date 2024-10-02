@@ -108,6 +108,8 @@ const SignUp: React.FC<Props> = ({navigation}) => {
           iconImageStyle={styles.iconImageStyle}
           fillColor={colors.primary}
           unFillColor={'transparent'}
+          iconStyle={{borderRadius: 6}}
+          innerIconStyle={{borderRadius: 6}}
           text={'I accept the Terms & Conditions'}
           isChecked={formik.values.terms}
           onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
@@ -119,6 +121,8 @@ const SignUp: React.FC<Props> = ({navigation}) => {
           iconImageStyle={styles.iconImageStyle}
           fillColor={colors.primary}
           unFillColor={'transparent'}
+          iconStyle={{borderRadius: 6}}
+          innerIconStyle={{borderRadius: 6}}
           text={'I accept the Privacy Policy'}
           isChecked={formik.values.policy}
           onPress={() => formik.setFieldValue('policy', !formik.values.policy)}
@@ -149,10 +153,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
   },
   imgStyle: {
-    width: 220,
-    height: 38,
+    width: 200,
+    height: 46,
     alignSelf: 'center',
-    marginTop: 45,
+    marginTop: 41,
   },
   textStyle: {
     color: colors.gray[50],
