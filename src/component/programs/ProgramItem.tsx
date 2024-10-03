@@ -60,16 +60,17 @@ const styles = StyleSheet.create({
     color: colors.gray[50],
   },
   timeBackground: {
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: colors.gray[550],
     borderRadius: 100,
-    borderColor: colors.gray[150],
+    borderColor: colors.gray[550],
     borderWidth: 1,
     paddingHorizontal: 4,
-    paddingVertical: 1,
     alignSelf: 'flex-end',
     margin: 3,
   },
   timeStyle: {
     color: colors.white,
+    fontSize: 8,
+    fontFamily: fonts.MontserratMedium,
   },
 });

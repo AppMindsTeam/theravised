@@ -17,10 +17,10 @@ const SignUp: React.FC<Props> = ({navigation}) => {
   const togglePassword = () => setHidePassword(!hidePasswod);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name required'),
-    email: Yup.string().email('Invalid email').required('Email required'),
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
     code: Yup.string().required('Referral-Code required'),
-    password: Yup.string().required('Password required'),
+    password: Yup.string().required('Password is required'),
     terms: Yup.boolean()
       .oneOf([true], 'You must accept the terms and conditions')
       .required('Terms and conditions are required'),
@@ -108,6 +108,8 @@ const SignUp: React.FC<Props> = ({navigation}) => {
           iconImageStyle={styles.iconImageStyle}
           fillColor={colors.primary}
           unFillColor={'transparent'}
+          iconStyle={{borderRadius: 6}}
+          innerIconStyle={{borderRadius: 6}}
           text={'I accept the Terms & Conditions'}
           isChecked={formik.values.terms}
           onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
@@ -119,6 +121,8 @@ const SignUp: React.FC<Props> = ({navigation}) => {
           iconImageStyle={styles.iconImageStyle}
           fillColor={colors.primary}
           unFillColor={'transparent'}
+          iconStyle={{borderRadius: 6}}
+          innerIconStyle={{borderRadius: 6}}
           text={'I accept the Privacy Policy'}
           isChecked={formik.values.policy}
           onPress={() => formik.setFieldValue('policy', !formik.values.policy)}
@@ -145,14 +149,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.bgcolor,
-
     paddingHorizontal: 18,
   },
   imgStyle: {
-    width: 220,
-    height: 38,
+    width: 200,
+    height: 46,
     alignSelf: 'center',
-    marginTop: 45,
+    marginTop: 41,
   },
   textStyle: {
     color: colors.gray[50],

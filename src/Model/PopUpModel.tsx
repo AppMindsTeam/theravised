@@ -38,6 +38,13 @@ const PopUpModel: React.FC<Props> = ({isVisible, onClose, modalType}) => {
       onBackdropPress={onClose}
       style={{justifyContent: 'flex-end', margin: 0}}>
       <View style={styles.modalContainer}>
+        {/* Done Button */}
+        <View style={styles.doneButtonContainer}>
+          <TouchableOpacity onPress={onClose} style={styles.doneButton}>
+            <Text style={styles.doneButtonText}>Done</Text>
+          </TouchableOpacity>
+        </View>
+
         <FlatList
           showsVerticalScrollIndicator={false}
           data={data}
@@ -58,13 +65,29 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     paddingBottom: 26,
     paddingTop: 10,
-    maxHeight: '50%',
+    maxHeight: '40%',
+  },
+  doneButtonContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  doneButton: {
+    backgroundColor: colors.primary,
+    borderRadius: 8,
+    paddingVertical: 5,
+    paddingHorizontal: 15,
+  },
+  doneButtonText: {
+    color: colors.white,
+    fontSize: 14,
+    fontFamily: fonts.MontserratSemiBold,
   },
   listContainer: {
     alignItems: 'center',
   },
   itemContainer: {
-    paddingVertical: 10,
+    paddingVertical: 15,
     paddingHorizontal: 130,
     marginVertical: 2,
   },

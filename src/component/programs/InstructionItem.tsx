@@ -22,11 +22,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 12,
-    borderRadius: 12,
     paddingHorizontal: 10,
     paddingVertical: 6,
 
-    backgroundColor: colors.white,
+    backgroundColor: colors.bgcolor,
   },
   dotStyle: {
     width: 6,

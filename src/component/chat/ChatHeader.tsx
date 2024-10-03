@@ -28,7 +28,7 @@ export default ChatHeader;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.bgcolor,
+    backgroundColor: colors.white,
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 15,

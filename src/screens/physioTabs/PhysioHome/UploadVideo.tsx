@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
-import {appStyles, colors} from '../../utilities/theme';
+import {appStyles, colors, fonts} from '../../utilities/theme';
 import {DropDownIcon, VideoIcon} from '../../../assets/svg';
 import {AppButton, FormInput} from '../../../component';
 import {useFormik} from 'formik';
@@ -42,11 +42,14 @@ const UploadVideo: React.FC<Props> = ({navigation}) => {
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title required'),
+    description: Yup.string().required('Description required'),
   });
 
   const formik = useFormik({
     initialValues: {
       title: '',
+      description:
+        'Lorem ipsum dolor sit amet, adipiscingelit. Sed rhoncus elit malesuada ante Lorem ipsum dolor sit amet, adipiscingelit.Sed rhoncus elit malesuada ante Lorem ipsum dolor sit amet, adipiscingelit.',
     },
     validationSchema: validationSchema,
     onSubmit: values => {
@@ -69,24 +72,27 @@ const UploadVideo: React.FC<Props> = ({navigation}) => {
           Upload your video
         </Text>
       </View>
+      <Text style={styles.dateText}>10/8/24</Text>
       <FormInput
         placeholder="Enter title"
-        containerStyle={{marginTop: 40}}
+        containerStyle={{marginTop: 10}}
         onChangeText={formik.handleChange('title')}
         value={formik.values.title}
         onBlur={formik.handleBlur('title')}
         errorMessage={formik.touched.title && formik.errors.title}
       />
-      <View style={styles.descriptionContainer}>
-        <Text style={[appStyles.h7, {lineHeight: 17, color: colors.black}]}>
-          Lorem ipsum dolor sit amet, adipiscingelit. Sed rhoncus elit malesuada
-          ante Lorem ipsum dolor sit amet, adipiscingelit. Sed rhoncus elit
-          malesuada ante Lorem ipsum dolor sit amet, adipiscingelit. Sed rhoncus
-          elit malesuada ante Lorem ipsum dolor sit amet, adipiscing
-        </Text>
-      </View>
+
+      <FormInput
+        placeholder="type here"
+        multiline
+        inputContainerStyle={styles.inputContainer}
+        onChangeText={formik.handleChange('description')}
+        value={formik.values.description}
+        onBlur={formik.handleBlur('description')}
+        errorMessage={formik.touched.description && formik.errors.description}
+      />
       <View style={styles.categoryContainer}>
-        <Text style={[appStyles.h6, {color: colors.black}]}>
+        <Text style={[appStyles.h6, {color: colors.primary}]}>
           {selectedCategory || 'Category'}
         </Text>
         <TouchableOpacity hitSlop={6} onPress={toggleDropdown}>
@@ -130,16 +136,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginTop: 30,
   },
-  descriptionContainer: {
-    borderColor: colors.primary,
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingTop: 10,
-    paddingLeft: 10,
-    paddingBottom: 15,
-    paddingRight: 25,
-    marginTop: 25,
+  inputContainer: {
+    backgroundColor: colors.bgcolor,
+    height: 144,
+    alignItems: 'flex-start',
   },
+
   categoryContainer: {
     paddingHorizontal: 10,
     paddingVertical: 14,
@@ -160,6 +162,13 @@ const styles = StyleSheet.create({
   },
   dropdownItem: {
     paddingVertical: 6,
+  },
+  dateText: {
+    fontSize: 10,
+    fontFamily: fonts.MontserratMedium,
+    color: '#9A9A9A',
+    marginTop: 5,
+    marginLeft: 4,
   },
 });
 

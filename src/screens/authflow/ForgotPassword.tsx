@@ -4,7 +4,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
 import {appStyles, colors} from '../utilities/theme';
-import {AppButton, FormInput} from '../../component';
+import {AppButton, AuthHeader, FormInput} from '../../component';
 import {Messegeicon} from '../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
@@ -33,7 +33,7 @@ const ForgotPassword: React.FC<Props> = ({navigation}) => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 16}}>
-        <Image source={images.applogo} style={styles.logoStyle} />
+        <AuthHeader onPress={() => navigation.goBack()} />
         <Image source={images.forgotimg} style={styles.imgStyle} />
         <Text style={[appStyles.h4, {marginTop: 8}]}>Forgot Password</Text>
         <Text style={[appStyles.h7, {marginTop: 8}]}>
@@ -79,6 +79,6 @@ const styles = StyleSheet.create({
     height: 250,
     width: 250,
     alignSelf: 'center',
-    marginTop: 15,
+    marginTop: 28,
   },
 });

@@ -1,7 +1,6 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {appStyles, colors} from '../../screens/utilities/theme';
-import {CheckIcon, DotedIcon, UnCheckIcon} from '../../assets/svg';
 
 interface Props {
   title: string;
@@ -32,9 +31,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   imgStyle: {
-    width: '100%',
-    height: 156,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    width: 160,
+    height: 130,
+    borderRadius: 10,
+    alignSelf: 'center',
+    marginTop: 18,
   },
 });

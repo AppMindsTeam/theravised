@@ -75,7 +75,7 @@ function ClientBottomTabs() {
         name="Programs"
         component={Programs}
         options={{
-          tabBarLabel: 'Programs',
+          tabBarLabel: 'Program',
           headerShown: false,
           headerTitle: '',
         }}
@@ -85,7 +85,7 @@ function ClientBottomTabs() {
         name="Profile"
         component={Profile}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'My Profile',
           headerShown: true,
           headerTitle: 'Profile',
         }}

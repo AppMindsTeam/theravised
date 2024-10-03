@@ -70,9 +70,9 @@ const FormInput: FC<Props> = ({
           onChangeText={onChangeText}
           value={value}
           secureTextEntry={secureTextEntry}
-          onBlur={() => {
+          onBlur={e => {
+            onBlur?.(e);
             setIsFocused(false);
-            // if (onBlur) onBlur();
           }}
           onFocus={() => setIsFocused(true)}
           keyboardType={keyboardType}

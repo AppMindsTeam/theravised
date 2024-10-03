@@ -64,8 +64,10 @@ import AddCameraIcon from './AddCameraIcon.svg';
 import AddGaleryIcon from './AddGaleryIcon.svg';
 import AddExplorIcon from './AddExplorIcon.svg';
 import Edit2Icon from './Edit2Icon.svg';
+import TickIcon2 from './TickIcon2.svg';
 
 export {
+  TickIcon2,
   Edit2Icon,
   AddCameraIcon,
   AddGaleryIcon,

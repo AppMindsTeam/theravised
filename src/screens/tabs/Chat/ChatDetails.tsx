@@ -133,7 +133,7 @@ export default ChatDetails;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 18,
-    backgroundColor: colors.bgcolor,
+    backgroundColor: colors.white,
     flex: 1,
   },
   leftTextStyle: {

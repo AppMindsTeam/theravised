@@ -27,8 +27,8 @@ const SignIn: React.FC<Props> = ({navigation}) => {
   const togglePassword = () => setHidePassword(!hidePasswod);
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Email required'),
-    password: Yup.string().required('Password required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().required('Password is required'),
     terms: Yup.boolean()
       .oneOf([true], 'You must accept the terms and conditions')
       .required('Terms and conditions are required'),
@@ -114,7 +114,6 @@ const SignIn: React.FC<Props> = ({navigation}) => {
           iconStyle={{borderRadius: 6}}
           innerIconStyle={{borderRadius: 6}}
           iconImageStyle={styles.iconImageStyle}
-          // checkIconImageSource={images.hideicon}
           fillColor={colors.primary}
           unFillColor={'transparent'}
           text={'I accept the Terms & Conditions'}
@@ -136,7 +135,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
         />
         <AppButton
           title="Login"
-          customStyle={{marginTop: 40}}
+          customStyle={{marginTop: 25}}
           onPress={formik.handleSubmit}
           isLoading={false}
           disabled={!formik.isValid && formik.dirty}
@@ -161,10 +160,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
   },
   imgStyle: {
-    width: 220,
-    height: 38,
+    width: 200,
+    height: 46,
     alignSelf: 'center',
-    marginTop: 107,
+    marginTop: 84,
   },
 
   forgotContainer: {

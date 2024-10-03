@@ -45,10 +45,15 @@ const VideoDetail: React.FC<Props> = ({navigation}) => {
       </ImageBackground>
       <View style={{paddingHorizontal: 18, marginTop: 25}}>
         <Text style={appStyles.h1}>Title</Text>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={appStyles.h2}>2 x 15</Text>
-          <WaitIcon style={{marginLeft: 12, marginRight: 6}} />
-          <Text style={appStyles.h2}>18kg</Text>
+
+        <View style={{flexDirection: 'row'}}>
+          <Text style={[appStyles.h9, {color: colors.gray[200]}]}>
+            3 Sets . 10 Reps{' '}
+          </Text>
+          <Text
+            style={[appStyles.h9, {color: colors.gray[200], marginLeft: 12}]}>
+            18-50kg
+          </Text>
         </View>
         <View style={styles.equipmentContainer}>
           <Text
@@ -165,7 +170,7 @@ const styles = StyleSheet.create({
     height: 27,
     borderRadius: 16,
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 22,
   },
   subContainer: {
     flexDirection: 'row',
@@ -180,7 +185,7 @@ const styles = StyleSheet.create({
   },
   topTab: {
     justifyContent: 'space-between',
-    width: '48%',
+    width: '49%',
     alignItems: 'center',
   },
   contentContainer: {

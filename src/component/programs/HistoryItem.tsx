@@ -9,10 +9,10 @@ const HistoryItem: React.FC<Props> = () => {
     <View style={styles.container}>
       <View style={{flexDirection: 'column'}}>
         <Text style={appStyles.h4}>Tuesday sept 3 2024</Text>
-        <View style={{flexDirection: 'row', marginTop: 10}}>
-          <Text style={appStyles.h4}>2 x 15</Text>
-          <WaitIcon style={{marginLeft: 12, marginRight: 6}} />
-          <Text style={appStyles.h4}>18kg</Text>
+
+        <View style={{flexDirection: 'row', marginTop: 8}}>
+          <Text style={styles.textStyle}>3 Sets . 10 Reps .</Text>
+          <Text style={[styles.textStyle, {marginLeft: 12}]}>18-50kg</Text>
         </View>
       </View>
       <Tickicon width={24} height={24} />
@@ -32,6 +32,11 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderRadius: 10,
     marginTop: 12,
-    backgroundColor: colors.white,
+    backgroundColor: colors.gray[500],
+  },
+  textStyle: {
+    fontSize: 16,
+    fontFamily: fonts.MontserratBold,
+    color: colors.black,
   },
 });

@@ -90,7 +90,7 @@ const HomeStackNavigator = () => {
       <HomeStack.Screen
         name="ChangePassword"
         component={ChangePassword}
-        options={{headerTitle: 'ChangePassword', headerShown: true}}
+        options={{headerTitle: 'ChangePassword', headerShown: false}}
       />
 
       <HomeStack.Screen

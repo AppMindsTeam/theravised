@@ -205,9 +205,9 @@ const styles = StyleSheet.create({
   },
   logoStyle: {
     width: 140,
-    height: 25,
+    height: 32,
     alignSelf: 'center',
-    marginTop: 45,
+    marginTop: 40,
   },
   imgStyle: {
     width: 280,
