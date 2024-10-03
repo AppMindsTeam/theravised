@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
   imgStyle: {
     width: '100%',
     height: 84,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
     overflow: 'hidden',
   },
   addicon: {

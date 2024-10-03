@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   },
   topTab: {
     justifyContent: 'space-between',
-    width: '48%',
+    width: '49%',
     alignItems: 'center',
   },
   contentContainer: {

@@ -83,6 +83,8 @@ const ClientProgram: React.FC<Props> = ({
           style={{
             flexDirection: 'column',
             alignItems: 'center',
+            // backgroundColor: 'yellow',
+            // borderRadius: 10,
             flex: 1,
           }}>
           <ClientItem itemIndex={0} />
@@ -112,6 +114,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     backgroundColor: colors.white,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
     paddingVertical: 7,
   },
   container: {
@@ -124,6 +128,8 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: colors.white,
     borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },

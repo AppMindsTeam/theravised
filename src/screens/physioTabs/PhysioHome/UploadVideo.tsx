@@ -9,7 +9,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
-import {appStyles, colors} from '../../utilities/theme';
+import {appStyles, colors, fonts} from '../../utilities/theme';
 import {DropDownIcon, VideoIcon} from '../../../assets/svg';
 import {AppButton, FormInput} from '../../../component';
 import {useFormik} from 'formik';
@@ -72,9 +72,10 @@ const UploadVideo: React.FC<Props> = ({navigation}) => {
           Upload your video
         </Text>
       </View>
+      <Text style={styles.dateText}>10/8/24</Text>
       <FormInput
         placeholder="Enter title"
-        containerStyle={{marginTop: 40}}
+        containerStyle={{marginTop: 10}}
         onChangeText={formik.handleChange('title')}
         value={formik.values.title}
         onBlur={formik.handleBlur('title')}
@@ -161,6 +162,13 @@ const styles = StyleSheet.create({
   },
   dropdownItem: {
     paddingVertical: 6,
+  },
+  dateText: {
+    fontSize: 10,
+    fontFamily: fonts.MontserratMedium,
+    color: '#9A9A9A',
+    marginTop: 5,
+    marginLeft: 4,
   },
 });
 

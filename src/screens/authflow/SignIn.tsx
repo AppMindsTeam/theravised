@@ -27,8 +27,8 @@ const SignIn: React.FC<Props> = ({navigation}) => {
   const togglePassword = () => setHidePassword(!hidePasswod);
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Email required'),
-    password: Yup.string().required('Password required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().required('Password is required'),
     terms: Yup.boolean()
       .oneOf([true], 'You must accept the terms and conditions')
       .required('Terms and conditions are required'),

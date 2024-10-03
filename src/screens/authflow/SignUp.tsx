@@ -17,10 +17,10 @@ const SignUp: React.FC<Props> = ({navigation}) => {
   const togglePassword = () => setHidePassword(!hidePasswod);
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required('Name required'),
-    email: Yup.string().email('Invalid email').required('Email required'),
+    name: Yup.string().required('Name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
     code: Yup.string().required('Referral-Code required'),
-    password: Yup.string().required('Password required'),
+    password: Yup.string().required('Password is required'),
     terms: Yup.boolean()
       .oneOf([true], 'You must accept the terms and conditions')
       .required('Terms and conditions are required'),
@@ -149,7 +149,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.bgcolor,
-
     paddingHorizontal: 18,
   },
   imgStyle: {
