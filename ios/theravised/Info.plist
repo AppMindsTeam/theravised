@@ -32,7 +32,9 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera permission required to upload images</string>
+	<string>Camera permission required to upload user profile image</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Gallery permission required to upload user profile image</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
