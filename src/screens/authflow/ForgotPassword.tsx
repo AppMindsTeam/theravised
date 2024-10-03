@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, Text, Image, ScrollView, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  Image,
+  ScrollView,
+  View,
+  SafeAreaView,
+} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -30,33 +37,35 @@ const ForgotPassword: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 16}}>
-        <AuthHeader onPress={() => navigation.goBack()} />
-        <Image source={images.forgotimg} style={styles.imgStyle} />
-        <Text style={[appStyles.h4, {marginTop: 8}]}>Forgot Password</Text>
-        <Text style={[appStyles.h7, {marginTop: 8}]}>
-          Enter your email account to reset password
-        </Text>
-        <FormInput
-          placeholder="Lachie123@gmail.com"
-          keyboardType="email-address"
-          icon={
-            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
-          }
-          onChangeText={formik.handleChange('email')}
-          value={formik.values.email}
-          onBlur={formik.handleBlur('email')}
-          errorMessage={formik.touched.email && formik.errors.email}
-          containerStyle={{marginTop: 15}}
-        />
-        <AppButton
-          title="Sent"
-          customStyle={{marginTop: 42}}
-          onPress={formik.handleSubmit}
-        />
-      </ScrollView>
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 16}}>
+          <AuthHeader onPress={() => navigation.goBack()} />
+          <Image source={images.forgotimg} style={styles.imgStyle} />
+          <Text style={[appStyles.h4, {marginTop: 8}]}>Forgot Password</Text>
+          <Text style={[appStyles.h7, {marginTop: 8}]}>
+            Enter your email account to reset password
+          </Text>
+          <FormInput
+            placeholder="Lachie123@gmail.com"
+            keyboardType="email-address"
+            icon={
+              <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+            }
+            onChangeText={formik.handleChange('email')}
+            value={formik.values.email}
+            onBlur={formik.handleBlur('email')}
+            errorMessage={formik.touched.email && formik.errors.email}
+            containerStyle={{marginTop: 15}}
+          />
+          <AppButton
+            title="Sent"
+            customStyle={{marginTop: 42}}
+            onPress={formik.handleSubmit}
+          />
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };

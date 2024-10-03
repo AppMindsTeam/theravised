@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, Image, ScrollView, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  Image,
+  ScrollView,
+  View,
+  SafeAreaView,
+} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -40,54 +47,58 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 16}}>
-        {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
-        <AuthHeader onPress={() => navigation.goBack()} />
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 16}}>
+          {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
+          <AuthHeader onPress={() => navigation.goBack()} />
 
-        <Text style={[appStyles.h4, {marginTop: 40}]}>Reset Your Password</Text>
-        <Text style={[appStyles.h7, {marginTop: 8}]}>
-          The password must be different than before
-        </Text>
+          <Text style={[appStyles.h4, {marginTop: 40}]}>
+            Reset Your Password
+          </Text>
+          <Text style={[appStyles.h7, {marginTop: 8}]}>
+            The password must be different than before
+          </Text>
 
-        <FormInput
-          placeholder="New Password"
-          icon={
-            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
-          }
-          containerStyle={{marginTop: 20}}
-          isPassword={true}
-          secureTextEntry={hidePasswod}
-          onLeftIconPress={togglePassword}
-          onChangeText={formik.handleChange('password')}
-          value={formik.values.password}
-          onBlur={formik.handleBlur('password')}
-          errorMessage={formik.touched.password && formik.errors.password}
-        />
-        <FormInput
-          placeholder="Confirm Password"
-          icon={
-            <Lockicon
-              stroke={confirmpassword ? colors.primary : colors.gray[50]}
-            />
-          }
-          isPassword={true}
-          secureTextEntry={confhidePasswod}
-          onLeftIconPress={toggleconfPassword}
-          onChangeText={formik.handleChange('confirmpassword')}
-          value={formik.values.confirmpassword}
-          onBlur={formik.handleBlur('confirmpassword')}
-          errorMessage={
-            formik.touched.confirmpassword && formik.errors.confirmpassword
-          }
-        />
-        <AppButton
-          title="Confirm"
-          customStyle={{marginTop: 140}}
-          onPress={formik.handleSubmit}
-        />
-      </ScrollView>
+          <FormInput
+            placeholder="New Password"
+            icon={
+              <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+            }
+            containerStyle={{marginTop: 20}}
+            isPassword={true}
+            secureTextEntry={hidePasswod}
+            onLeftIconPress={togglePassword}
+            onChangeText={formik.handleChange('password')}
+            value={formik.values.password}
+            onBlur={formik.handleBlur('password')}
+            errorMessage={formik.touched.password && formik.errors.password}
+          />
+          <FormInput
+            placeholder="Confirm Password"
+            icon={
+              <Lockicon
+                stroke={confirmpassword ? colors.primary : colors.gray[50]}
+              />
+            }
+            isPassword={true}
+            secureTextEntry={confhidePasswod}
+            onLeftIconPress={toggleconfPassword}
+            onChangeText={formik.handleChange('confirmpassword')}
+            value={formik.values.confirmpassword}
+            onBlur={formik.handleBlur('confirmpassword')}
+            errorMessage={
+              formik.touched.confirmpassword && formik.errors.confirmpassword
+            }
+          />
+          <AppButton
+            title="Confirm"
+            customStyle={{marginTop: 140}}
+            onPress={formik.handleSubmit}
+          />
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };

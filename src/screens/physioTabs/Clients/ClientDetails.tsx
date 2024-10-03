@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
   StatusBar,
+  SafeAreaView,
 } from 'react-native';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors, fonts} from '../../utilities/theme';
@@ -27,134 +28,138 @@ const ClientDetails: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <TouchableOpacity
-          style={{width: 25}}
-          onPress={() => navigation.goBack()}>
-          <BackArrow />
-        </TouchableOpacity>
-        <View style={{flexDirection: 'column', marginLeft: 88}}>
-          <Text style={appStyles.h4}>Lachie Fraser</Text>
-          <Text style={[appStyles.h8, {color: colors.primary}]}>
-            Lachie123@gmail.com
-          </Text>
-        </View>
-      </View>
-      <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
-
-      <View style={styles.subContainer}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-          <View style={styles.tabContainer}>
-            <TouchableOpacity
-              style={[
-                styles.topTab,
-                {
-                  backgroundColor:
-                    statusColor === 'Program' ? colors.primary : 'transparent',
-                  borderTopLeftRadius: 15,
-                  borderBottomLeftRadius: 15,
-                },
-              ]}
-              onPress={() => setStatusColor('Program')}>
-              <Text
-                style={[
-                  styles.textStyle,
-                  {
-                    color:
-                      statusColor === 'Program' ? colors.white : colors.black,
-                  },
-                ]}>
-                Program
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.tabContainer}>
-            <TouchableOpacity
-              style={[
-                styles.topTab,
-                {
-                  backgroundColor:
-                    statusColor === 'Assessments'
-                      ? colors.primary
-                      : 'transparent',
-                },
-              ]}
-              onPress={() => setStatusColor('Assessments')}>
-              <Text
-                style={[
-                  styles.textStyle,
-                  {
-                    color:
-                      statusColor === 'Assessments'
-                        ? colors.white
-                        : colors.black,
-                  },
-                ]}>
-                Assessments
-              </Text>
-            </TouchableOpacity>
+      <SafeAreaView style={{flex: 1}}>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity
+            style={{width: 25}}
+            onPress={() => navigation.goBack()}>
+            <BackArrow />
+          </TouchableOpacity>
+          <View style={{flexDirection: 'column', marginLeft: 88}}>
+            <Text style={appStyles.h4}>Lachie Fraser</Text>
+            <Text style={[appStyles.h8, {color: colors.primary}]}>
+              Lachie123@gmail.com
+            </Text>
           </View>
         </View>
-      </View>
+        <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
 
-      {statusColor === 'Program' ? (
-        <View style={{paddingBottom: 150}}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={CLIENT_PROGRAM_ARRAY}
-            keyExtractor={item => item.ImageUrl}
-            renderItem={({item}) => (
-              <ClientDetailItem
-                ImageUrl={item.ImageUrl}
-                index={item.index}
-                isCombine={item.Combined}
-                onPress={() => navigation.navigate('ClientVideo')}
-              />
-            )}
-            contentContainerStyle={styles.contentContainerStyle}
-            ListFooterComponent={() => (
-              <TouchableOpacity
-                style={styles.addContainer}
-                onPress={() => setModalVisible(true)}>
-                <AddIcon2 style={{marginTop: 14}} />
-              </TouchableOpacity>
-            )}
-          />
-        </View>
-      ) : (
-        <View style={{marginBottom: 160}}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={PROGRESSITEM}
-            keyExtractor={item => item.title}
-            renderItem={({item, index}) => (
-              <AssessmentItem
-                key={index}
-                title={item.title}
-                ImageUrl={item.ImageUrl}
-                onPress={() => {
-                  if (index === 0) {
-                    navigation.navigate('SquatTest');
-                  }
-                }}
-              />
-            )}
-            contentContainerStyle={{gap: 12}}
-            ListHeaderComponent={() => (
+        <View style={styles.subContainer}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View style={styles.tabContainer}>
               <TouchableOpacity
                 style={[
-                  styles.addContainer,
-                  {height: 90, justifyContent: 'center'},
+                  styles.topTab,
+                  {
+                    backgroundColor:
+                      statusColor === 'Program'
+                        ? colors.primary
+                        : 'transparent',
+                    borderTopLeftRadius: 15,
+                    borderBottomLeftRadius: 15,
+                  },
                 ]}
-                onPress={() => setModalVisible(true)}>
-                <AddIcon2 />
+                onPress={() => setStatusColor('Program')}>
+                <Text
+                  style={[
+                    styles.textStyle,
+                    {
+                      color:
+                        statusColor === 'Program' ? colors.white : colors.black,
+                    },
+                  ]}>
+                  Program
+                </Text>
               </TouchableOpacity>
-            )}
-          />
+            </View>
+            <View style={styles.tabContainer}>
+              <TouchableOpacity
+                style={[
+                  styles.topTab,
+                  {
+                    backgroundColor:
+                      statusColor === 'Assessments'
+                        ? colors.primary
+                        : 'transparent',
+                  },
+                ]}
+                onPress={() => setStatusColor('Assessments')}>
+                <Text
+                  style={[
+                    styles.textStyle,
+                    {
+                      color:
+                        statusColor === 'Assessments'
+                          ? colors.white
+                          : colors.black,
+                    },
+                  ]}>
+                  Assessments
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
-      )}
 
-      <AddModal isVisible={isModalVisible} onClose={handleModalClose} />
+        {statusColor === 'Program' ? (
+          <View style={{paddingBottom: 150}}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={CLIENT_PROGRAM_ARRAY}
+              keyExtractor={item => item.ImageUrl}
+              renderItem={({item}) => (
+                <ClientDetailItem
+                  ImageUrl={item.ImageUrl}
+                  index={item.index}
+                  isCombine={item.Combined}
+                  onPress={() => navigation.navigate('ClientVideo')}
+                />
+              )}
+              contentContainerStyle={styles.contentContainerStyle}
+              ListFooterComponent={() => (
+                <TouchableOpacity
+                  style={styles.addContainer}
+                  onPress={() => setModalVisible(true)}>
+                  <AddIcon2 style={{marginTop: 14}} />
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        ) : (
+          <View style={{marginBottom: 160}}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={PROGRESSITEM}
+              keyExtractor={item => item.title}
+              renderItem={({item, index}) => (
+                <AssessmentItem
+                  key={index}
+                  title={item.title}
+                  ImageUrl={item.ImageUrl}
+                  onPress={() => {
+                    if (index === 0) {
+                      navigation.navigate('SquatTest');
+                    }
+                  }}
+                />
+              )}
+              contentContainerStyle={{gap: 12}}
+              ListHeaderComponent={() => (
+                <TouchableOpacity
+                  style={[
+                    styles.addContainer,
+                    {height: 90, justifyContent: 'center'},
+                  ]}
+                  onPress={() => setModalVisible(true)}>
+                  <AddIcon2 />
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        )}
+
+        <AddModal isVisible={isModalVisible} onClose={handleModalClose} />
+      </SafeAreaView>
     </View>
   );
 };

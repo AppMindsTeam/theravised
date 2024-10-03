@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Image, ScrollView} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  SafeAreaView,
+} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -46,99 +53,105 @@ const SignUp: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 16}}>
-        <Image source={images.applogo} style={styles.imgStyle} />
-        <Text style={[appStyles.h4, {textAlign: 'center', marginTop: 35}]}>
-          Sign Up
-        </Text>
-        <Text
-          style={[
-            appStyles.h5,
-            {textAlign: 'center', marginTop: 8, color: colors.gray[50]},
-          ]}>
-          Please Sign up to continue with the app.
-        </Text>
-        <FormInput
-          placeholder="Name"
-          icon={<Nameicon fill={name ? colors.primary : colors.gray[50]} />}
-          onChangeText={formik.handleChange('name')}
-          value={formik.values.name}
-          onBlur={formik.handleBlur('name')}
-          errorMessage={formik.touched.name && formik.errors.name}
-        />
-        <FormInput
-          placeholder="abc@gmail.com"
-          keyboardType="email-address"
-          icon={
-            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
-          }
-          onChangeText={formik.handleChange('email')}
-          value={formik.values.email}
-          onBlur={formik.handleBlur('email')}
-          errorMessage={formik.touched.email && formik.errors.email}
-        />
-        <FormInput
-          placeholder="Referrel Code"
-          icon={<Referalicon fill={name ? colors.primary : colors.gray[50]} />}
-          onChangeText={formik.handleChange('code')}
-          value={formik.values.code}
-          onBlur={formik.handleBlur('code')}
-          errorMessage={formik.touched.code && formik.errors.code}
-        />
-        <FormInput
-          placeholder="Password"
-          icon={
-            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
-          }
-          isPassword={true}
-          secureTextEntry={hidePasswod}
-          onLeftIconPress={togglePassword}
-          onChangeText={formik.handleChange('password')}
-          value={formik.values.password}
-          onBlur={formik.handleBlur('password')}
-          errorMessage={formik.touched.password && formik.errors.password}
-        />
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 16}}>
+          <Image source={images.applogo} style={styles.imgStyle} />
+          <Text style={[appStyles.h4, {textAlign: 'center', marginTop: 35}]}>
+            Sign Up
+          </Text>
+          <Text
+            style={[
+              appStyles.h5,
+              {textAlign: 'center', marginTop: 8, color: colors.gray[50]},
+            ]}>
+            Please Sign up to continue with the app.
+          </Text>
+          <FormInput
+            placeholder="Name"
+            icon={<Nameicon fill={name ? colors.primary : colors.gray[50]} />}
+            onChangeText={formik.handleChange('name')}
+            value={formik.values.name}
+            onBlur={formik.handleBlur('name')}
+            errorMessage={formik.touched.name && formik.errors.name}
+          />
+          <FormInput
+            placeholder="abc@gmail.com"
+            keyboardType="email-address"
+            icon={
+              <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+            }
+            onChangeText={formik.handleChange('email')}
+            value={formik.values.email}
+            onBlur={formik.handleBlur('email')}
+            errorMessage={formik.touched.email && formik.errors.email}
+          />
+          <FormInput
+            placeholder="Referrel Code"
+            icon={
+              <Referalicon fill={name ? colors.primary : colors.gray[50]} />
+            }
+            onChangeText={formik.handleChange('code')}
+            value={formik.values.code}
+            onBlur={formik.handleBlur('code')}
+            errorMessage={formik.touched.code && formik.errors.code}
+          />
+          <FormInput
+            placeholder="Password"
+            icon={
+              <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+            }
+            isPassword={true}
+            secureTextEntry={hidePasswod}
+            onLeftIconPress={togglePassword}
+            onChangeText={formik.handleChange('password')}
+            value={formik.values.password}
+            onBlur={formik.handleBlur('password')}
+            errorMessage={formik.touched.password && formik.errors.password}
+          />
 
-        <BouncyCheckbox
-          size={18}
-          textStyle={styles.textStyle}
-          style={{marginTop: 25}}
-          iconImageStyle={styles.iconImageStyle}
-          fillColor={colors.primary}
-          unFillColor={'transparent'}
-          iconStyle={{borderRadius: 6}}
-          innerIconStyle={{borderRadius: 6}}
-          text={'I accept the Terms & Conditions'}
-          isChecked={formik.values.terms}
-          onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
-        />
-        <BouncyCheckbox
-          size={18}
-          textStyle={styles.textStyle}
-          style={{marginTop: 12}}
-          iconImageStyle={styles.iconImageStyle}
-          fillColor={colors.primary}
-          unFillColor={'transparent'}
-          iconStyle={{borderRadius: 6}}
-          innerIconStyle={{borderRadius: 6}}
-          text={'I accept the Privacy Policy'}
-          isChecked={formik.values.policy}
-          onPress={() => formik.setFieldValue('policy', !formik.values.policy)}
-        />
-        <AppButton
-          title="Sign Up"
-          customStyle={{marginTop: 30}}
-          onPress={formik.handleSubmit}
-          isLoading={false}
-          disabled={!formik.isValid ? true : false}
-        />
-        <BottomLine
-          onPress={() => navigation.navigate('SignIn')}
-          title=" Sign In"
-        />
-      </ScrollView>
+          <BouncyCheckbox
+            size={18}
+            textStyle={styles.textStyle}
+            style={{marginTop: 25}}
+            iconImageStyle={styles.iconImageStyle}
+            fillColor={colors.primary}
+            unFillColor={'transparent'}
+            iconStyle={{borderRadius: 6}}
+            innerIconStyle={{borderRadius: 6}}
+            text={'I accept the Terms & Conditions'}
+            isChecked={formik.values.terms}
+            onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
+          />
+          <BouncyCheckbox
+            size={18}
+            textStyle={styles.textStyle}
+            style={{marginTop: 12}}
+            iconImageStyle={styles.iconImageStyle}
+            fillColor={colors.primary}
+            unFillColor={'transparent'}
+            iconStyle={{borderRadius: 6}}
+            innerIconStyle={{borderRadius: 6}}
+            text={'I accept the Privacy Policy'}
+            isChecked={formik.values.policy}
+            onPress={() =>
+              formik.setFieldValue('policy', !formik.values.policy)
+            }
+          />
+          <AppButton
+            title="Sign Up"
+            customStyle={{marginTop: 30}}
+            onPress={formik.handleSubmit}
+            isLoading={false}
+            disabled={!formik.isValid ? true : false}
+          />
+          <BottomLine
+            onPress={() => navigation.navigate('SignIn')}
+            title=" Sign In"
+          />
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };

@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -31,6 +38,7 @@ const OTPScreen: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <SafeAreaView />
       {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
       <AuthHeader onPress={() => navigation.goBack()} />
       <Text style={[appStyles.h4, {marginTop: 40}]}>

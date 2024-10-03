@@ -54,6 +54,8 @@ const Onboard: React.FC<Props> = ({navigation}) => {
   return (
     <View style={{backgroundColor: colors.bgcolor, flex: 1}}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
+      <SafeAreaView style={{backgroundColor: colors.bgcolor}} />
+
       <ScrollView
         ref={scrollViewRef}
         horizontal
