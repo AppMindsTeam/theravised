@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
@@ -61,91 +62,97 @@ const SignIn: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 16}}>
-        <Image source={images.applogo} style={styles.imgStyle} />
-        <Text style={[appStyles.h4, {textAlign: 'center', marginTop: 52}]}>
-          Login
-        </Text>
-        <Text
-          style={[
-            appStyles.h5,
-            {textAlign: 'center', marginTop: 8, color: colors.gray[50]},
-          ]}>
-          Please login to continue with the app.
-        </Text>
-        <FormInput
-          placeholder="abc@gmail.com"
-          keyboardType="email-address"
-          icon={
-            <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
-          }
-          onChangeText={formik.handleChange('email')}
-          value={formik.values.email}
-          onBlur={formik.handleBlur('email')}
-          errorMessage={formik.touched.email && formik.errors.email}
-        />
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 16}}>
+          <Image source={images.applogo} style={styles.imgStyle} />
+          <Text style={[appStyles.h4, {textAlign: 'center', marginTop: 52}]}>
+            Login
+          </Text>
+          <Text
+            style={[
+              appStyles.h5,
+              {textAlign: 'center', marginTop: 8, color: colors.gray[50]},
+            ]}>
+            Please login to continue with the app.
+          </Text>
+          <FormInput
+            placeholder="abc@gmail.com"
+            keyboardType="email-address"
+            icon={
+              <Messegeicon stroke={email ? colors.primary : colors.gray[50]} />
+            }
+            onChangeText={formik.handleChange('email')}
+            value={formik.values.email}
+            onBlur={formik.handleBlur('email')}
+            errorMessage={formik.touched.email && formik.errors.email}
+          />
 
-        <FormInput
-          placeholder="Password"
-          icon={
-            <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
-          }
-          isPassword={true}
-          secureTextEntry={hidePasswod}
-          onLeftIconPress={togglePassword}
-          onChangeText={formik.handleChange('password')}
-          value={formik.values.password}
-          onBlur={formik.handleBlur('password')}
-          errorMessage={formik.touched.password && formik.errors.password}
-        />
-        <TouchableOpacity
-          style={styles.forgotContainer}
-          onPress={() => navigation.navigate('ForgotPassword')}>
-          <Checkbox />
-          <Text style={[appStyles.h6, {marginLeft: 5}]}>Forgot Password?</Text>
-        </TouchableOpacity>
+          <FormInput
+            placeholder="Password"
+            icon={
+              <Lockicon stroke={password ? colors.primary : colors.gray[50]} />
+            }
+            isPassword={true}
+            secureTextEntry={hidePasswod}
+            onLeftIconPress={togglePassword}
+            onChangeText={formik.handleChange('password')}
+            value={formik.values.password}
+            onBlur={formik.handleBlur('password')}
+            errorMessage={formik.touched.password && formik.errors.password}
+          />
+          <TouchableOpacity
+            style={styles.forgotContainer}
+            onPress={() => navigation.navigate('ForgotPassword')}>
+            <Checkbox />
+            <Text style={[appStyles.h6, {marginLeft: 5}]}>
+              Forgot Password?
+            </Text>
+          </TouchableOpacity>
 
-        <BouncyCheckbox
-          size={18}
-          textStyle={styles.textStyle}
-          style={{marginTop: 25}}
-          iconStyle={{borderRadius: 6}}
-          innerIconStyle={{borderRadius: 6}}
-          iconImageStyle={styles.iconImageStyle}
-          fillColor={colors.primary}
-          unFillColor={'transparent'}
-          text={'I accept the Terms & Conditions'}
-          isChecked={formik.values.terms}
-          onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
-        />
-        <BouncyCheckbox
-          size={18}
-          textStyle={styles.textStyle}
-          style={{marginTop: 12}}
-          iconImageStyle={styles.iconImageStyle}
-          iconStyle={{borderRadius: 6}}
-          innerIconStyle={{borderRadius: 6}}
-          fillColor={colors.primary}
-          unFillColor={'transparent'}
-          text={'I accept the Privacy Policy'}
-          isChecked={formik.values.policy}
-          onPress={() => formik.setFieldValue('policy', !formik.values.policy)}
-        />
-        <AppButton
-          title="Login"
-          customStyle={{marginTop: 25}}
-          onPress={formik.handleSubmit}
-          isLoading={false}
-          disabled={!formik.isValid && formik.dirty}
-        />
+          <BouncyCheckbox
+            size={18}
+            textStyle={styles.textStyle}
+            style={{marginTop: 25}}
+            iconStyle={{borderRadius: 6}}
+            innerIconStyle={{borderRadius: 6}}
+            iconImageStyle={styles.iconImageStyle}
+            fillColor={colors.primary}
+            unFillColor={'transparent'}
+            text={'I accept the Terms & Conditions'}
+            isChecked={formik.values.terms}
+            onPress={() => formik.setFieldValue('terms', !formik.values.terms)}
+          />
+          <BouncyCheckbox
+            size={18}
+            textStyle={styles.textStyle}
+            style={{marginTop: 12}}
+            iconImageStyle={styles.iconImageStyle}
+            iconStyle={{borderRadius: 6}}
+            innerIconStyle={{borderRadius: 6}}
+            fillColor={colors.primary}
+            unFillColor={'transparent'}
+            text={'I accept the Privacy Policy'}
+            isChecked={formik.values.policy}
+            onPress={() =>
+              formik.setFieldValue('policy', !formik.values.policy)
+            }
+          />
+          <AppButton
+            title="Login"
+            customStyle={{marginTop: 25}}
+            onPress={formik.handleSubmit}
+            isLoading={false}
+            disabled={!formik.isValid && formik.dirty}
+          />
 
-        <BottomLine
-          onPress={() => navigation.navigate('SignUp')}
-          title=" Sign Up"
-        />
-      </ScrollView>
+          <BottomLine
+            onPress={() => navigation.navigate('SignUp')}
+            title=" Sign Up"
+          />
+        </ScrollView>
+      </SafeAreaView>
     </View>
   );
 };

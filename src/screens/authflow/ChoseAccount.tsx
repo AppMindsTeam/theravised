@@ -1,5 +1,12 @@
 import React, {useContext} from 'react';
-import {StyleSheet, View, Text, Image, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  StatusBar,
+  SafeAreaView,
+} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -15,6 +22,7 @@ const ChoseAccount: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
+      <SafeAreaView />
       <Image source={images.applogo} style={styles.logoStyle} />
       <AccountImg style={{marginTop: 65}} />
       <Text style={[appStyles.h1, {marginTop: 15}]}>Lorem ipsum</Text>

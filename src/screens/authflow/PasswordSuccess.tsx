@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, SafeAreaView} from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
 import {images} from '../../assets/images';
@@ -12,7 +12,7 @@ type Props = NativeStackScreenProps<AuthStackParamList, 'PasswordSuccess'>;
 const PasswordSuccess: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
-      {/* <Image source={images.applogo} style={styles.logoStyle} /> */}
+      <SafeAreaView />
       <AuthHeader onPress={() => navigation.goBack()} />
 
       <Successimg style={{marginTop: 63}} />

@@ -1,4 +1,11 @@
-import {FlatList, StatusBar, StyleSheet, View, Text} from 'react-native';
+import {
+  FlatList,
+  StatusBar,
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/ClientBottomNavigation';
@@ -16,6 +23,8 @@ const Messege: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.white} barStyle={'dark-content'} />
+      <SafeAreaView />
+
       <Header />
       <SearchBar
         containerStyle={{marginTop: 20, marginBottom: 8}}

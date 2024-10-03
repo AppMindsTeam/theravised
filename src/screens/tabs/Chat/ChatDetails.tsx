@@ -1,4 +1,4 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useState, useEffect, useCallback} from 'react';
 import {
   Bubble,
@@ -41,6 +41,7 @@ const ChatDetails: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <SafeAreaView />
       <ChatHeader onPress={() => navigation.goBack()} />
       <GiftedChat
         inverted={messages?.length == 0 ? false : true}

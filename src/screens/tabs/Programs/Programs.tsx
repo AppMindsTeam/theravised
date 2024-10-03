@@ -1,4 +1,11 @@
-import {StatusBar, StyleSheet, View, FlatList, Text} from 'react-native';
+import {
+  StatusBar,
+  StyleSheet,
+  View,
+  FlatList,
+  Text,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamlist} from '../../../navigation/ClientBottomNavigation';
@@ -16,27 +23,28 @@ const Programs: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
-
-      <ProgramHeader />
-      <CalenderCard
-        isCalender={false}
-        isTitle={true}
-        containerStyle={{marginHorizontal: 1, marginTop: 30}}
-      />
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        data={CLIENT_PROGRAM_ARRAY}
-        keyExtractor={item => item.ImageUrl}
-        renderItem={({item}) => (
-          <ClientProgram
-            ImageUrl={item.ImageUrl}
-            index={item.index}
-            isCombine={item.Combined}
-            onPress={() => navigation.navigate('VideoDetail')}
-          />
-        )}
-        contentContainerStyle={styles.contentContainerStyle}
-      />
+      <SafeAreaView style={{flex: 1}}>
+        <ProgramHeader />
+        <CalenderCard
+          isCalender={false}
+          isTitle={true}
+          containerStyle={{marginHorizontal: 1, marginTop: 30}}
+        />
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          data={CLIENT_PROGRAM_ARRAY}
+          keyExtractor={item => item.ImageUrl}
+          renderItem={({item}) => (
+            <ClientProgram
+              ImageUrl={item.ImageUrl}
+              index={item.index}
+              isCombine={item.Combined}
+              onPress={() => navigation.navigate('VideoDetail')}
+            />
+          )}
+          contentContainerStyle={styles.contentContainerStyle}
+        />
+      </SafeAreaView>
     </View>
   );
 };
