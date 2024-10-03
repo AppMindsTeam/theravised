@@ -41,90 +41,91 @@ const ChatDetails: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView />
-      <ChatHeader onPress={() => navigation.goBack()} />
-      <GiftedChat
-        inverted={messages?.length == 0 ? false : true}
-        messages={messages}
-        onSend={(messages: any) => onSend(messages)}
-        user={{
-          _id: 1,
-        }}
-        alwaysShowSend
-        showUserAvatar={false}
-        showAvatarForEveryMessage={false}
-        placeholder="Type a message ...."
-        renderAvatarOnTop={false}
-        messagesContainerStyle={
-          messages?.length == 0 && {transform: [{scaleY: -1}]}
-        }
-        textInputProps={{
-          color: colors.black,
-        }}
-        renderBubble={props => {
-          return (
-            <Bubble
+      <SafeAreaView style={{flex: 1}}>
+        <ChatHeader onPress={() => navigation.goBack()} />
+        <GiftedChat
+          inverted={messages?.length == 0 ? false : true}
+          messages={messages}
+          onSend={(messages: any) => onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+          alwaysShowSend
+          showUserAvatar={false}
+          showAvatarForEveryMessage={false}
+          placeholder="Type a message ...."
+          renderAvatarOnTop={false}
+          messagesContainerStyle={
+            messages?.length == 0 && {transform: [{scaleY: -1}]}
+          }
+          textInputProps={{
+            color: colors.black,
+          }}
+          renderBubble={props => {
+            return (
+              <Bubble
+                {...props}
+                textStyle={{
+                  left: styles.leftTextStyle,
+                  right: styles.rightTextStyle,
+                }}
+                wrapperStyle={{
+                  right: styles.rightWrapperStyle,
+                  left: styles.leftWrapperStyle,
+                }}
+              />
+            );
+          }}
+          renderSend={props => (
+            <TouchableOpacity>
+              <Send
+                {...props}
+                disabled={!props.text}
+                containerStyle={styles.containerStyle}>
+                <TouchableOpacity
+                  onPress={() => {
+                    const trimmedText = props.text?.trim() ?? '';
+                    if (props.onSend) {
+                      props.onSend({text: trimmedText}, true);
+                    }
+                  }}
+                  hitSlop={4}
+                  style={styles.sendIcon}>
+                  <SendIcon />
+                </TouchableOpacity>
+              </Send>
+            </TouchableOpacity>
+          )}
+          renderInputToolbar={props => (
+            <InputToolbar
               {...props}
-              textStyle={{
-                left: styles.leftTextStyle,
-                right: styles.rightTextStyle,
-              }}
-              wrapperStyle={{
-                right: styles.rightWrapperStyle,
-                left: styles.leftWrapperStyle,
+              containerStyle={styles.inputToolbarContainer}
+              primaryStyle={[]}
+              renderAccessory={() => (
+                <View style={styles.inputIcons}>
+                  <TouchableOpacity
+                    hitSlop={styles.hitSlopButton}
+                    style={styles.attachmentIcon}>
+                    <MicroPhoneicon />
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Galleryicon />
+                  </TouchableOpacity>
+                </View>
+              )}
+            />
+          )}
+          renderTime={props => (
+            <Time
+              {...props}
+              timeTextStyle={{
+                left: styles.timeLeftTextStyle,
+                right: styles.timeRightTextStyle,
               }}
             />
-          );
-        }}
-        renderSend={props => (
-          <TouchableOpacity>
-            <Send
-              {...props}
-              disabled={!props.text}
-              containerStyle={styles.containerStyle}>
-              <TouchableOpacity
-                onPress={() => {
-                  const trimmedText = props.text?.trim() ?? '';
-                  if (props.onSend) {
-                    props.onSend({text: trimmedText}, true);
-                  }
-                }}
-                hitSlop={4}
-                style={styles.sendIcon}>
-                <SendIcon />
-              </TouchableOpacity>
-            </Send>
-          </TouchableOpacity>
-        )}
-        renderInputToolbar={props => (
-          <InputToolbar
-            {...props}
-            containerStyle={styles.inputToolbarContainer}
-            primaryStyle={[]}
-            renderAccessory={() => (
-              <View style={styles.inputIcons}>
-                <TouchableOpacity
-                  hitSlop={styles.hitSlopButton}
-                  style={styles.attachmentIcon}>
-                  <MicroPhoneicon />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <Galleryicon />
-                </TouchableOpacity>
-              </View>
-            )}
-          />
-        )}
-        renderTime={props => (
-          <Time
-            {...props}
-            timeTextStyle={{
-              left: styles.timeLeftTextStyle,
-              right: styles.timeRightTextStyle,
-            }}
-          />
-        )}
-      />
+          )}
+        />
+      </SafeAreaView>
     </View>
   );
 };

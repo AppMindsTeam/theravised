@@ -20,7 +20,7 @@ export default AuthHeader;
 const styles = StyleSheet.create({
   bottomContainer: {
     flexDirection: 'row',
-    marginTop: 30,
+    marginTop: 24,
     alignItems: 'center',
   },
   logoStyle: {

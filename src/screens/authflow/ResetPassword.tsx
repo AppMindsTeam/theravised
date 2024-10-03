@@ -6,6 +6,8 @@ import {
   ScrollView,
   View,
   SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
@@ -47,7 +49,9 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={{flex: 1}}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'android' ? 'height' : 'padding'}>
+        <SafeAreaView />
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: 16}}>
@@ -98,7 +102,7 @@ const ResetPassword: React.FC<Props> = ({navigation}) => {
             onPress={formik.handleSubmit}
           />
         </ScrollView>
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     </View>
   );
 };

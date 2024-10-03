@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 import {colors, fonts} from '../../utilities/theme';
 import {AngryIcon, HappyIcon, Tickicon, UnTick} from '../../../assets/svg';
@@ -89,29 +90,43 @@ const Goal: React.FC<Props> = ({navigation}) => {
       </View>
 
       <Text style={styles.commentText}>Pain Score</Text>
-      <View style={styles.painScoreContainer}>
-        <HappyIcon style={styles.leftIcon} />
-
+      <View
+        style={{
+          alignSelf: 'center',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <HappyIcon />
         <MultiSlider
           values={sliderValue}
-          sliderLength={280}
+          sliderLength={Dimensions.get('screen').width - 76}
           onValuesChange={sliderValueChange}
           min={0}
           max={10}
           step={1}
-          markerStyle={styles.marker}
+          markerStyle={{
+            backgroundColor: colors.white,
+            width: 20,
+            height: 20,
+            marginTop: 10,
+            borderColor: colors.primary,
+            borderWidth: 1,
+          }}
           selectedStyle={styles.selectedTrack}
           unselectedStyle={styles.unselectedTrack}
-          trackStyle={styles.track}
-          snapped
         />
-
-        <AngryIcon style={styles.rightIcon} />
+        <AngryIcon />
       </View>
-      <Text style={styles.painScoreText2}>0</Text>
-
-      <Text style={styles.painScoreText}> {sliderValue[0]}</Text>
-
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          paddingHorizontal: 26,
+          marginTop: -10,
+        }}>
+        <Text style={styles.painScoreText2}>0</Text>
+        <Text style={styles.painScoreText}>{sliderValue[0]}</Text>
+      </View>
       <Text style={styles.commentText}>Comments</Text>
       <FormInput
         placeholder="type here"
@@ -159,10 +174,9 @@ const styles = StyleSheet.create({
   },
   marker: {
     backgroundColor: colors.white,
-    width: 18,
-    height: 18,
+    width: 20,
+    height: 20,
     marginTop: 10,
-    marginLeft: 30,
     borderColor: colors.primary,
     borderWidth: 1,
   },
@@ -188,7 +202,7 @@ const styles = StyleSheet.create({
   selectedTrack: {
     backgroundColor: colors.primary,
     height: 10,
-    marginLeft: 22,
+    // marginLeft: 22,
   },
   unselectedTrack: {
     backgroundColor: colors.gray[150],
@@ -218,17 +232,13 @@ const styles = StyleSheet.create({
   painScoreContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
-  leftIcon: {
-    position: 'absolute',
-    left: 0,
-    top: 14,
-  },
+  leftIcon: {},
   rightIcon: {
-    position: 'absolute',
-    right: 0,
-    top: 14,
+    // position: 'absolute',
+    // right: 0,
+    // top: 14,
   },
   scoreLabel: {
     fontSize: 14,
@@ -240,17 +250,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: fonts.MontserratBold,
     color: colors.black,
-    textAlign: 'right',
-    marginTop: -15,
-    marginRight: 4,
   },
   painScoreText2: {
     fontSize: 14,
     fontFamily: fonts.MontserratBold,
     color: colors.black,
-    textAlign: 'left',
-    marginTop: -15,
-    marginLeft: 5,
+    flex: 1,
   },
 });
 

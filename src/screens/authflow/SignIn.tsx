@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../navigation/AuthNavigation';
@@ -62,7 +64,10 @@ const SignIn: React.FC<Props> = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={{flex: 1}}>
+      <KeyboardAvoidingView
+        style={{flex: 1}}
+        behavior={Platform.OS === 'android' ? 'height' : 'padding'}>
+        <SafeAreaView />
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: 16}}>
@@ -152,7 +157,7 @@ const SignIn: React.FC<Props> = ({navigation}) => {
             title=" Sign Up"
           />
         </ScrollView>
-      </SafeAreaView>
+      </KeyboardAvoidingView>
     </View>
   );
 };
@@ -163,14 +168,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.bgcolor,
-
     paddingHorizontal: 18,
   },
   imgStyle: {
     width: 200,
     height: 46,
     alignSelf: 'center',
-    marginTop: 84,
+    marginTop: 41,
   },
 
   forgotContainer: {

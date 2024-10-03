@@ -7,7 +7,6 @@ import {
   FlatList,
   StatusBar,
   Dimensions,
-  SafeAreaView,
 } from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
@@ -53,7 +52,6 @@ const PhysioHome: React.FC<Props> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.bgcolor} barStyle={'dark-content'} />
-      <SafeAreaView />
       <Text style={[appStyles.h2, {paddingHorizontal: 18}]}>
         Programs Prescribed
       </Text>

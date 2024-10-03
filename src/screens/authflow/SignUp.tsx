@@ -16,10 +16,12 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import {Lockicon, Messegeicon, Nameicon, Referalicon} from '../../assets/svg';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {useUser} from '../../Hooks/UseContext';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'SignUp'>;
 
 const SignUp: React.FC<Props> = ({navigation}) => {
+  const {setUser, user} = useUser();
   const [hidePasswod, setHidePassword] = useState(true);
   const togglePassword = () => setHidePassword(!hidePasswod);
 
@@ -47,7 +49,16 @@ const SignUp: React.FC<Props> = ({navigation}) => {
     },
 
     validationSchema: validationSchema,
-    onSubmit: values => {},
+    onSubmit: values => {
+      setUser({
+        id: '1234',
+        email: 'shan@gmail.com',
+        name: 'shan',
+        password: '000000',
+        referalCode: '1234',
+        userType: user?.userType || 'Client',
+      });
+    },
   });
   const {name, email, code, password} = formik.values;
 

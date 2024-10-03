@@ -9,6 +9,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   Image,
+  SafeAreaView,
 } from 'react-native';
 import {HomeStackParamsList} from '../../../navigation/HomeNavigation';
 import {appStyles, colors} from '../../utilities/theme';
@@ -90,7 +91,10 @@ const EditPhysioProfile: React.FC<Props> = ({navigation}) => {
   };
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScrollView
+      contentContainerStyle={{paddingBottom: 32}}
+      style={styles.container}
+      showsVerticalScrollIndicator={false}>
       <StatusBar
         backgroundColor={'transparent'}
         translucent
